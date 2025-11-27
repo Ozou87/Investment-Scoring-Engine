@@ -19,3 +19,57 @@ F_PE_RATIO = [
     (2.00,15),
             ]
 F_PE_DEFAULT = 5
+
+PS_INVALID = float('nan')
+PS_RATIO_THRESHOLDS = [
+    (0.70, 95), 
+    (0.90, 85),    
+    (1.10, 60),   
+    (1.40, 40),   
+    (2.00, 25),   
+    (3.00, 15),  
+                    ]
+PS_RATIO_DEFAULT = 5   
+
+EVEBITDA_INVALID = float('nan')
+EVEBITDA_RATIO_THRESHOLDS = [
+    (0.70, 95),   
+    (0.90, 85),   
+    (1.10, 60),   
+    (1.40, 40),   
+    (2.00, 25),  
+    (3.00, 15),   
+                            ]
+EVEBITDA_RATIO_DEFAULT = 5   
+
+PFCF_INVALID = float('nan')
+PFCF_RATIO_THRESHOLDS = [
+    (0.70, 95),   
+    (0.90, 85),  
+    (1.10, 60),   
+    (1.40, 40),   
+    (2.00, 25),   
+    (3.00, 15), 
+                        ]
+PFCF_RATIO_DEFAULT = 5   
+
+#generic function that will find score and send it to specific function
+def score_by_thresholds(stock_value: float, sector_value: float, thresholds, pe_default) -> float:
+    
+    #להוסיף הגנה מפני חלוקה ב-0
+
+    relative_multiple = stock_value / sector_value
+
+    for limit, score in thresholds:
+        if relative_multiple < limit:
+            return score
+    return pe_default
+
+stock_pe = input("pls enter stock pe: ")
+sector_pe = input("pls enter sector pe: ")
+st_pe = float(stock_pe)
+sec_pe = float(sector_pe)
+
+result_1 = score_by_thresholds(st_pe,sec_pe, PE_RATIO_THRESHOLDS, PE_RATIO_DEFAULT)
+print(f"this is the score for this data: {result_1}")
+
