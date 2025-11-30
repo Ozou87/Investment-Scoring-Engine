@@ -32,12 +32,7 @@ FCF_THRESHOLDS = [
                 ]
 FCF_DEFAULT = 95
 
-#generic function that will find score and send it to specific function
-def score_by_thresholds(value, thresholds, default_score):
-    for limit, score in thresholds:
-        if value < limit:
-            return score
-    return default_score
+
 
 #specific function that sends info to the generic function in order to help it find score
 def growth_score(growth_pct: float) -> int:
@@ -52,26 +47,10 @@ def der_score(debt_to_eqity: float) -> int:
 def fcf_score(free_cash_flow: float) -> int:
     return score_by_thresholds(free_cash_flow,FCF_THRESHOLDS,FCF_DEFAULT)
 
-#let user input values
-user_growth_input = float(input("PLS enter Annual Revenue Growth in %: "))
-user_profit_input = float(input("PLS enter Operating Margin in %: "))
-user_der_input = float(input("PLS enter Dept to Equity Ratio: "))
-user_fcf_input = float(input("PLS enter Free Cash Flow Margin in %: "))
-
-#calling the generic functions and storing the value in "result_ "
-result_1 = growth_score(user_growth_input)
-result_2 = profit_score(user_growth_input)
-result_3 = der_score(user_der_input)
-result_4 = fcf_score(user_fcf_input)
-
 #funcion that calculate the weighted of all results and bring back final score
 def fundemental_score(g:int, p:int, d:int, f:int) -> int:
 
     weighted_together = (0.3 * g + 0.3 * p + 0.2 * d + 0.2 * f)
-    return round(weighted_together)
+    return round(weighted_togethe)
 
-#calling to weighted func and sending all the results
-final_fun_score = fundemental_score(result_1,result_2,result_3,result_4)
-
-print(f"The fundemental score is: {final_fun_score}")
 
