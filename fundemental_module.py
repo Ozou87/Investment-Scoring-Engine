@@ -1,4 +1,6 @@
 
+from scoring__utils import score_by_thresholds
+
 #creating table with limits and score limits
 GROWTH_THRESHOLDS = [
     (0.0,20),
@@ -32,8 +34,6 @@ FCF_THRESHOLDS = [
                 ]
 FCF_DEFAULT = 95
 
-
-
 #specific function that sends info to the generic function in order to help it find score
 def growth_score(growth_pct: float) -> int:
     return score_by_thresholds(growth_pct, GROWTH_THRESHOLDS, GROWTH_DEFAULT)
@@ -47,10 +47,43 @@ def der_score(debt_to_eqity: float) -> int:
 def fcf_score(free_cash_flow: float) -> int:
     return score_by_thresholds(free_cash_flow,FCF_THRESHOLDS,FCF_DEFAULT)
 
-#funcion that calculate the weighted of all results and bring back final score
-def fundemental_score(g:int, p:int, d:int, f:int) -> int:
 
+def fundamental_weighted_score(g: int, p: int, d: int, f: int) -> int:
+    """
+    Calculates the final fundamentals score using fixed weights:
+    growth - 30%
+    profit - 30%
+    D/E    - 20%
+    FCF    - 20%
+    """
     weighted_together = (0.3 * g + 0.3 * p + 0.2 * d + 0.2 * f)
-    return round(weighted_togethe)
+    return round(weighted_together)
+
+def calculate_fundamental_scores(
+    growth_pct: float,
+    profit_pct: float,
+    debt_to_equity: float,
+    fcf_margin_pct: float,
+                                    ) -> dict:   
+    """
+    Core function of the fundamentals module.
+    Gets raw inputs and returns all scores + final fundamentals_score.
+    """
+    g = growth_score(growth_pct)
+    p = profit_score(profit_pct)
+    d = der_score(debt_to_equity)
+    f = fcf_score(fcf_margin_pct)
+
+    final_score = fundamental_weighted_score(g, p, d, f)
+
+    return {
+        "Growth_score": g,
+        "Profit_score": p,
+        "DEbt_to_Equity_score": d,
+        "Free_Cash_Flow_score": f,
+        "Fundamentals_Score": final_score,
+            }
+
+
 
 
