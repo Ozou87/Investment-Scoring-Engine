@@ -64,8 +64,9 @@ def moat_weighted_score(roic: int, fcf: int, gm: int, rnd: int) -> int:
 def calculate_moat_scores(
     roic_raw_value: float,
     fcf_growth_raw: float,
-    gross_margin_list: float,
+    gross_margin_list: list,
     r_and_d_raw: float,
+    revenue_raw:float
                         ) -> dict:   
     """
     Core function of the moat module.
@@ -74,7 +75,8 @@ def calculate_moat_scores(
     roic = roic_score(roic_raw_value)
     fcf = fcf_growth_score(fcf_growth_raw)
     gm = gross_m_stability_score(gross_margin_list)
-    rnd = rnd_revenue_score(r_and_d_raw)
+    rnd = rnd_revenue_score(r_and_d_raw, revenue_raw)
+    
 
     final_score = moat_weighted_score(roic, fcf, gm, rnd)
 
