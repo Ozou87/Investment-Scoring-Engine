@@ -26,13 +26,13 @@ DER_THRESHOLDS = [
                  ]
 DER_DEFAULT = 20
 
-FCF_THRESHOLDS = [
+FCF_MARGIN_THRESHOLDS = [
     (0, 20),
     (5, 40),
     (10, 60),
     (20, 80),
                 ]
-FCF_DEFAULT = 95
+FCF_MARGIN_DEFAULT = 95
 
 #specific function that sends info to the generic function in order to help it find score
 def growth_score(growth_pct: float) -> int:
@@ -44,8 +44,8 @@ def profit_score(profit_pct: float) -> int:
 def der_score(debt_to_eqity: float) -> int:
     return score_by_thresholds(debt_to_eqity,DER_THRESHOLDS,DER_DEFAULT)
 
-def fcf_score(free_cash_flow: float) -> int:
-    return score_by_thresholds(free_cash_flow,FCF_THRESHOLDS,FCF_DEFAULT)
+def fcf_margin_score(free_cash_flow: float) -> int:
+    return score_by_thresholds(free_cash_flow,FCF_MARGIN_THRESHOLDS,FCF_MARGIN_DEFAULT)
 
 
 def fundamental_weighted_score(g: int, p: int, d: int, f: int) -> int:
@@ -72,7 +72,7 @@ def calculate_fundamental_scores(
     g = growth_score(growth_pct)
     p = profit_score(profit_pct)
     d = der_score(debt_to_equity)
-    f = fcf_score(fcf_margin_pct)
+    f = fcf_margin_score(fcf_margin_pct)
 
     final_score = fundamental_weighted_score(g, p, d, f)
 
@@ -80,7 +80,7 @@ def calculate_fundamental_scores(
         "Growth_score": g,
         "Profit_score": p,
         "Debt_to_Equity_score": d,
-        "Free_Cash_Flow_score": f,
+        "Free_Cash_Flow_margin_score": f,
         "Fundamentals_Score (range of 1-100)": final_score,
             }
 
