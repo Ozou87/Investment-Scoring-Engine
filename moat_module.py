@@ -79,9 +79,9 @@ def calculate_moat_scores(
     final_score = moat_weighted_score(roic, fcf, gm, rnd)
 
     return {
-        "Growth_score": roic,
-        "Profit_score": fcf,
-        "Debt_to_Equity_score": gm,
-        "Free_Cash_Flow_margin_score": rnd,
-        "Moat_Score (range of 1-100)": final_score,
+        "roic_score": roic,
+        "gm_stability_score": gm,
+        "fcf_growth_score": fcf,
+        "rnd_to_revenue_score": rnd,
+        "moat_score": final_score
             }
