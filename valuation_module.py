@@ -22,17 +22,6 @@ F_PE_RATIO_THRESHOLDS = [
             ]
 F_PE_DEFAULT = 5
 
-PS_INVALID = float('nan')
-PS_RATIO_THRESHOLDS = [
-    (0.70, 95), 
-    (0.90, 85),    
-    (1.10, 60),   
-    (1.40, 40),   
-    (2.00, 25),   
-    (3.00, 15),  
-                    ]
-PS_RATIO_DEFAULT = 5   
-
 EVEBITDA_INVALID = float('nan')
 EVEBITDA_RATIO_THRESHOLDS = [
     (0.70, 95),   
@@ -42,7 +31,18 @@ EVEBITDA_RATIO_THRESHOLDS = [
     (2.00, 25),  
     (3.00, 15),   
                             ]
-EVEBITDA_RATIO_DEFAULT = 5   
+EVEBITDA_RATIO_DEFAULT = 5 
+
+PS_INVALID = float('nan')
+PS_RATIO_THRESHOLDS = [
+    (0.70, 95), 
+    (0.90, 85),    
+    (1.10, 60),   
+    (1.40, 40),   
+    (2.00, 25),   
+    (3.00, 15),  
+                    ]
+PS_RATIO_DEFAULT = 5     
 
 PFCF_INVALID = float('nan')
 PFCF_RATIO_THRESHOLDS = [
@@ -62,11 +62,11 @@ def pe_ratio(stock_pe: float, sector_pe:float) -> int:
 def forward_pe_ratio(stock_f_pe: float, sector_f_pe:float) -> int:
     return score_ratio(stock_f_pe, sector_f_pe, F_PE_RATIO_THRESHOLDS, F_PE_DEFAULT)
 
-def ps_ratio(stock_ps:float, sector_ps: float) -> int:
-    return score_ratio(stock_ps, sector_ps, PS_RATIO_THRESHOLDS, PS_RATIO_DEFAULT)
-
 def evebitda_ratio(stock_eveb:float, sector_eveb:float) -> int:
     return score_ratio(stock_eveb, sector_eveb, EVEBITDA_RATIO_THRESHOLDS, EVEBITDA_RATIO_DEFAULT)
+
+def ps_ratio(stock_ps:float, sector_ps: float) -> int:
+    return score_ratio(stock_ps, sector_ps, PS_RATIO_THRESHOLDS, PS_RATIO_DEFAULT)
 
 def price_fcf_ratio(stock_pfcf:float, sector_pfcf: float) -> int:
     return score_ratio(stock_pfcf, sector_pfcf, PFCF_RATIO_THRESHOLDS, PFCF_RATIO_DEFAULT)
@@ -117,8 +117,8 @@ def calculate_valuation_scores(
     return {
         "pe_score": pe,
         "forward_pe_score": fpe,
-        "ps_score": ps,
         "ev_ebitda_score": eveb,
+        "ps_score": ps,
         "price_fcf_score": pfcf,
         "valuation_score": final_score
            }
