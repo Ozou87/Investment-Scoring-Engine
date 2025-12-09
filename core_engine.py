@@ -55,3 +55,17 @@ def calculate_all_scores(fundamental_input: dict, valuation_input: dict, moat_in
         r_and_d_raw = r_and_d_raw,
         revenue_raw = revenue_raw
                                         )
+    # Extracting final scores from each module
+    fundamentals_total = fundamentals_scores["Fundamentals_Score (range of 1-100)"]
+    valuation_total = valuation_scores["valuation_score"]
+    moat_total = moat_scores["moat_score"]
+
+    # weighted final score 
+    final_score = round(0.33 * fundamentals_total + 0.33 * valuation_total + 0.34 * moat_total)
+
+    return {
+        "fundamentals": fundamentals_scores,
+        "valuation": valuation_scores,
+        "moat": moat_scores,
+        "final_score": final_score,
+            }
