@@ -17,7 +17,7 @@ def score_ratio(
         default_score: int,
                 ) -> int:
     """
-    specific funtion for Ratios
+    specific function for Ratios
     """
     if sector_value == 0 or math.isnan(stock_value) or math.isnan(sector_value):
         return default_score

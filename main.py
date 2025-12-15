@@ -72,6 +72,8 @@ gm4 = get_float("Year 4 Gross Margin %: ")
 gm5 = get_float("Year 5 Gross Margin %: ")
 gross_margin_list = [gm1, gm2, gm3, gm4, gm5]
 
+print(gross_margin_list)
+
 r_and_d_raw = get_float("Enter total R&D (same units as revenue): ")
 revenue_raw = get_float("Enter total Revenue (same units as R&D): ")
 
@@ -85,9 +87,11 @@ moat_input = {
 
 # running core engine and final score
 scores = calculate_all_scores(fundamental_input, valuation_input, moat_input)
+
 fundamentals_total = scores["fundamentals"]["Fundamentals_Score (range of 1-100)"]
 valuation_total = scores["valuation"]["valuation_score"]
 moat_total = scores["moat"]["moat_score"]
+
 final_score = scores["final_score"]
 
 print(f"{stock}'s Fundamentals score: {fundamentals_total}")
