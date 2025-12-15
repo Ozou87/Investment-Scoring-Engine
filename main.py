@@ -72,8 +72,6 @@ gm4 = get_float("Year 4 Gross Margin %: ")
 gm5 = get_float("Year 5 Gross Margin %: ")
 gross_margin_list = [gm1, gm2, gm3, gm4, gm5]
 
-print(gross_margin_list)
-
 r_and_d_raw = get_float("Enter total R&D (same units as revenue): ")
 revenue_raw = get_float("Enter total Revenue (same units as R&D): ")
 
