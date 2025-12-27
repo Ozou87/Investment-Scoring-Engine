@@ -80,16 +80,15 @@ def valuation_weighted_score(
         pfcf:int,
         wbs: dict
                             ) -> int:
-    """
-    Calculates the final valuation score using fixed weights:
-    PE         - 30%
-    forward PE - 25%
-    EV_ebitda  - 20%
-    PS         - 15%
-    price_FCF  - 10%
+       
+    pe_weight = wbs['pe']
+    fpe_weight = wbs['fpe']
+    eveb_weight = wbs['ev_ebitda']
+    ps_weight = wbs['ps']
+    pfcf_weight = ['price_fcf']
 
-    """
-    weighted_together = (0.3 * pe + 0.25 * fpe + 0.2 * eveb + 0.15 * ps + 0.1 * pfcf)
+    weighted_together = (pe_weight * pe + fpe_weight * fpe + eveb_weight * eveb
+                        + ps_weight * ps + pfcf_weight * pfcf)
     return round(weighted_together)
 
 def calculate_valuation_scores(

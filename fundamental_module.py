@@ -19,13 +19,13 @@ PROFIT_THRESHOLDS = [
                     ]
 PROFIT_DEFAULT = 95
 
-DER_THRESHOLDS = [
+DTE_THRESHOLDS = [
     (0.2, 95), 
     (0.5, 80),  
     (1.0, 60), 
     (2.0, 40),
                  ]
-DER_DEFAULT = 20
+DTE_DEFAULT = 20
 
 FCF_MARGIN_THRESHOLDS = [
     (0, 20),
@@ -42,8 +42,8 @@ def growth_score(growth_pct: float) -> int:
 def profit_score(profit_pct: float) -> int:
     return score_by_thresholds(profit_pct,PROFIT_THRESHOLDS,PROFIT_DEFAULT)
 
-def der_score(debt_to_eqity: float) -> int:
-    return score_by_thresholds(debt_to_eqity,DER_THRESHOLDS,DER_DEFAULT)
+def dte_score(debt_to_eqity: float) -> int:
+    return score_by_thresholds(debt_to_eqity,DTE_THRESHOLDS,DTE_DEFAULT)
 
 def fcf_margin_score(free_cash_flow: float) -> int:
     return score_by_thresholds(free_cash_flow,FCF_MARGIN_THRESHOLDS,FCF_MARGIN_DEFAULT)
@@ -55,16 +55,13 @@ def fundamental_weighted_score(
         f: int,
         wbs: dict
                             ) -> int:
-    
-    print(wbs)
-    """
-    Calculates the final fundamentals score using fixed weights:
-    growth - 30%
-    profit - 30%
-    D/E    - 20%
-    FCF    - 20%
-    """
-    weighted_together = (0.3 * g + 0.3 * p + 0.2 * d + 0.2 * f)
+
+    growth_weight = wbs['growth']          
+    profit_weight = wbs['profit']          
+    dte_weight = wbs['debt_to_equity']      
+    fcf_weight = wbs['fcf']                
+
+    weighted_together = (growth_weight * g + profit_weight * p + dte_weight * d + fcf_weight * f)
     return round(weighted_together)
 
 def calculate_fundamental_scores(
@@ -80,7 +77,7 @@ def calculate_fundamental_scores(
     """
     g = growth_score(growth_pct)
     p = profit_score(profit_pct)
-    d = der_score(debt_to_equity)
+    d = dte_score(debt_to_equity)
     f = fcf_margin_score(fcf_margin_pct)
     weight_by_sector = fundamental_weight(sector_name)
 

@@ -53,19 +53,18 @@ def rnd_revenue_score(rnd: float, revenue:float) -> int:
 
 def moat_weighted_score(
     roic: int,
-    fcf: int,
+    fcf_5y_g: int,
     gm: int,
     rnd: int,
     wbs: dict
                         ) -> int:
-    """
-    Calculates the final moat score using fixed weights:
-    ROIC            - 40%
-    FCF_GROWTH      - 30%
-    GrossMargin     - 20%
-    R&D             - 10%
-    """
-    weighted_together = (0.4 * roic + 0.3 * fcf + 0.2 * gm + 0.1 * rnd)
+    
+    roic_weight = wbs['roic']
+    fcf_5y_g_weight = wbs['fcf_5y_g']
+    gm_weight = wbs['gm_stability']
+    rnd_weight = wbs['rnd_to_rev']
+
+    weighted_together = (roic_weight * roic + fcf_5y_g_weight * fcf_5y_g + gm_weight * gm + rnd_weight * rnd)
     return round(weighted_together)
 
 def calculate_moat_scores(
