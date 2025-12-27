@@ -1,5 +1,6 @@
 
 from scoring_utils import score_by_thresholds
+from config import moat_weight
 
 ROIC_THRESHOLDS = [
     (3, 20),    
@@ -54,8 +55,8 @@ def moat_weighted_score(
     roic: int,
     fcf: int,
     gm: int,
-    rnd: int
-    
+    rnd: int,
+    wbs: dict
                         ) -> int:
     """
     Calculates the final moat score using fixed weights:
@@ -72,7 +73,8 @@ def calculate_moat_scores(
     fcf_growth_raw: float,
     gross_margin_list: list,
     r_and_d_raw: float,
-    revenue_raw:float
+    revenue_raw:float,
+    sector_name: str
                         ) -> dict:   
     """
     Core function of the moat module.
@@ -82,14 +84,16 @@ def calculate_moat_scores(
     fcf = fcf_growth_score(fcf_growth_raw)
     gm = gross_m_stability_score(gross_margin_list)
     rnd = rnd_revenue_score(r_and_d_raw, revenue_raw)
+    weight_by_sector = moat_weight(sector_name)
     
 
-    final_score = moat_weighted_score(roic, fcf, gm, rnd)
+    final_score = moat_weighted_score(roic, fcf, gm, rnd, weight_by_sector)
 
     return {
         "roic_score": roic,
         "gm_stability_score": gm,
         "fcf_growth_score": fcf,
         "rnd_to_revenue_score": rnd,
+        "weight_currently_being used": weight_by_sector,
         "moat_score": final_score
             }

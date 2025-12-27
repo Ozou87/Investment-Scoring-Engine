@@ -103,7 +103,7 @@ def calculate_valuation_scores(
     sector_ps:float,
     stock_pfcf: float,
     sector_pfcf:float,
-    sector:str,
+    sector_name:str,
                               ) -> dict:   
     """
     Core function of the valuation module.
@@ -114,7 +114,7 @@ def calculate_valuation_scores(
     eveb = evebitda_ratio(stock_eveb, sector_eveb)
     ps = ps_ratio(stock_ps, sector_ps)
     pfcf = price_fcf_ratio(stock_pfcf, sector_pfcf)
-    weight_by_sector = weight_by_sector(sector)
+    weight_by_sector = valuation_weight(sector_name)
 
     final_score = valuation_weighted_score(pe, fpe, eveb, ps, pfcf, weight_by_sector)
 
@@ -124,6 +124,7 @@ def calculate_valuation_scores(
         "ev_ebitda_score": eveb,
         "ps_score": ps,
         "price_fcf_score": pfcf,
+        "weight_currently_being used": weight_by_sector,
         "valuation_score": final_score
            }
 
