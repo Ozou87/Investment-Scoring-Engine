@@ -100,52 +100,60 @@ def valuation_weight(sector_name: str) -> dict:
         "price_fcf": 0.10
                     },
     "Consumer cyclical": {
-        "gggrowth": 0.30,
-        "profit": 0.30,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                 },
     "Consumer defensive": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     },
     "Communication services": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     },
     "Industrials": {
-        "growth": 0.30,
-        "profit": 0.30,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                 },
     "Energy": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     },
     "Utilities": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     },
     "Basic materials": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     },
     "Real estate": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "pe": 0.30,
+        "fpe": 0.30,
+        "ev_ebitda": 0.20,
+        "ps": 0.20,
+        "price_fcf": 0.1
                     }
                     }
     
@@ -176,52 +184,52 @@ def moat_weight(sector_name: str) -> dict:
         "rnd_to_rev": 0.35
                     },
     "Consumer cyclical": {
-        "growth": 0.30,
-        "profit": 0.30,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                 },
     "Consumer defensive": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     },
     "Communication services": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     },
     "Industrials": {
-        "growth": 0.30,
-        "profit": 0.30,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                 },
     "Energy": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     },
     "Utilities": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     },
     "Basic materials": {
-        "growth": 0.20,
-        "profit": 0.40,
-        "debt_to_equity": 0.30,
-        "fcf": 0.10
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     },
     "Real estate": {
-        "growth": 0.25,
-        "profit": 0.35,
-        "debt_to_equity": 0.20,
-        "fcf": 0.20
+        "roic": 0.35,
+        "fcf_5y_g": 0.20,
+        "gm_stability": 0.20,
+        "rnd_to_rev": 0.25
                     }
                     }
     
