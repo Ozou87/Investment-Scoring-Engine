@@ -63,7 +63,7 @@ def calculate_all_scores(fundamental_input: dict, valuation_input: dict, moat_in
         sector_name = m_sector_name
                                         )
     # Extracting final scores from each module
-    fundamentals_total = fundamentals_scores["Fundamentals_Score (range of 1-100)"]
+    fundamentals_total = fundamentals_scores["Fundamentals_Score"]
     valuation_total = valuation_scores["Valuation_score"]
     moat_total = moat_scores["Moat_score"]
 
