@@ -100,7 +100,7 @@ def calculate_all_scores(
         sector_name = m_sector_name
                                         )
     # Extracting final scores from each module
-    fundamentals_total = fundamentals_scores["Fundamentals_Score"]
+    fundamentals_total = fundamentals_scores["Fundamentals_score"]
     valuation_total = valuation_scores["Valuation_score"]
     moat_total = moat_scores["Moat_score"]
 
