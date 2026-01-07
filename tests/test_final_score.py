@@ -7,7 +7,7 @@ from core_engine import (
     Moat_input)
 
 
-def test_fs_in_range(mocker):
+def test_final_score_in_range(mocker):
 
     mocker.patch(
         "core_engine.calculate_fundamental_scores",
