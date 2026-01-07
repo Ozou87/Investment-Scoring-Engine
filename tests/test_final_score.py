@@ -1,5 +1,4 @@
 
-import pytest
 from core_engine import (
     calculate_all_scores, 
     Fundamental_input, 
