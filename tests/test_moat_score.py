@@ -9,9 +9,9 @@ def test_moat_score_int_range():
     gross_margin_list= [11,13,14,15,16],
     r_and_d_raw=11,
     revenue_raw=16,
-    sector_name="Energy"
+    sector_name="Real estate"
     )
-    
+
     final_moat_score = result["Moat_score"]
 
     assert isinstance (final_moat_score, int)
