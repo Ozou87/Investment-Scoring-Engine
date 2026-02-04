@@ -3,7 +3,7 @@ from core_engine import calculate_all_scores
 from core_engine import Fundamental_input, Valuation_input, Moat_input
 
 from company_provider import fetch_company_metadata, DataFetchError
-from fundamental_provider import fetch_fundamental_data, fundamentalFetchError
+from fundamental_provider import fetch_fundamental_data
 
 
 data = None
@@ -156,7 +156,6 @@ print(f"{stock_label}'s Valuation score: {valuation_total}")
 print(f"{stock_label}'s Moat score: {moat_total}")
 print("-" * 35)
 print(f"TOTAL FINAL SCORE for {stock_label} is: {final_score}")
-
 
 
 

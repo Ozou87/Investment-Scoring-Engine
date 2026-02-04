@@ -1,88 +1,79 @@
 import yfinance as yf
-import contextlib
-import io
-import math
+import pandas as pd
 
-class fundamentalFetchError(Exception):
-    """Raised when the external data source fails or returns invalid data."""
-
-def fetch_fundamental_data(ticker: str) -> dict:
-    # 1) validate input
-    if not ticker or not ticker.strip():
-        raise ValueError("Ticker is required")
+def fetch_fundamental_data(ticker_symbol: str) -> dict:
+    ticker = ticker_symbol.strip().upper()
+    t = yf.Ticker(ticker)
     
-    clean_ticker = ticker.strip().upper()
-
-    # 2) create ticker object (silence yfinance noise)
-    try:
-        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-            t = yf.Ticker(clean_ticker)
-            annual = t.financials
-            quarterly = t.quarterly_financials
-    except Exception as e:
-        raise fundamentalFetchError(f"Failed to fetch data for {clean_ticker}") from e
-
-    # 3) basic dataframe checks (exists / not empty)
-    if annual is None or getattr(annual, "empty", True):
-        raise fundamentalFetchError(f"No annual financials available for {clean_ticker}")
+    # שליפת נתונים בסיסיים
+    info = t.info
     
-    # 4) extract revenue series (row may not exist)
-    try:
-        revenue_y = annual.loc["Total Revenue"]
-    except KeyError as e:
-        raise fundamentalFetchError(f"Anual 'Total Revenue' revenue row not found for {clean_ticker}") from e
+    # 1. Operating Margin - ניסיון מ-info ואז מ-financials
+    op_margin = info.get("operatingMargins")
+    if op_margin is None:
+        try:
+            # financials ttm logic
+            income_stmt = t.get_income_stmt()
+            op_income = income_stmt.loc['Operating Income'].iloc[0]
+            total_rev = income_stmt.loc['Total Revenue'].iloc[0]
+            op_margin = op_income / total_rev
+        except:
+            op_margin = 0
 
-    # 5) check we have at least 8 quarters for TTM YoY
-    if len(revenue_y) < 2:
-        raise fundamentalFetchError(f"Not enough annual revenue data to compute YoY growth for {clean_ticker}")
+    # 2. Revenue Growth (YoY) - חישוב מהדוחות הרבעוניים אם info ריק
+    growth = info.get("revenueGrowth")
+    if growth is None:
+        try:
+            q_financials = t.get_quarterly_income_stmt()
+            revs = q_financials.loc['Total Revenue']
+            # רבעון נוכחי מול רבעון מקביל אשתקד (בדרך כלל מרחק 4 עמודות)
+            current_rev = revs.iloc[0]
+            last_year_rev = revs.iloc[4] if len(revs) > 4 else revs.iloc[-1]
+            growth = (current_rev - last_year_rev) / last_year_rev
+        except:
+            growth = 0
 
-    latest = revenue_y.iloc[0]
-    previous = revenue_y.iloc[1]
+    # 3. Debt to Equity - מהמאזן (Balance Sheet)
+    d_e = info.get("debtToEquity")
+    if d_e is None:
+        try:
+            bs = t.get_balance_sheet()
+            total_debt = bs.loc['Total Debt'].iloc[0]
+            equity = bs.loc['Stockholders Equity'].iloc[0]
+            d_e = (total_debt / equity) * 100
+        except:
+            d_e = 0
 
-    if previous == 0 or (isinstance(previous, float) and math.isnan(previous)):
-        raise fundamentalFetchError(
-            f"Invalid previous year revenue for {clean_ticker}")
+    # 4. Free Cash Flow Margin
+    # ננסה להשתמש ב-fast_info למחיר שוק, אבל לתזרים נלך לדוחות
+    fcf = info.get("freeCashflow")
+    total_rev = info.get("totalRevenue")
+    
+    if fcf is None or total_rev is None:
+        try:
+            cf = t.get_cashflow()
+            financials = t.get_income_stmt()
+            fcf = cf.loc['Free Cash Flow'].iloc[0]
+            total_rev = financials.loc['Total Revenue'].iloc[0]
+        except:
+            fcf, total_rev = 0, 1
 
-    revenue_growth_yoy = ((latest - previous) / previous) * 100
+    fcf_margin = fcf / total_rev if total_rev != 0 else 0
 
-    if quarterly is None or getattr(quarterly, "empty", True):
-        raise fundamentalFetchError(f"No quarterly financials available for {clean_ticker}")
-
-    try:
-        revenue_q = quarterly.loc["Total Revenue"]
-    except KeyError as e:
-        raise fundamentalFetchError(
-            f"Quarterly 'Total Revenue' row not found for {clean_ticker}"
-        ) from e
-
-    try:
-        gross_profit_q = quarterly.loc["Gross Profit"]
-    except KeyError as e:
-        raise fundamentalFetchError(
-            f"Quarterly 'Gross Profit' row not found for {clean_ticker}"
-        ) from e
-
-    if len(revenue_q) < 4 or len(gross_profit_q) < 4:
-        raise fundamentalFetchError(
-            "Not enough quarterly data to compute TTM gross margin (requires 4 quarters)"
-        )
-
-    rev_ttm = revenue_q.iloc[0:4].sum()
-    gp_ttm = gross_profit_q.iloc[0:4].sum()
-
-    if rev_ttm == 0 or (isinstance(rev_ttm, float) and math.isnan(rev_ttm)):
-        raise fundamentalFetchError(
-            "Invalid TTM revenue (zero or NaN), cannot compute gross margin"
-        )
-
-    gross_margin_ttm = (gp_ttm / rev_ttm) * 100
-
-    # -------------------------
-    # Final payload
-    # -------------------------
     return {
-        
-        "revenue_growth_yoy": float(revenue_growth_yoy),
-        "gross_margin_ttm": float(gross_margin_ttm),
+        "revenue_growth_yoy": round(float(growth) * 100, 2),
+        "operating_margin_ttm": round(float(op_margin) * 100, 2),
+        "debt_to_equity": round(float(d_e), 2),
+        "free_cash_flow_margin": round(float(fcf_margin) * 100, 2)
     }
-    
+
+# הרצה ובדיקה
+if __name__ == "__main__":
+    ticker_input = input("Enter Ticker: ")
+    try:
+        results = fetch_fundamental_data(ticker_input)
+        print(f"\n--- Results for {ticker_input} ---")
+        for key, value in results.items():
+            print(f"{key}: {value}")
+    except Exception as e:
+        print(f"Error occurred: {e}")
