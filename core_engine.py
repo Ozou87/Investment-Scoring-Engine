@@ -8,8 +8,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Fundamental_input:
-    revenue_growth: float
-    operating_margin: float
+    revenue_growth_yoy: float
+    gross_margin_ttm: float
     debt_to_equity: float
     fcf_margin: float
     sector: str
@@ -43,15 +43,15 @@ def calculate_all_scores(
         moat_input: Moat_input
                         ):
 
-    revenue_growth = fundamental_input.revenue_growth
-    operating_margin = fundamental_input.operating_margin
+    revenue_growth_yoy = fundamental_input.revenue_growth_yoy
+    gross_margin_ttm = fundamental_input.gross_margin_ttm
     debt_to_equity = fundamental_input.debt_to_equity
     fcf_margin = fundamental_input.fcf_margin
     f_sector_name = fundamental_input.sector
 
     fundamentals_scores = calculate_fundamental_scores(
-        growth_pct = revenue_growth,
-        profit_pct = operating_margin,
+        revenue_growth_yoy = revenue_growth_yoy,
+        gross_margin_ttm = gross_margin_ttm,
         debt_to_equity = debt_to_equity,
         fcf_margin_pct = fcf_margin,
         sector_name = f_sector_name

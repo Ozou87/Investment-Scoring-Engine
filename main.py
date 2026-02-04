@@ -3,13 +3,27 @@ from core_engine import calculate_all_scores
 from core_engine import Fundamental_input, Valuation_input, Moat_input
 
 from company_provider import fetch_company_metadata, DataFetchError
+from fundamental_provider import fetch_fundamental_data, fundamentalFetchError
+
 
 data = None
 ticker = None
 sector = None
 stock_label = None
+revenue_growth_yoy = None
+gross_margin_ttm = None
 
 print("Welcome to the Investment Scoring Engine")
+
+#loop that make sure its float and system wont crash
+def get_float(prompt) -> float:
+
+    while True:
+        value = input(prompt)
+        try:
+            return float(value)
+        except ValueError:
+            print("Invalid input. PLS try again ")
 
 while True:
     user_ticker = input("Enter stock ticker: (or 'q' to quit) ").strip()
@@ -32,6 +46,16 @@ while True:
             print(f"Sector: {sector}")
         else:
             print("Sector: Not available")
+
+        fundamental_data = fetch_fundamental_data(user_ticker)
+
+        revenue_growth_yoy = fundamental_data.get("revenue_growth_yoy")
+        gross_margin_ttm = fundamental_data.get("gross_margin_ttm")
+
+        print(revenue_growth_yoy)
+        print(gross_margin_ttm)
+
+        
         break
 
     except ValueError as e:
@@ -39,6 +63,10 @@ while True:
 
     except DataFetchError:
         print("Ticker not found. Try again")
+
+    except fundamentalFetchError as e:
+        print(f"Fundamentals unavailable for {user_ticker.upper()}: {e}")
+        continue
     
     except Exception as e:
         print(f"Unexpected error: {e}")
@@ -46,27 +74,13 @@ while True:
 if data is None:
     raise SystemExit(0)
 
-#loop that make sure its float and system wont crash
-def get_float(prompt) -> float:
-
-    while True:
-        value = input(prompt)
-        try:
-            return float(value)
-        except ValueError:
-            print("Invalid input. PLS try again ")
-
-### inputs- soon to be API###
-
 # asking user for fundamentals inputs: 
-revenue_growth = get_float("Enter stock Revenue Growth %: ")
-operating_margin = get_float("Enter stock Operating margin %: ")
 debt_to_equity = get_float("Enter stock Debt to Equity ratio: ")
 fcf_margin = get_float("Enter stock Free Cash Flow Margin %: ")
 
 fundamental_input = Fundamental_input(
-    revenue_growth=revenue_growth,
-    operating_margin=operating_margin,
+    revenue_growth_yoy=revenue_growth_yoy,
+    gross_margin_ttm=gross_margin_ttm,
     debt_to_equity=debt_to_equity,
     fcf_margin=fcf_margin,
     sector=sector

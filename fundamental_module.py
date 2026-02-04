@@ -3,21 +3,21 @@ from scoring_utils import score_by_thresholds
 from config import fundamental_weight
 
 #creating table with limits and score limits
-GROWTH_THRESHOLDS = [
+REVENUE_GROWTH_YOY_THRESHOLDS = [
     (0.0,20),
     (5.0,40),
     (15.0,60),
     (30.0,80),
                     ]
-GROWTH_DEFAULT = 95
+REVENUE_GROWTH_YOY_DEFAULT = 95
 
-PROFIT_THRESHOLDS = [
+GROSS_MARGIN_TTM_THRESHOLDS = [
     (0.0,20),
     (5.0,40),
     (15.0,60),
-    (25,80),
+    (25.0,80),
                     ]
-PROFIT_DEFAULT = 95
+GROSS_MARGIN_TTM_DEFAULT = 95
 
 DTE_THRESHOLDS = [
     (0.2, 95), 
@@ -36,17 +36,17 @@ FCF_MARGIN_THRESHOLDS = [
 FCF_MARGIN_DEFAULT = 95
 
 #specific function that sends info to the generic function in order to help it find score
-def growth_score(growth_pct: float) -> int:
-    return score_by_thresholds(growth_pct, GROWTH_THRESHOLDS, GROWTH_DEFAULT)
+def revenue_growth_yoy_score(revenue_growth_yoy: float) -> int:
+    return score_by_thresholds(revenue_growth_yoy, REVENUE_GROWTH_YOY_THRESHOLDS, REVENUE_GROWTH_YOY_DEFAULT)
 
-def profit_score(profit_pct: float) -> int:
-    return score_by_thresholds(profit_pct,PROFIT_THRESHOLDS,PROFIT_DEFAULT)
+def gross_margin_ttm_score(gross_margin_ttm: float) -> int:
+    return score_by_thresholds(gross_margin_ttm, GROSS_MARGIN_TTM_THRESHOLDS, GROSS_MARGIN_TTM_DEFAULT)
 
-def dte_score(debt_to_eqity: float) -> int:
-    return score_by_thresholds(debt_to_eqity,DTE_THRESHOLDS,DTE_DEFAULT)
+def dte_score(debt_to_equity: float) -> int:
+    return score_by_thresholds(debt_to_equity, DTE_THRESHOLDS, DTE_DEFAULT)
 
-def fcf_margin_score(free_cash_flow: float) -> int:
-    return score_by_thresholds(free_cash_flow,FCF_MARGIN_THRESHOLDS,FCF_MARGIN_DEFAULT)
+def fcf_margin_score(fcf_margin_pct: float) -> int:
+    return score_by_thresholds(fcf_margin_pct, FCF_MARGIN_THRESHOLDS, FCF_MARGIN_DEFAULT)
 
 def fundamental_weighted_score(
         g: int,
@@ -65,8 +65,8 @@ def fundamental_weighted_score(
     return round(weighted_together)
 
 def calculate_fundamental_scores(
-    growth_pct: float,
-    profit_pct: float,
+    revenue_growth_yoy: float,
+    gross_margin_ttm: float,
     debt_to_equity: float,
     fcf_margin_pct: float,
     sector_name: str
@@ -75,8 +75,8 @@ def calculate_fundamental_scores(
     Core function of the fundamentals module.
     Gets raw inputs and returns all scores + final fundamentals_score.
     """
-    g = growth_score(growth_pct)
-    p = profit_score(profit_pct)
+    g = revenue_growth_yoy_score(revenue_growth_yoy)
+    p = gross_margin_ttm_score(gross_margin_ttm)
     d = dte_score(debt_to_equity)
     f = fcf_margin_score(fcf_margin_pct)
     weight_by_sector = fundamental_weight(sector_name)
@@ -84,7 +84,7 @@ def calculate_fundamental_scores(
     final_score = fundamental_weighted_score(g, p, d, f, weight_by_sector)
 
     return {
-        "Growth_score": g,
+        "revenue_growth_yoy_score": g,
         "Profit_score": p,
         "Debt_to_Equity_score": d,
         "Free_Cash_Flow_margin_score": f,
