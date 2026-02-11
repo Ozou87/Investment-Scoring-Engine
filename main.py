@@ -4,7 +4,7 @@ from core_engine import Fundamental_input, Valuation_input, Moat_input
 
 from company_provider import fetch_company_metadata, DataFetchError
 from fundamental_provider import fetch_fundamental_data
-from valuation_provider import fetch_valuation_data
+from valuation_provider import fetch_stock_valuation_data
 
 data = None
 ticker = None
@@ -52,7 +52,7 @@ while True:
         debt_to_equity = fundamental_data["debttoequity"]
         free_cash_flow_margin_ttm = fundamental_data["freecashflowmargin"]
 
-        valuation_data = fetch_valuation_data(user_ticker)
+        valuation_data = fetch_stock_valuation_data(user_ticker)
 
         stock_pe = valuation_data["stockpe"]
         stock_forward_pe = valuation_data["stockforwardpe"]

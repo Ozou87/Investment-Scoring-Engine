@@ -1,7 +1,7 @@
 import requests
 import json
 
-def fetch_valuation_data(ticker: str) -> dict:
+def fetch_stock_valuation_data(ticker: str) -> dict:
 
     clean_ticker = ticker.strip().upper()
 
@@ -11,7 +11,7 @@ def fetch_valuation_data(ticker: str) -> dict:
     querystring = {"region":"US","symbol":clean_ticker}
 
     headers = {
-        "x-rapidapi-key": "",
+        "x-rapidapi-key": "ac7d1c4b19mshe08636b12ca178bp1254e4jsn916ba406437e",
         "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
     }
 
@@ -28,7 +28,7 @@ def fetch_valuation_data(ticker: str) -> dict:
     querystring = {"lang":"en-US","symbol":clean_ticker,"region":"US"}
 
     headers = {
-        "x-rapidapi-key": "",
+        "x-rapidapi-key": "ac7d1c4b19mshe08636b12ca178bp1254e4jsn916ba406437e",
         "x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
@@ -64,3 +64,17 @@ def fetch_valuation_data(ticker: str) -> dict:
         
         "stockricetofreecashflowmultiple": stock_price_to_free_cash_flow_multiple
     }
+
+
+
+#     from pathlib import Path
+
+# BASE_DIR = Path(__file__).resolve().parent  # הקובץ שבו הקוד הזה נמצא
+# BENCH_DIR = BASE_DIR / "sector_benchmarks"
+
+# SECTOR_TO_FILE = {
+#     "Technology": BENCH_DIR / "holdings-daily-us-en-xlk.xlsx",
+#     "Healthcare": BENCH_DIR / "holdings-daily-us-en-xlv.xlsx",
+#     "Financial Services": BENCH_DIR / "holdings-daily-us-en-xlf.xlsx",
+#     # ...
+# }

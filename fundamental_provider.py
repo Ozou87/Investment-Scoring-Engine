@@ -11,7 +11,7 @@ def fetch_fundamental_data(ticker: str) -> dict:
     querystring = {"region":"US","symbol":clean_ticker}
 
     headers = {
-        "x-rapidapi-key": "",
+        "x-rapidapi-key": "ac7d1c4b19mshe08636b12ca178bp1254e4jsn916ba406437e",
         "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
     }
 
