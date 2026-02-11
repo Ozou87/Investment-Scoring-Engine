@@ -69,7 +69,7 @@ while True:
 
         sector_median_pe = sector_valuation_data["sector_median_pe"]
         sector_median_forward_pe = sector_valuation_data["sector_median_forward_pe"]
-        sector_median_ev_ebitda = sector_valuation_data["sector_median_ev_ebitda"]
+        sector_median_ev_ebitda_multiple = sector_valuation_data["sector_median_ev_ebitda_multiple"]
         sector_median_price_to_fcf = sector_valuation_data["sector_median_price_to_fcf"]
 
         break
@@ -109,7 +109,7 @@ print("\n--- Valuation Metrics ---")
 print("\n--- Sector Valuation Medians ---")
 print(f"Sector Median P/E: {sector_median_pe:.2f}")
 print(f"Sector Median Forward P/E: {sector_median_forward_pe:.2f}")
-print(f"Sector Median EV/EBITDA: {sector_median_ev_ebitda:.2f}")
+print(f"Sector Median EV/EBITDA: {sector_median_ev_ebitda_multiple:.2f}")
 stock_ps = get_float("Enter STOCK Price/Sales: ")
 sector_ps = get_float("Enter SECTOR Price/Sales: ")
 print(f"Sector Median Price/FCF: {sector_median_price_to_fcf:.2f}")
@@ -120,7 +120,7 @@ valuation_input= Valuation_input(
     stock_forward_pe=stock_forward_pe,
     sector_median_forward_pe=sector_median_forward_pe,
     stock_ev_ebitda_multipe=stock_ev_ebitda_multipe,
-    sector_median_ev_ebitda=sector_median_ev_ebitda,
+    sector_median_ev_ebitda_multiple=sector_median_ev_ebitda_multiple,
     stock_ps=stock_ps,
     sector_ps=sector_ps,
     stock_price_to_free_cash_flow_multiple=stock_price_to_free_cash_flow_multiple,
@@ -155,9 +155,9 @@ moat_input = Moat_input(
 # running core engine and final score
 scores = calculate_all_scores(fundamental_input, valuation_input, moat_input)
 
-fundamentals_total = scores["fundamentals"]["Fundamentals_score"]
-valuation_total = scores["valuation"]["Valuation_score"]
-moat_total = scores["moat"]["Moat_score"]
+fundamentals_total = scores["fundamentals"]["fundamentals_score"]
+valuation_total = scores["valuation"]["valuation_score"]
+moat_total = scores["moat"]["moat_score"]
 
 final_score = scores["final_score"]
 

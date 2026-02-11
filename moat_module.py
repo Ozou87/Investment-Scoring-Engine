@@ -93,6 +93,6 @@ def calculate_moat_scores(
         "gm_stability_score": gm,
         "fcf_growth_score": fcf,
         "rnd_to_revenue_score": rnd,
-        "weight_currently_being used": weight_by_sector,
-        "Moat_score": final_score
+        "weight_currently_being_used": weight_by_sector,
+        "moat_score": final_score
             }

@@ -85,12 +85,12 @@ def calculate_fundamental_scores(
 
     return {
         "revenue_growth_yoy_score": g,
-        "Profit_score": p,
-        "Debt_to_Equity_score": d,
-        "Free_Cash_Flow_margin_score": f,
-        "Sector_name": sector_name,
-        "weight_currently_being used": weight_by_sector,
-        "Fundamentals_score": final_score
+        "profit_score": p,
+        "debt_to_Equity_score": d,
+        "free_Cash_Flow_margin_score": f,
+        "sector_name": sector_name,
+        "weight_currently_being_used": weight_by_sector,
+        "fundamentals_score": final_score
             }
 
 

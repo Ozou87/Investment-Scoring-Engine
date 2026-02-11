@@ -123,7 +123,7 @@ def fetch_sector_valuation_data(sector: str,):
 
     sector_median_pe = calculate_sector_median(sector_metrics, "stockpe")
     sector_median_forward_pe = calculate_sector_median(sector_metrics, "stockforwardpe")
-    sector_median_ev_ebitda = calculate_sector_median(sector_metrics, "stockevebitdamultiple")
+    sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "stockevebitdamultiple")
     #add after i fugure out P/S RATIO
     #sector_median_price_to_sales = calculate_sector_median(sector_metrics, "price_to_sales")
     sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "stockpricetofreecashflowmultiple")
@@ -131,7 +131,7 @@ def fetch_sector_valuation_data(sector: str,):
     return {
         "sector_median_pe": sector_median_pe,
         "sector_median_forward_pe": sector_median_forward_pe,
-        "sector_median_ev_ebitda": sector_median_ev_ebitda,
+        "sector_median_ev_ebitda_multiple": sector_median_ev_ebitda_multiple,
         
         "sector_median_price_to_fcf": sector_median_price_to_fcf
     }

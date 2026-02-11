@@ -21,7 +21,7 @@ class Valuation_input:
     stock_forward_pe: float
     sector_median_forward_pe: float
     stock_ev_ebitda_multipe: float
-    sector_median_ev_ebitda: float
+    sector_median_ev_ebitda_multiple: float
     stock_ps: float
     sector_ps: float
     stock_price_to_free_cash_flow_multiple: float
@@ -62,7 +62,7 @@ def calculate_all_scores(
     stock_forward_pe = valuation_input.stock_forward_pe
     sector_median_forward_pe = valuation_input.sector_median_forward_pe
     stock_ev_ebitda_multipe = valuation_input.stock_ev_ebitda_multipe
-    sector_median_ev_ebitda = valuation_input.sector_median_ev_ebitda
+    sector_median_ev_ebitda_multiple = valuation_input.sector_median_ev_ebitda_multiple
     stock_ps = valuation_input.stock_ps
     sector_ps = valuation_input.sector_ps
     stock_price_to_free_cash_flow_multiple = valuation_input.stock_price_to_free_cash_flow_multiple
@@ -75,7 +75,7 @@ def calculate_all_scores(
         stock_forward_pe = stock_forward_pe,
         sector_median_forward_pe = sector_median_forward_pe,
         stock_ev_ebitda_multipe = stock_ev_ebitda_multipe,
-        sector_median_ev_ebitda = sector_median_ev_ebitda,
+        sector_median_ev_ebitda_multiple = sector_median_ev_ebitda_multiple,
         stock_ps = stock_ps,
         sector_ps = sector_ps,
         stock_price_to_free_cash_flow_multiple = stock_price_to_free_cash_flow_multiple,
@@ -99,12 +99,12 @@ def calculate_all_scores(
         sector_name = m_sector_name
                                         )
     # Extracting final scores from each module
-    fundamentals_total = fundamentals_scores["Fundamentals_score"]
-    valuation_total = valuation_scores["Valuation_score"]
-    moat_total = moat_scores["Moat_score"]
+    fundamentals_total = fundamentals_scores["fundamentals_score"]
+    valuation_total = valuation_scores["valuation_score"]
+    moat_total = moat_scores["moat_score"]
 
     # Extracting sector_name
-    SECTOR_NAME = fundamentals_scores["Sector_name"]
+    SECTOR_NAME = fundamentals_scores["sector_name"]
 
     # calling func of final weights
     dict_of_final_weights = final_score_weight(SECTOR_NAME)

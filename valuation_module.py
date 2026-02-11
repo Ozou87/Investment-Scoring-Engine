@@ -63,8 +63,8 @@ def pe_ratio(stock_pe: float, sector_median_pe:float) -> int:
 def forward_pe_ratio(stock_forward_pe: float, sector_median_forward_pe:float) -> int:
     return score_ratio(stock_forward_pe, sector_median_forward_pe, F_PE_RATIO_THRESHOLDS, F_PE_DEFAULT)
 
-def evebitda_ratio(stock_ev_ebitda_multipe:float, sector_median_ev_ebitda:float) -> int:
-    return score_ratio(stock_ev_ebitda_multipe, sector_median_ev_ebitda, EVEBITDA_RATIO_THRESHOLDS, EVEBITDA_RATIO_DEFAULT)
+def evebitda_ratio(stock_ev_ebitda_multipe:float, sector_median_ev_ebitda_multiple:float) -> int:
+    return score_ratio(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple, EVEBITDA_RATIO_THRESHOLDS, EVEBITDA_RATIO_DEFAULT)
 
 def ps_ratio(stock_ps:float, sector_ps: float) -> int:
     return score_ratio(stock_ps, sector_ps, PS_RATIO_THRESHOLDS, PS_RATIO_DEFAULT)
@@ -97,7 +97,7 @@ def calculate_valuation_scores(
     stock_forward_pe: float,
     sector_median_forward_pe:float,
     stock_ev_ebitda_multipe:float,
-    sector_median_ev_ebitda: float,
+    sector_median_ev_ebitda_multiple: float,
     stock_ps: float,
     sector_ps:float,
     stock_price_to_free_cash_flow_multiple: float,
@@ -110,7 +110,7 @@ def calculate_valuation_scores(
     """
     pe = pe_ratio(stock_pe, sector_median_pe)
     fpe = forward_pe_ratio(stock_forward_pe, sector_median_forward_pe)
-    eveb = evebitda_ratio(stock_ev_ebitda_multipe, sector_median_ev_ebitda)
+    eveb = evebitda_ratio(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple)
     ps = ps_ratio(stock_ps, sector_ps)
     pfcf = price_fcf_ratio(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
     weight_by_sector = valuation_weight(sector_name)
@@ -123,8 +123,8 @@ def calculate_valuation_scores(
         "ev_ebitda_score": eveb,
         "ps_score": ps,
         "price_fcf_score": pfcf,
-        "weight_currently_being used": weight_by_sector,
-        "Valuation_score": final_score
+        "weight_currently_being_used": weight_by_sector,
+        "valuation_score": final_score
            }
 
     
