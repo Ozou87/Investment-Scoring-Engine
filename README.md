@@ -87,7 +87,7 @@ All scores are validated to be integers between **0–100**.
 ## Running the Project
 
 ```bash
-python main.py
+python app.py
 ```
 
 You will be prompted for financial values manually.
@@ -102,4 +102,4 @@ See the LICENSE file for full details.
 ## Author
 
 Oz Efraty | Python developer & tech investor.
-Sharing my journey on Linkedin.
+
