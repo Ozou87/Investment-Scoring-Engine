@@ -56,9 +56,9 @@
           "longFmt": "1,426,283,914"
         },
         "value": {
-          "raw": 393326299294,
-          "fmt": "393.33B",
-          "longFmt": "393,326,299,294"
+          "raw": 392941218307,
+          "fmt": "392.94B",
+          "longFmt": "392,941,218,307"
         },
         "pctChange": {
           "raw": 0.019199999,
@@ -82,9 +82,9 @@
           "longFmt": "1,146,332,274"
         },
         "value": {
-          "raw": 316124038606,
-          "fmt": "316.12B",
-          "longFmt": "316,124,038,606"
+          "raw": 315814541487,
+          "fmt": "315.81B",
+          "longFmt": "315,814,541,487"
         },
         "pctChange": {
           "raw": -0.0022,
@@ -108,39 +108,13 @@
           "longFmt": "597,501,113"
         },
         "value": {
-          "raw": 164772875367,
-          "fmt": "164.77B",
-          "longFmt": "164,772,875,367"
+          "raw": 164611556631,
+          "fmt": "164.61B",
+          "longFmt": "164,611,556,631"
         },
         "pctChange": {
           "raw": -0.0062,
           "fmt": "-0.62%"
-        }
-      },
-      {
-        "maxAge": 1,
-        "reportDate": {
-          "raw": 1759190400,
-          "fmt": "2025-09-30"
-        },
-        "organization": "JPMORGAN CHASE & CO",
-        "pctHeld": {
-          "raw": 0.0322,
-          "fmt": "3.22%"
-        },
-        "position": {
-          "raw": 473311062,
-          "fmt": "473.31M",
-          "longFmt": "473,311,062"
-        },
-        "value": {
-          "raw": 130524986367,
-          "fmt": "130.52B",
-          "longFmt": "130,524,986,367"
-        },
-        "pctChange": {
-          "raw": 1.2055,
-          "fmt": "120.55%"
         }
       },
       {
@@ -160,9 +134,9 @@
           "longFmt": "358,032,517"
         },
         "value": {
-          "raw": 98734623279,
-          "fmt": "98.73B",
-          "longFmt": "98,734,623,279"
+          "raw": 98637958433,
+          "fmt": "98.64B",
+          "longFmt": "98,637,958,433"
         },
         "pctChange": {
           "raw": 0.0052,
@@ -186,9 +160,9 @@
           "longFmt": "303,254,081"
         },
         "value": {
-          "raw": 83628374585,
-          "fmt": "83.63B",
-          "longFmt": "83,628,374,585"
+          "raw": 83546499315,
+          "fmt": "83.55B",
+          "longFmt": "83,546,499,315"
         },
         "pctChange": {
           "raw": -0.0114,
@@ -212,9 +186,9 @@
           "longFmt": "238,212,764"
         },
         "value": {
-          "raw": 65691931311,
-          "fmt": "65.69B",
-          "longFmt": "65,691,931,311"
+          "raw": 65627616482,
+          "fmt": "65.63B",
+          "longFmt": "65,627,616,482"
         },
         "pctChange": {
           "raw": -0.1492,
@@ -238,13 +212,39 @@
           "longFmt": "229,103,384"
         },
         "value": {
-          "raw": 63179837688,
-          "fmt": "63.18B",
-          "longFmt": "63,179,837,688"
+          "raw": 63117982292,
+          "fmt": "63.12B",
+          "longFmt": "63,117,982,292"
         },
         "pctChange": {
           "raw": -0.0176,
           "fmt": "-1.76%"
+        }
+      },
+      {
+        "maxAge": 1,
+        "reportDate": {
+          "raw": 1767139200,
+          "fmt": "2025-12-31"
+        },
+        "organization": "JPMORGAN CHASE & CO",
+        "pctHeld": {
+          "raw": 0.0154,
+          "fmt": "1.54%"
+        },
+        "position": {
+          "raw": 225419111,
+          "fmt": "225.42M",
+          "longFmt": "225,419,111"
+        },
+        "value": {
+          "raw": 62102965080,
+          "fmt": "62.1B",
+          "longFmt": "62,102,965,080"
+        },
+        "pctChange": {
+          "raw": -0.5237,
+          "fmt": "-52.37%"
         }
       },
       {
@@ -264,9 +264,9 @@
           "longFmt": "212,755,053"
         },
         "value": {
-          "raw": 58671458628,
-          "fmt": "58.67B",
-          "longFmt": "58,671,458,628"
+          "raw": 58614017101,
+          "fmt": "58.61B",
+          "longFmt": "58,614,017,101"
         },
         "pctChange": {
           "raw": 0.0495,
@@ -290,9 +290,9 @@
           "longFmt": "192,255,086"
         },
         "value": {
-          "raw": 53018182954,
-          "fmt": "53.02B",
-          "longFmt": "53,018,182,954"
+          "raw": 52966276193,
+          "fmt": "52.97B",
+          "longFmt": "52,966,276,193"
         },
         "pctChange": {
           "raw": 0.0128999995,
@@ -304,9 +304,9 @@
   "majorHoldersBreakdown": {
     "maxAge": 1,
     "insidersPercentHeld": 0.01702,
-    "institutionsPercentHeld": 0.65223,
-    "institutionsFloatPercentHeld": 0.66352,
-    "institutionsCount": 7234
+    "institutionsPercentHeld": 0.65343004,
+    "institutionsFloatPercentHeld": 0.66473997,
+    "institutionsCount": 7258
   },
   "majorDirectHolders": {
     "holders": [],
@@ -315,8 +315,8 @@
   "defaultKeyStatistics": {
     "maxAge": 1,
     "priceHint": 2,
-    "enterpriseValue": 4041536438272,
-    "forwardPE": 29.678823,
+    "enterpriseValue": 4068255989760,
+    "forwardPE": 29.667519,
     "profitMargins": 0.27037,
     "floatShares": 14655594816,
     "sharesOutstanding": 14681140000,
@@ -326,14 +326,14 @@
     "dateShortInterest": 1769731200,
     "sharesPercentSharesOut": 0.008,
     "heldPercentInsiders": 0.01702,
-    "heldPercentInstitutions": 0.65223,
+    "heldPercentInstitutions": 0.65343004,
     "shortRatio": 2.36,
     "shortPercentOfFloat": 0.008,
     "beta": 1.107,
     "impliedSharesOutstanding": 14697926000,
     "category": null,
     "bookValue": 5.998,
-    "priceToBook": 45.97699,
+    "priceToBook": 45.931976,
     "fundFamily": null,
     "legalType": null,
     "lastFiscalYearEnd": 1758931200,
@@ -342,13 +342,13 @@
     "earningsQuarterlyGrowth": 0.159,
     "netIncomeToCommon": 117776998400,
     "trailingEps": 7.91,
-    "forwardEps": 9.29181,
+    "forwardEps": 9.28625,
     "lastSplitFactor": "4:1",
     "lastSplitDate": 1598832000,
-    "enterpriseToRevenue": 9.278,
-    "enterpriseToEbitda": 26.432,
-    "52WeekChange": 0.1554017,
-    "SandP52WeekChange": 0.1470331,
+    "enterpriseToRevenue": 9.339,
+    "enterpriseToEbitda": 26.607,
+    "52WeekChange": 0.14064503,
+    "SandP52WeekChange": 0.13514149,
     "lastDividendValue": 0.26,
     "lastDividendDate": 1770595200,
     "latestShareClass": null,
@@ -381,11 +381,11 @@
     "buyInfoCount": 15,
     "buyInfoShares": 591071,
     "buyPercentInsiderShares": 0.002,
-    "sellInfoCount": 7,
-    "sellInfoShares": 352873,
+    "sellInfoCount": 6,
+    "sellInfoShares": 318052,
     "sellPercentInsiderShares": 0.001,
-    "netInfoCount": 22,
-    "netInfoShares": 238198,
+    "netInfoCount": 21,
+    "netInfoShares": 273019,
     "netPercentInsiderShares": 0.001,
     "totalInsiderShares": 249873008
   },
@@ -1968,9 +1968,9 @@
           "longFmt": "467,135,722"
         },
         "value": {
-          "raw": 128822012923,
-          "fmt": "128.82B",
-          "longFmt": "128,822,012,923"
+          "raw": 128695891411,
+          "fmt": "128.7B",
+          "longFmt": "128,695,891,411"
         },
         "pctChange": {
           "raw": -0.0274,
@@ -1994,9 +1994,9 @@
           "longFmt": "366,145,920"
         },
         "value": {
-          "raw": 100972056335,
-          "fmt": "100.97B",
-          "longFmt": "100,972,056,335"
+          "raw": 100873200960,
+          "fmt": "100.87B",
+          "longFmt": "100,873,200,960"
         },
         "pctChange": {
           "raw": -0.1363,
@@ -2020,9 +2020,9 @@
           "longFmt": "192,114,628"
         },
         "value": {
-          "raw": 52979448852,
-          "fmt": "52.98B",
-          "longFmt": "52,979,448,852"
+          "raw": 52927580014,
+          "fmt": "52.93B",
+          "longFmt": "52,927,580,014"
         },
         "pctChange": {
           "raw": 0.0348,
@@ -2046,9 +2046,9 @@
           "longFmt": "186,867,383"
         },
         "value": {
-          "raw": 51532416156,
-          "fmt": "51.53B",
-          "longFmt": "51,532,416,156"
+          "raw": 51481964016,
+          "fmt": "51.48B",
+          "longFmt": "51,481,964,016"
         },
         "pctChange": {
           "raw": -0.0029,
@@ -2072,9 +2072,9 @@
           "longFmt": "179,978,594"
         },
         "value": {
-          "raw": 49632694890,
-          "fmt": "49.63B",
-          "longFmt": "49,632,694,890"
+          "raw": 49584102647,
+          "fmt": "49.58B",
+          "longFmt": "49,584,102,647"
         },
         "pctChange": {
           "raw": 0.013200001,
@@ -2098,9 +2098,9 @@
           "longFmt": "140,904,646"
         },
         "value": {
-          "raw": 38857272679,
-          "fmt": "38.86B",
-          "longFmt": "38,857,272,679"
+          "raw": 38819229973,
+          "fmt": "38.82B",
+          "longFmt": "38,819,229,973"
         },
         "pctChange": {
           "raw": -0.0471,
@@ -2124,9 +2124,9 @@
           "longFmt": "120,094,732"
         },
         "value": {
-          "raw": 33118522924,
-          "fmt": "33.12B",
-          "longFmt": "33,118,522,924"
+          "raw": 33086098666,
+          "fmt": "33.09B",
+          "longFmt": "33,086,098,666"
         },
         "pctChange": {
           "raw": -0.050300002,
@@ -2150,9 +2150,9 @@
           "longFmt": "86,511,134"
         },
         "value": {
-          "raw": 23857174472,
-          "fmt": "23.86B",
-          "longFmt": "23,857,174,472"
+          "raw": 23833817417,
+          "fmt": "23.83B",
+          "longFmt": "23,833,817,417"
         },
         "pctChange": {
           "raw": -0.055,
@@ -2176,9 +2176,9 @@
           "longFmt": "71,614,512"
         },
         "value": {
-          "raw": 19749133187,
-          "fmt": "19.75B",
-          "longFmt": "19,749,133,187"
+          "raw": 19729798056,
+          "fmt": "19.73B",
+          "longFmt": "19,729,798,056"
         },
         "pctChange": {
           "raw": 0.082399994,
@@ -2202,9 +2202,9 @@
           "longFmt": "51,532,321"
         },
         "value": {
-          "raw": 14211067596,
-          "fmt": "14.21B",
-          "longFmt": "14,211,067,596"
+          "raw": 14197154435,
+          "fmt": "14.2B",
+          "longFmt": "14,197,154,435"
         },
         "pctChange": {
           "raw": -0.048299998,
@@ -2230,25 +2230,25 @@
     "payoutRatio": 0.1304,
     "fiveYearAvgDividendYield": 0.52,
     "beta": 1.107,
-    "trailingPE": 34.863464,
-    "forwardPE": 29.678823,
-    "volume": 41857673,
-    "regularMarketVolume": 41857673,
-    "averageVolume": 47922444,
-    "averageVolume10days": 61223380,
-    "averageDailyVolume10Day": 61223380,
-    "bid": 275.6,
-    "ask": 275.78,
+    "trailingPE": 34.82933,
+    "forwardPE": 29.667519,
+    "volume": 51915838,
+    "regularMarketVolume": 51915838,
+    "averageVolume": 47980221,
+    "averageVolume10days": 62286820,
+    "averageDailyVolume10Day": 62286820,
+    "bid": 275.13,
+    "ask": 275.85,
     "bidSize": 500,
-    "askSize": 400,
-    "marketCap": 4053246672896,
+    "askSize": 100,
+    "marketCap": 4049278599168,
     "fiftyTwoWeekLow": 169.21,
     "fiftyTwoWeekHigh": 288.62,
     "allTimeHigh": 288.62,
     "allTimeLow": 0.049107,
-    "priceToSalesTrailing12Months": 9.304611,
-    "fiftyDayAverage": 268.5778,
-    "twoHundredDayAverage": 239.2472,
+    "priceToSalesTrailing12Months": 9.295502,
+    "fiftyDayAverage": 268.5108,
+    "twoHundredDayAverage": 239.5783,
     "trailingAnnualDividendRate": 1.03,
     "trailingAnnualDividendYield": 0.0037635195,
     "currency": "USD",
@@ -2587,7 +2587,7 @@
         1769724000
       ],
       "isEarningsDateEstimate": true,
-      "earningsAverage": 1.94541,
+      "earningsAverage": 1.9456,
       "earningsLow": 1.83,
       "earningsHigh": 2.16,
       "revenueAverage": 108935222300,
@@ -12263,47 +12263,52 @@
     "maxAge": 86400
   },
   "pageViews": {
-    "shortTermTrend": "DOWN",
+    "shortTermTrend": "UP",
     "midTermTrend": "UP",
     "longTermTrend": "UP",
     "maxAge": 1
   },
   "price": {
     "maxAge": 1,
-    "preMarketSource": "FREE_REALTIME",
-    "regularMarketChangePercent": 0.007636643,
-    "regularMarketChange": 2.0899963,
-    "regularMarketTime": 1770843517,
+    "preMarketChangePercent": -0.0050634807,
+    "preMarketChange": -1.394989,
+    "preMarketTime": 1770901274,
+    "preMarketPrice": 274.105,
+    "preMarketSource": "DELAYED",
+    "postMarketSource": "FREE_REALTIME",
+    "regularMarketChangePercent": 0.0066501293,
+    "regularMarketChange": 1.8200073,
+    "regularMarketTime": 1770843602,
     "priceHint": 2,
-    "regularMarketPrice": 275.77,
+    "regularMarketPrice": 275.5,
     "regularMarketDayHigh": 280.18,
     "regularMarketDayLow": 274.45,
-    "regularMarketVolume": 41857673,
-    "averageDailyVolume10Day": 61223380,
-    "averageDailyVolume3Month": 47922444,
+    "regularMarketVolume": 51915838,
+    "averageDailyVolume10Day": 62286820,
+    "averageDailyVolume3Month": 47980221,
     "regularMarketPreviousClose": 273.68,
     "regularMarketSource": "FREE_REALTIME",
     "regularMarketOpen": 274.695,
     "exchange": "NMS",
     "exchangeName": "NasdaqGS",
     "exchangeDataDelayedBy": 0,
-    "marketState": "REGULAR",
+    "marketState": "PRE",
     "quoteType": "EQUITY",
     "symbol": "AAPL",
     "underlyingSymbol": null,
     "shortName": "Apple Inc.",
     "longName": "Apple Inc.",
     "currency": "USD",
-    "quoteSourceName": "Nasdaq Real Time Price",
+    "quoteSourceName": "Delayed Quote",
     "currencySymbol": "$",
     "fromCurrency": null,
     "toCurrency": null,
     "lastMarket": null,
-    "marketCap": 4053246672896
+    "marketCap": 4049278599168
   },
   "financialData": {
     "maxAge": 86400,
-    "currentPrice": 275.77,
+    "currentPrice": 275.5,
     "targetHighPrice": 350,
     "targetLowPrice": 205,
     "targetMeanPrice": 293.06952,

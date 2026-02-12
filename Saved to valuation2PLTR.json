@@ -56,9 +56,9 @@
           "longFmt": "215,444,098"
         },
         "value": {
-          "raw": 29265925483,
-          "fmt": "29.27B",
-          "longFmt": "29,265,925,483"
+          "raw": 29231453638,
+          "fmt": "29.23B",
+          "longFmt": "29,231,453,638"
         },
         "pctChange": {
           "raw": 0.0073,
@@ -82,9 +82,9 @@
           "longFmt": "188,505,957"
         },
         "value": {
-          "raw": 25606648508,
-          "fmt": "25.61B",
-          "longFmt": "25,606,648,508"
+          "raw": 25576486865,
+          "fmt": "25.58B",
+          "longFmt": "25,576,486,865"
         },
         "pctChange": {
           "raw": 0.0636,
@@ -108,39 +108,13 @@
           "longFmt": "101,258,899"
         },
         "value": {
-          "raw": 13755008469,
-          "fmt": "13.76B",
-          "longFmt": "13,755,008,469"
+          "raw": 13738806674,
+          "fmt": "13.74B",
+          "longFmt": "13,738,806,674"
         },
         "pctChange": {
           "raw": 0.0717,
           "fmt": "7.17%"
-        }
-      },
-      {
-        "maxAge": 1,
-        "reportDate": {
-          "raw": 1759190400,
-          "fmt": "2025-09-30"
-        },
-        "organization": "JPMORGAN CHASE & CO",
-        "pctHeld": {
-          "raw": 0.0318,
-          "fmt": "3.18%"
-        },
-        "position": {
-          "raw": 69332036,
-          "fmt": "69.33M",
-          "longFmt": "69,332,036"
-        },
-        "value": {
-          "raw": 9418063516,
-          "fmt": "9.42B",
-          "longFmt": "9,418,063,516"
-        },
-        "pctChange": {
-          "raw": 3.3122,
-          "fmt": "331.22%"
         }
       },
       {
@@ -160,13 +134,39 @@
           "longFmt": "54,200,265"
         },
         "value": {
-          "raw": 7362563799,
-          "fmt": "7.36B",
-          "longFmt": "7,362,563,799"
+          "raw": 7353891558,
+          "fmt": "7.35B",
+          "longFmt": "7,353,891,558"
         },
         "pctChange": {
           "raw": 0.0150999995,
           "fmt": "1.51%"
+        }
+      },
+      {
+        "maxAge": 1,
+        "reportDate": {
+          "raw": 1767139200,
+          "fmt": "2025-12-31"
+        },
+        "organization": "JPMORGAN CHASE & CO",
+        "pctHeld": {
+          "raw": 0.0163,
+          "fmt": "1.63%"
+        },
+        "position": {
+          "raw": 35575332,
+          "fmt": "35.58M",
+          "longFmt": "35,575,332"
+        },
+        "value": {
+          "raw": 4826860785,
+          "fmt": "4.83B",
+          "longFmt": "4,826,860,785"
+        },
+        "pctChange": {
+          "raw": -0.48689997,
+          "fmt": "-48.69%"
         }
       },
       {
@@ -186,9 +186,9 @@
           "longFmt": "30,240,527"
         },
         "value": {
-          "raw": 4107873076,
-          "fmt": "4.11B",
-          "longFmt": "4,107,873,076"
+          "raw": 4103034481,
+          "fmt": "4.1B",
+          "longFmt": "4,103,034,481"
         },
         "pctChange": {
           "raw": -0.082200006,
@@ -212,9 +212,9 @@
           "longFmt": "28,971,257"
         },
         "value": {
-          "raw": 3935455444,
-          "fmt": "3.94B",
-          "longFmt": "3,935,455,444"
+          "raw": 3930819937,
+          "fmt": "3.93B",
+          "longFmt": "3,930,819,937"
         },
         "pctChange": {
           "raw": 0.19409999,
@@ -238,9 +238,9 @@
           "longFmt": "22,430,790"
         },
         "value": {
-          "raw": 3046998431,
-          "fmt": "3.05B",
-          "longFmt": "3,046,998,431"
+          "raw": 3043409422,
+          "fmt": "3.04B",
+          "longFmt": "3,043,409,422"
         },
         "pctChange": {
           "raw": 0.17809999,
@@ -264,9 +264,9 @@
           "longFmt": "21,798,785"
         },
         "value": {
-          "raw": 2961146874,
+          "raw": 2957658989,
           "fmt": "2.96B",
-          "longFmt": "2,961,146,874"
+          "longFmt": "2,957,658,989"
         },
         "pctChange": {
           "raw": 0.059,
@@ -290,9 +290,9 @@
           "longFmt": "21,088,462"
         },
         "value": {
-          "raw": 2864656600,
+          "raw": 2861282369,
           "fmt": "2.86B",
-          "longFmt": "2,864,656,600"
+          "longFmt": "2,861,282,369"
         },
         "pctChange": {
           "raw": 0.0379,
@@ -304,9 +304,9 @@
   "majorHoldersBreakdown": {
     "maxAge": 1,
     "insidersPercentHeld": 0.03593,
-    "institutionsPercentHeld": 0.60809,
-    "institutionsFloatPercentHeld": 0.63075,
-    "institutionsCount": 3576
+    "institutionsPercentHeld": 0.60857,
+    "institutionsFloatPercentHeld": 0.63124,
+    "institutionsCount": 3581
   },
   "majorDirectHolders": {
     "holders": [],
@@ -315,8 +315,8 @@
   "defaultKeyStatistics": {
     "maxAge": 1,
     "priceHint": 2,
-    "enterpriseValue": 326150029312,
-    "forwardPE": 74.98675,
+    "enterpriseValue": 317008183296,
+    "forwardPE": 74.89842,
     "profitMargins": 0.36310002,
     "floatShares": 2203255606,
     "sharesOutstanding": 2284334012,
@@ -326,14 +326,14 @@
     "dateShortInterest": 1769731200,
     "sharesPercentSharesOut": 0.0187,
     "heldPercentInsiders": 0.03593,
-    "heldPercentInstitutions": 0.60809,
+    "heldPercentInstitutions": 0.60857,
     "shortRatio": 1.17,
     "shortPercentOfFloat": 0.020499999,
     "beta": 1.687,
     "impliedSharesOutstanding": 2383436338,
     "category": null,
     "bookValue": 3.095,
-    "priceToBook": 43.890144,
+    "priceToBook": 43.838448,
     "fundFamily": null,
     "legalType": null,
     "lastFiscalYearEnd": 1767139200,
@@ -341,13 +341,13 @@
     "mostRecentQuarter": 1767139200,
     "earningsQuarterlyGrowth": 6.704,
     "netIncomeToCommon": 1625032960,
-    "trailingEps": 0.63,
+    "trailingEps": 0.62,
     "forwardEps": 1.81152,
     "lastSplitFactor": null,
-    "enterpriseToRevenue": 72.875,
-    "enterpriseToEbitda": 226.468,
-    "52WeekChange": 0.18843174,
-    "SandP52WeekChange": 0.1470331,
+    "enterpriseToRevenue": 70.833,
+    "enterpriseToEbitda": 220.12,
+    "52WeekChange": 0.1507082,
+    "SandP52WeekChange": 0.13514149,
     "latestShareClass": null,
     "leadInvestor": null
   },
@@ -436,6 +436,29 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 12000,
+          "fmt": "12k",
+          "longFmt": "12,000"
+        },
+        "value": {
+          "raw": 2176200,
+          "fmt": "2.18M",
+          "longFmt": "2,176,200"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 181.35 per share.",
+        "filerName": "TAYLOR RYAN DOUGLAS",
+        "filerRelation": "Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1767312000,
+          "fmt": "2026-01-02"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 20000,
           "fmt": "20k",
           "longFmt": "20,000"
@@ -472,29 +495,6 @@
         "transactionText": "Sale at price 181.35 per share.",
         "filerName": "STAT LAUREN ELAINA FRIEDMAN",
         "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1767312000,
-          "fmt": "2026-01-02"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 12000,
-          "fmt": "12k",
-          "longFmt": "12,000"
-        },
-        "value": {
-          "raw": 2176200,
-          "fmt": "2.18M",
-          "longFmt": "2,176,200"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 181.35 per share.",
-        "filerName": "TAYLOR RYAN DOUGLAS",
-        "filerRelation": "Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1767312000,
@@ -643,19 +643,37 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 17530,
-          "fmt": "17.53k",
-          "longFmt": "17,530"
+          "raw": 168876,
+          "fmt": "168.88k",
+          "longFmt": "168,876"
         },
         "value": {
-          "raw": 2859408,
-          "fmt": "2.86M",
-          "longFmt": "2,859,408"
+          "raw": 27546303,
+          "fmt": "27.55M",
+          "longFmt": "27,546,303"
         },
         "filerUrl": "",
         "transactionText": "Sale at price 153.43 - 173.41 per share.",
-        "filerName": "GLAZER DAVID ALAN",
-        "filerRelation": "Chief Financial Officer",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1763683200,
+          "fmt": "2025-11-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 168876,
+          "fmt": "168.88k",
+          "longFmt": "168,876"
+        },
+        "filerUrl": "",
+        "transactionText": "",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1763683200,
@@ -748,37 +766,19 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 168876,
-          "fmt": "168.88k",
-          "longFmt": "168,876"
+          "raw": 17530,
+          "fmt": "17.53k",
+          "longFmt": "17,530"
         },
         "value": {
-          "raw": 27546303,
-          "fmt": "27.55M",
-          "longFmt": "27,546,303"
+          "raw": 2859408,
+          "fmt": "2.86M",
+          "longFmt": "2,859,408"
         },
         "filerUrl": "",
         "transactionText": "Sale at price 153.43 - 173.41 per share.",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1763683200,
-          "fmt": "2025-11-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 168876,
-          "fmt": "168.88k",
-          "longFmt": "168,876"
-        },
-        "filerUrl": "",
-        "transactionText": "",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
+        "filerName": "GLAZER DAVID ALAN",
+        "filerRelation": "Chief Financial Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1763683200,
@@ -950,6 +950,29 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 20000,
+          "fmt": "20k",
+          "longFmt": "20,000"
+        },
+        "value": {
+          "raw": 3128318,
+          "fmt": "3.13M",
+          "longFmt": "3,128,318"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 151.56 - 157.68 per share.",
+        "filerName": "MOORE ALEXANDER D",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1756771200,
+          "fmt": "2025-09-02"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 81000,
           "fmt": "81k",
           "longFmt": "81,000"
@@ -986,29 +1009,6 @@
         "transactionText": "Conversion of Exercise of derivative security at price 4.72 per share.",
         "filerName": "GLAZER DAVID ALAN",
         "filerRelation": "Chief Financial Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1756771200,
-          "fmt": "2025-09-02"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 20000,
-          "fmt": "20k",
-          "longFmt": "20,000"
-        },
-        "value": {
-          "raw": 3128318,
-          "fmt": "3.13M",
-          "longFmt": "3,128,318"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 151.56 - 157.68 per share.",
-        "filerName": "MOORE ALEXANDER D",
-        "filerRelation": "Director",
         "moneyText": "",
         "startDate": {
           "raw": 1756771200,
@@ -1077,29 +1077,6 @@
         "startDate": {
           "raw": 1755820800,
           "fmt": "2025-08-22"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 17680,
-          "fmt": "17.68k",
-          "longFmt": "17,680"
-        },
-        "value": {
-          "raw": 2711464,
-          "fmt": "2.71M",
-          "longFmt": "2,711,464"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 143.12 - 157.18 per share.",
-        "filerName": "GLAZER DAVID ALAN",
-        "filerRelation": "Chief Financial Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1755734400,
-          "fmt": "2025-08-21"
         },
         "ownership": "D"
       },
@@ -1178,6 +1155,29 @@
         "transactionText": "",
         "filerName": "COHEN STEPHEN ANDREW",
         "filerRelation": "President",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1755734400,
+          "fmt": "2025-08-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 17680,
+          "fmt": "17.68k",
+          "longFmt": "17,680"
+        },
+        "value": {
+          "raw": 2711464,
+          "fmt": "2.71M",
+          "longFmt": "2,711,464"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 143.12 - 157.18 per share.",
+        "filerName": "GLAZER DAVID ALAN",
+        "filerRelation": "Chief Financial Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1755734400,
@@ -1621,52 +1621,6 @@
         },
         "filerUrl": "",
         "transactionText": "Stock Award(Grant) at price 0.00 per share.",
-        "filerName": "SCHIFF ALEXANDRA W",
-        "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1749168000,
-          "fmt": "2025-06-06"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 2348,
-          "fmt": "2.35k",
-          "longFmt": "2,348"
-        },
-        "value": {
-          "raw": 0,
-          "fmt": null,
-          "longFmt": "0"
-        },
-        "filerUrl": "",
-        "transactionText": "Stock Award(Grant) at price 0.00 per share.",
-        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
-        "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1749168000,
-          "fmt": "2025-06-06"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 2348,
-          "fmt": "2.35k",
-          "longFmt": "2,348"
-        },
-        "value": {
-          "raw": 0,
-          "fmt": null,
-          "longFmt": "0"
-        },
-        "filerUrl": "",
-        "transactionText": "Stock Award(Grant) at price 0.00 per share.",
         "filerName": "WOERSCHING ERIC H",
         "filerRelation": "Director",
         "moneyText": "",
@@ -1725,19 +1679,106 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 34230,
-          "fmt": "34.23k",
-          "longFmt": "34,230"
+          "raw": 2348,
+          "fmt": "2.35k",
+          "longFmt": "2,348"
         },
         "value": {
-          "raw": 4324987,
-          "fmt": "4.32M",
-          "longFmt": "4,324,987"
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "filerUrl": "",
+        "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+        "filerName": "SCHIFF ALEXANDRA W",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1749168000,
+          "fmt": "2025-06-06"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 2348,
+          "fmt": "2.35k",
+          "longFmt": "2,348"
+        },
+        "value": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "filerUrl": "",
+        "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1749168000,
+          "fmt": "2025-06-06"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 39416,
+          "fmt": "39.42k",
+          "longFmt": "39,416"
+        },
+        "value": {
+          "raw": 4980241,
+          "fmt": "4.98M",
+          "longFmt": "4,980,241"
         },
         "filerUrl": "",
         "transactionText": "Sale at price 125.26 - 127.71 per share.",
-        "filerName": "GLAZER DAVID ALAN",
-        "filerRelation": "Chief Financial Officer",
+        "filerName": "TAYLOR RYAN DOUGLAS",
+        "filerRelation": "Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1747785600,
+          "fmt": "2025-05-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 167545,
+          "fmt": "167.54k",
+          "longFmt": "167,545"
+        },
+        "value": {
+          "raw": 21169439,
+          "fmt": "21.17M",
+          "longFmt": "21,169,439"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 125.26 - 127.71 per share.",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1747785600,
+          "fmt": "2025-05-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 167545,
+          "fmt": "167.54k",
+          "longFmt": "167,545"
+        },
+        "filerUrl": "",
+        "transactionText": "",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1747785600,
@@ -1830,6 +1871,29 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 34230,
+          "fmt": "34.23k",
+          "longFmt": "34,230"
+        },
+        "value": {
+          "raw": 4324987,
+          "fmt": "4.32M",
+          "longFmt": "4,324,987"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 125.26 - 127.71 per share.",
+        "filerName": "GLAZER DAVID ALAN",
+        "filerRelation": "Chief Financial Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1747785600,
+          "fmt": "2025-05-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 1897,
           "fmt": "1.9k",
           "longFmt": "1,897"
@@ -1842,70 +1906,6 @@
         "filerUrl": "",
         "transactionText": "Sale at price 125.26 - 127.71 per share.",
         "filerName": "BUCKLEY JEFFREY JOHANSING",
-        "filerRelation": "Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1747785600,
-          "fmt": "2025-05-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 39416,
-          "fmt": "39.42k",
-          "longFmt": "39,416"
-        },
-        "value": {
-          "raw": 4980241,
-          "fmt": "4.98M",
-          "longFmt": "4,980,241"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 125.26 - 127.71 per share.",
-        "filerName": "TAYLOR RYAN DOUGLAS",
-        "filerRelation": "Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1747785600,
-          "fmt": "2025-05-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 167545,
-          "fmt": "167.54k",
-          "longFmt": "167,545"
-        },
-        "value": {
-          "raw": 21169439,
-          "fmt": "21.17M",
-          "longFmt": "21,169,439"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 125.26 - 127.71 per share.",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1747785600,
-          "fmt": "2025-05-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 167545,
-          "fmt": "167.54k",
-          "longFmt": "167,545"
-        },
-        "filerUrl": "",
-        "transactionText": "",
-        "filerName": "SANKAR SHYAM",
         "filerRelation": "Officer",
         "moneyText": "",
         "startDate": {
@@ -2393,6 +2393,47 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 375000,
+          "fmt": "375k",
+          "longFmt": "375,000"
+        },
+        "value": {
+          "raw": 38426081,
+          "fmt": "38.43M",
+          "longFmt": "38,426,081"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 96.40 - 107.20 per share.",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1740009600,
+          "fmt": "2025-02-20"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 375000,
+          "fmt": "375k",
+          "longFmt": "375,000"
+        },
+        "filerUrl": "",
+        "transactionText": "",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1740009600,
+          "fmt": "2025-02-20"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 232898,
           "fmt": "232.9k",
           "longFmt": "232,898"
@@ -2429,47 +2470,6 @@
         "transactionText": "Stock Award(Grant) at price 0.00 per share.",
         "filerName": "TAYLOR RYAN DOUGLAS",
         "filerRelation": "Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1740009600,
-          "fmt": "2025-02-20"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 375000,
-          "fmt": "375k",
-          "longFmt": "375,000"
-        },
-        "value": {
-          "raw": 38426081,
-          "fmt": "38.43M",
-          "longFmt": "38,426,081"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 96.40 - 107.20 per share.",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1740009600,
-          "fmt": "2025-02-20"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 375000,
-          "fmt": "375k",
-          "longFmt": "375,000"
-        },
-        "filerUrl": "",
-        "transactionText": "",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1740009600,
@@ -2595,6 +2595,29 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 20000,
+          "fmt": "20k",
+          "longFmt": "20,000"
+        },
+        "value": {
+          "raw": 1490101,
+          "fmt": "1.49M",
+          "longFmt": "1,490,101"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 73.15 - 75.85 per share.",
+        "filerName": "MOORE ALEXANDER D",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1735776000,
+          "fmt": "2025-01-02"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 96273,
           "fmt": "96.27k",
           "longFmt": "96,273"
@@ -2660,29 +2683,6 @@
           "fmt": "2025-01-02"
         },
         "ownership": "D/I"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 20000,
-          "fmt": "20k",
-          "longFmt": "20,000"
-        },
-        "value": {
-          "raw": 1490101,
-          "fmt": "1.49M",
-          "longFmt": "1,490,101"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 73.15 - 75.85 per share.",
-        "filerName": "MOORE ALEXANDER D",
-        "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1735776000,
-          "fmt": "2025-01-02"
-        },
-        "ownership": "D"
       },
       {
         "maxAge": 1,
@@ -3017,29 +3017,6 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 66785,
-          "fmt": "66.78k",
-          "longFmt": "66,785"
-        },
-        "value": {
-          "raw": 4127176,
-          "fmt": "4.13M",
-          "longFmt": "4,127,176"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 60.68 - 63.07 per share.",
-        "filerName": "GLAZER DAVID ALAN",
-        "filerRelation": "Chief Financial Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1732147200,
-          "fmt": "2024-11-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
           "raw": 22218,
           "fmt": "22.22k",
           "longFmt": "22,218"
@@ -3053,6 +3030,47 @@
         "transactionText": "Sale at price 60.68 - 63.07 per share.",
         "filerName": "PLANISHEK HEATHER A",
         "filerRelation": "Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1732147200,
+          "fmt": "2024-11-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 169017,
+          "fmt": "169.02k",
+          "longFmt": "169,017"
+        },
+        "value": {
+          "raw": 10444904,
+          "fmt": "10.44M",
+          "longFmt": "10,444,904"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 60.68 - 63.07 per share.",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1732147200,
+          "fmt": "2024-11-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 169017,
+          "fmt": "169.02k",
+          "longFmt": "169,017"
+        },
+        "filerUrl": "",
+        "transactionText": "",
+        "filerName": "SANKAR SHYAM",
+        "filerRelation": "Chief Technology Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1732147200,
@@ -3104,6 +3122,29 @@
       {
         "maxAge": 1,
         "shares": {
+          "raw": 66785,
+          "fmt": "66.78k",
+          "longFmt": "66,785"
+        },
+        "value": {
+          "raw": 4127176,
+          "fmt": "4.13M",
+          "longFmt": "4,127,176"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 60.68 - 63.07 per share.",
+        "filerName": "GLAZER DAVID ALAN",
+        "filerRelation": "Chief Financial Officer",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1732147200,
+          "fmt": "2024-11-21"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
           "raw": 77109,
           "fmt": "77.11k",
           "longFmt": "77,109"
@@ -3117,47 +3158,6 @@
         "transactionText": "Sale at price 60.68 - 63.07 per share.",
         "filerName": "TAYLOR RYAN DOUGLAS",
         "filerRelation": "Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1732147200,
-          "fmt": "2024-11-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 169017,
-          "fmt": "169.02k",
-          "longFmt": "169,017"
-        },
-        "value": {
-          "raw": 10444904,
-          "fmt": "10.44M",
-          "longFmt": "10,444,904"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 60.68 - 63.07 per share.",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1732147200,
-          "fmt": "2024-11-21"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
-          "raw": 169017,
-          "fmt": "169.02k",
-          "longFmt": "169,017"
-        },
-        "filerUrl": "",
-        "transactionText": "",
-        "filerName": "SANKAR SHYAM",
-        "filerRelation": "Chief Technology Officer",
         "moneyText": "",
         "startDate": {
           "raw": 1732147200,
@@ -3314,29 +3314,6 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 8054,
-          "fmt": "8.05k",
-          "longFmt": "8,054"
-        },
-        "value": {
-          "raw": 406646,
-          "fmt": "406.65k",
-          "longFmt": "406,646"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 50.49 per share.",
-        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
-        "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1730764800,
-          "fmt": "2024-11-05"
-        },
-        "ownership": "I"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
           "raw": 20000,
           "fmt": "20k",
           "longFmt": "20,000"
@@ -3379,6 +3356,29 @@
           "fmt": "2024-11-05"
         },
         "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 8054,
+          "fmt": "8.05k",
+          "longFmt": "8,054"
+        },
+        "value": {
+          "raw": 406646,
+          "fmt": "406.65k",
+          "longFmt": "406,646"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 50.49 per share.",
+        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1730764800,
+          "fmt": "2024-11-05"
+        },
+        "ownership": "I"
       },
       {
         "maxAge": 1,
@@ -3608,29 +3608,6 @@
       {
         "maxAge": 1,
         "shares": {
-          "raw": 3050,
-          "fmt": "3.05k",
-          "longFmt": "3,050"
-        },
-        "value": {
-          "raw": 111806,
-          "fmt": "111.81k",
-          "longFmt": "111,806"
-        },
-        "filerUrl": "",
-        "transactionText": "Sale at price 36.59 - 37.27 per share.",
-        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
-        "filerRelation": "Director",
-        "moneyText": "",
-        "startDate": {
-          "raw": 1727740800,
-          "fmt": "2024-10-01"
-        },
-        "ownership": "D"
-      },
-      {
-        "maxAge": 1,
-        "shares": {
           "raw": 20000,
           "fmt": "20k",
           "longFmt": "20,000"
@@ -3643,6 +3620,29 @@
         "filerUrl": "",
         "transactionText": "Sale at price 36.58 - 37.25 per share.",
         "filerName": "MOORE ALEXANDER D",
+        "filerRelation": "Director",
+        "moneyText": "",
+        "startDate": {
+          "raw": 1727740800,
+          "fmt": "2024-10-01"
+        },
+        "ownership": "D"
+      },
+      {
+        "maxAge": 1,
+        "shares": {
+          "raw": 3050,
+          "fmt": "3.05k",
+          "longFmt": "3,050"
+        },
+        "value": {
+          "raw": 111806,
+          "fmt": "111.81k",
+          "longFmt": "111,806"
+        },
+        "filerUrl": "",
+        "transactionText": "Sale at price 36.59 - 37.27 per share.",
+        "filerName": "STAT LAUREN ELAINA FRIEDMAN",
         "filerRelation": "Director",
         "moneyText": "",
         "startDate": {
@@ -3739,9 +3739,9 @@
           "longFmt": "68,011,736"
         },
         "value": {
-          "raw": 9238713969,
-          "fmt": "9.24B",
-          "longFmt": "9,238,713,969"
+          "raw": 9227831842,
+          "fmt": "9.23B",
+          "longFmt": "9,227,831,842"
         },
         "pctChange": {
           "raw": -0.0162,
@@ -3765,9 +3765,9 @@
           "longFmt": "56,112,131"
         },
         "value": {
-          "raw": 7622271669,
-          "fmt": "7.62B",
-          "longFmt": "7,622,271,669"
+          "raw": 7613293523,
+          "fmt": "7.61B",
+          "longFmt": "7,613,293,523"
         },
         "pctChange": {
           "raw": -0.070700005,
@@ -3791,9 +3791,9 @@
           "longFmt": "51,254,736"
         },
         "value": {
-          "raw": 6962443150,
-          "fmt": "6.96B",
-          "longFmt": "6,962,443,150"
+          "raw": 6954242205,
+          "fmt": "6.95B",
+          "longFmt": "6,954,242,205"
         },
         "pctChange": {
           "raw": 0.075100005,
@@ -3817,9 +3817,9 @@
           "longFmt": "29,699,758"
         },
         "value": {
-          "raw": 4034415017,
+          "raw": 4029662947,
           "fmt": "4.03B",
-          "longFmt": "4,034,415,017"
+          "longFmt": "4,029,662,947"
         },
         "pctChange": {
           "raw": 0.043899998,
@@ -3843,9 +3843,9 @@
           "longFmt": "28,888,557"
         },
         "value": {
-          "raw": 3924221477,
+          "raw": 3919599202,
           "fmt": "3.92B",
-          "longFmt": "3,924,221,477"
+          "longFmt": "3,919,599,202"
         },
         "pctChange": {
           "raw": 0.0058,
@@ -3869,9 +3869,9 @@
           "longFmt": "27,823,592"
         },
         "value": {
-          "raw": 3779556635,
+          "raw": 3775104758,
           "fmt": "3.78B",
-          "longFmt": "3,779,556,635"
+          "longFmt": "3,775,104,758"
         },
         "pctChange": {
           "raw": 0.0218,
@@ -3895,9 +3895,9 @@
           "longFmt": "23,002,781"
         },
         "value": {
-          "raw": 3124697686,
+          "raw": 3121017157,
           "fmt": "3.12B",
-          "longFmt": "3,124,697,686"
+          "longFmt": "3,121,017,157"
         },
         "pctChange": {
           "raw": 0.0277,
@@ -3921,9 +3921,9 @@
           "longFmt": "18,125,030"
         },
         "value": {
-          "raw": 2462104008,
+          "raw": 2459203937,
           "fmt": "2.46B",
-          "longFmt": "2,462,104,008"
+          "longFmt": "2,459,203,937"
         },
         "pctChange": {
           "raw": -0.0482,
@@ -3947,9 +3947,9 @@
           "longFmt": "14,362,700"
         },
         "value": {
-          "raw": 1951029115,
+          "raw": 1948731030,
           "fmt": "1.95B",
-          "longFmt": "1,951,029,115"
+          "longFmt": "1,948,731,030"
         },
         "pctChange": {
           "raw": 0.0295,
@@ -3973,9 +3973,9 @@
           "longFmt": "13,257,608"
         },
         "value": {
-          "raw": 1800913422,
+          "raw": 1798792156,
           "fmt": "1.8B",
-          "longFmt": "1,800,913,422"
+          "longFmt": "1,798,792,156"
         },
         "pctChange": {
           "raw": 0.016900001,
@@ -3997,25 +3997,25 @@
     "regularMarketDayHigh": 139.2199,
     "payoutRatio": 0,
     "beta": 1.687,
-    "trailingPE": 215.61905,
-    "forwardPE": 74.98675,
-    "volume": 48069527,
-    "regularMarketVolume": 48069527,
-    "averageVolume": 45017631,
-    "averageVolume10days": 72138480,
-    "averageDailyVolume10Day": 72138480,
+    "trailingPE": 218.8387,
+    "forwardPE": 74.89842,
+    "volume": 52708714,
+    "regularMarketVolume": 52708714,
+    "averageVolume": 44975137,
+    "averageVolume10days": 72931700,
+    "averageDailyVolume10Day": 72931700,
     "bid": 135.41,
     "ask": 135.89,
     "bidSize": 600,
     "askSize": 600,
-    "marketCap": 323765960704,
+    "marketCap": 323384606720,
     "fiftyTwoWeekLow": 66.12,
     "fiftyTwoWeekHigh": 207.52,
     "allTimeHigh": 207.52,
     "allTimeLow": 5.92,
-    "priceToSalesTrailing12Months": 72.34273,
-    "fiftyDayAverage": 172.0028,
-    "twoHundredDayAverage": 160.49672,
+    "priceToSalesTrailing12Months": 72.25752,
+    "fiftyDayAverage": 171.3474,
+    "twoHundredDayAverage": 160.61122,
     "trailingAnnualDividendRate": 0,
     "trailingAnnualDividendYield": 0,
     "currency": "USD",
@@ -6265,40 +6265,45 @@
   },
   "price": {
     "maxAge": 1,
-    "preMarketSource": "FREE_REALTIME",
-    "regularMarketChangePercent": -0.02588742,
-    "regularMarketChange": -3.6100006,
-    "regularMarketTime": 1770843509,
+    "preMarketChangePercent": 0.006743872,
+    "preMarketChange": 0.91500854,
+    "preMarketTime": 1770901272,
+    "preMarketPrice": 136.595,
+    "preMarketSource": "DELAYED",
+    "postMarketSource": "FREE_REALTIME",
+    "regularMarketChangePercent": -0.02703481,
+    "regularMarketChange": -3.7700043,
+    "regularMarketTime": 1770843600,
     "priceHint": 2,
-    "regularMarketPrice": 135.84,
+    "regularMarketPrice": 135.68,
     "regularMarketDayHigh": 139.2199,
     "regularMarketDayLow": 132.95,
-    "regularMarketVolume": 48069527,
-    "averageDailyVolume10Day": 72138480,
-    "averageDailyVolume3Month": 45017631,
+    "regularMarketVolume": 52708714,
+    "averageDailyVolume10Day": 72931700,
+    "averageDailyVolume3Month": 44975137,
     "regularMarketPreviousClose": 139.45,
     "regularMarketSource": "FREE_REALTIME",
     "regularMarketOpen": 139.035,
     "exchange": "NMS",
     "exchangeName": "NasdaqGS",
     "exchangeDataDelayedBy": 0,
-    "marketState": "REGULAR",
+    "marketState": "PRE",
     "quoteType": "EQUITY",
     "symbol": "PLTR",
     "underlyingSymbol": null,
     "shortName": "Palantir Technologies Inc.",
     "longName": "Palantir Technologies Inc.",
     "currency": "USD",
-    "quoteSourceName": "Nasdaq Real Time Price",
+    "quoteSourceName": "Delayed Quote",
     "currencySymbol": "$",
     "fromCurrency": null,
     "toCurrency": null,
     "lastMarket": null,
-    "marketCap": 323765960704
+    "marketCap": 323384606720
   },
   "financialData": {
     "maxAge": 86400,
-    "currentPrice": 135.84,
+    "currentPrice": 135.68,
     "targetHighPrice": 260,
     "targetLowPrice": 70,
     "targetMeanPrice": 189.92043,
