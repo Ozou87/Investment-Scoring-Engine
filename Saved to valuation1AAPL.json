@@ -5,8 +5,8 @@
         "financialData": {
           "maxAge": 86400,
           "currentPrice": {
-            "raw": 272.09,
-            "fmt": "272.09"
+            "raw": 270.48,
+            "fmt": "270.48"
           },
           "targetHighPrice": {
             "raw": 350,

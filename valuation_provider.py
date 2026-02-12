@@ -3,7 +3,9 @@ import json
 import pandas as pd
 import os
 import statistics
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def fetch_stock_valuation_data(ticker: str) -> dict:
 
@@ -15,7 +17,7 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
     querystring = {"region":"US","symbol":clean_ticker}
 
     headers = {
-        "x-rapidapi-key": "ac7d1c4b19mshe08636b12ca178bp1254e4jsn916ba406437e",
+        "x-rapidapi-key": os.getenv("API_VALUATION_ONE"),
         "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
     }
 
@@ -23,7 +25,7 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
 
     data_1 = response.json()   
 
-    with open(f"Saved to valuation1{clean_ticker}.json", "w", encoding="utf-8") as f:
+    with open(f"valuation1{clean_ticker}.json", "w", encoding="utf-8") as f:
         json.dump(data_1, f, indent=2)
 
     #API Yahoo Finance Real Time/ stocks / get-summery
@@ -32,7 +34,7 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
     querystring = {"lang":"en-US","symbol":clean_ticker,"region":"US"}
 
     headers = {
-        "x-rapidapi-key": "ac7d1c4b19mshe08636b12ca178bp1254e4jsn916ba406437e",
+        "x-rapidapi-key": os.getenv("API_VALUATION_TWO"),
         "x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
@@ -40,7 +42,7 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
 
     data_2 = response.json()   
 
-    with open(f"Saved to valuation2{clean_ticker}.json", "w", encoding="utf-8") as f:
+    with open(f"valuation2{clean_ticker}.json", "w", encoding="utf-8") as f:
         json.dump(data_2, f, indent=2)
 
     #Stock P/E = current price / EPS (TTM)
@@ -62,11 +64,11 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
     stock_price_to_free_cash_flow_multiple = stock_market_cap / stock_free_cash_flow
 
     return {
-        "stockpe": stock_pe,
-        "stockforwardpe": stock_forward_pe,
-        "stockevebitdamultiple": ev_ebitda_multiple,
+        "pe": stock_pe,
+        "forwardpe": stock_forward_pe,
+        "evebitdamultiple": ev_ebitda_multiple,
         
-        "stockpricetofreecashflowmultiple": stock_price_to_free_cash_flow_multiple
+        "pricetofreecashflowmultiple": stock_price_to_free_cash_flow_multiple
     }
 
 def calculate_sector_median(sector_metrics: dict, metric_name: str):
@@ -121,12 +123,12 @@ def fetch_sector_valuation_data(sector: str,):
         except Exception as e:
             print(f"Failed to fetch data for {ticker}: {e}")
 
-    sector_median_pe = calculate_sector_median(sector_metrics, "stockpe")
-    sector_median_forward_pe = calculate_sector_median(sector_metrics, "stockforwardpe")
-    sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "stockevebitdamultiple")
-    #add after i fugure out P/S RATIO
+    sector_median_pe = calculate_sector_median(sector_metrics, "pe")
+    sector_median_forward_pe = calculate_sector_median(sector_metrics, "forwardpe")
+    sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "evebitdamultiple")
+    #add after i figure out P/S RATIO
     #sector_median_price_to_sales = calculate_sector_median(sector_metrics, "price_to_sales")
-    sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "stockpricetofreecashflowmultiple")
+    sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "pricetofreecashflowmultiple")
 
     return {
         "sector_median_pe": sector_median_pe,
