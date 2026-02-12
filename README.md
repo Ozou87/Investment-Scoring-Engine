@@ -94,6 +94,10 @@ You will be prompted for financial values manually.
 A future version will pull all values automatically from APIs.
 With API integration, the system will also automatically detect the company’s sector—no manual input required.
 
+
+## disclaimer
+Not financial advice. Personal opinion only. Do your own research.
+
 ## License
 
 All Rights Reserved – Educational & Portfolio Use Only.
