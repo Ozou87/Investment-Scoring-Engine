@@ -25,7 +25,9 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
 
     data_1 = response.json()   
 
-    with open(f"valuation1{clean_ticker}.json", "w", encoding="utf-8") as f:
+    os.makedirs("data_reports", exist_ok=True)
+    file_path_1 = f"data_reports/valuation_1_{clean_ticker}.json"
+    with open(file_path_1, "w", encoding="utf-8") as f:
         json.dump(data_1, f, indent=2)
 
     #API Yahoo Finance Real Time/ stocks / get-summery
@@ -42,14 +44,17 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
 
     data_2 = response.json()   
 
-    with open(f"valuation2{clean_ticker}.json", "w", encoding="utf-8") as f:
+    os.makedirs("data_reports", exist_ok=True)
+    file_path_2 = f"data_reports/valuation_2_{clean_ticker}.json"
+    with open(file_path_2, "w", encoding="utf-8") as f:
         json.dump(data_2, f, indent=2)
 
-    #Stock P/E = current price / EPS (TTM)
+    #P/E = current price / EPS (TTM)
     current_price = data_2["financialData"]["currentPrice"]
     eps_ttm = data_2["defaultKeyStatistics"]["trailingEps"]
     stock_pe = current_price / eps_ttm
 
+    #Forward P/E = Current Price / Expected EPS (Next 12 Months)
     stock_forward_pe = data_2["defaultKeyStatistics"]["forwardPE"]
 
     #ev = Enterprise Value = market cap + (total debt - cash & cash equivalents)
@@ -57,17 +62,19 @@ def fetch_stock_valuation_data(ticker: str) -> dict:
     #EV/EBITA MULTIPE = Enterprise Value / Ebitda
     ev_ebitda_multiple = data_2["defaultKeyStatistics"]["enterpriseToEbitda"]
     
-    #Stock Price to Free Cash Flow multiple = Market Cap / Free Cash Flow
+    #Price/Sales = Market Cap / Revenue (ttm)
+    stock_price_to_sales_multiple = data_2["summaryDetail"]["priceToSalesTrailing12Months"]
+
+    #Price to Free Cash Flow multiple = Market Cap / Free Cash Flow
     stock_market_cap = data_2["summaryDetail"]["marketCap"]
     stock_free_cash_flow = data_2["financialData"]["freeCashflow"]
-
     stock_price_to_free_cash_flow_multiple = stock_market_cap / stock_free_cash_flow
 
     return {
         "pe": stock_pe,
         "forwardpe": stock_forward_pe,
         "evebitdamultiple": ev_ebitda_multiple,
-        
+        "pricetosalesmultiple": stock_price_to_sales_multiple,
         "pricetofreecashflowmultiple": stock_price_to_free_cash_flow_multiple
     }
 
@@ -126,15 +133,14 @@ def fetch_sector_valuation_data(sector: str,):
     sector_median_pe = calculate_sector_median(sector_metrics, "pe")
     sector_median_forward_pe = calculate_sector_median(sector_metrics, "forwardpe")
     sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "evebitdamultiple")
-    #add after i figure out P/S RATIO
-    #sector_median_price_to_sales = calculate_sector_median(sector_metrics, "price_to_sales")
+    sector_median_price_to_sales_multiple = calculate_sector_median(sector_metrics, "price_to_sales_multiple")
     sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "pricetofreecashflowmultiple")
 
     return {
         "sector_median_pe": sector_median_pe,
         "sector_median_forward_pe": sector_median_forward_pe,
         "sector_median_ev_ebitda_multiple": sector_median_ev_ebitda_multiple,
-        
+        "sector_median_price_to_sales_multiple": sector_median_price_to_sales_multiple,
         "sector_median_price_to_fcf": sector_median_price_to_fcf
     }
 

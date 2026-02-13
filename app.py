@@ -1,4 +1,3 @@
-
 from core_engine import calculate_all_scores
 from core_engine import Fundamental_input, Valuation_input, Moat_input
 
@@ -61,15 +60,16 @@ while True:
         stock_pe = stock_valuation_data["pe"]
         stock_forward_pe = stock_valuation_data["forwardpe"]
         stock_ev_ebitda_multipe = stock_valuation_data["evebitdamultiple"]
-
+        stock_price_to_sales_multiple = stock_valuation_data["pricetosalesmultiple"]
         stock_price_to_free_cash_flow_multiple = stock_valuation_data["pricetofreecashflowmultiple"]
 
-        #getting sector valuation data for ticker:
+        #getting SECTOR valuation data for ticker:
         sector_valuation_data = fetch_sector_valuation_data(sector)
 
         sector_median_pe = sector_valuation_data["sector_median_pe"]
         sector_median_forward_pe = sector_valuation_data["sector_median_forward_pe"]
         sector_median_ev_ebitda_multiple = sector_valuation_data["sector_median_ev_ebitda_multiple"]
+        sector_median_price_to_sales_multiple = sector_valuation_data["sector_median_price_to_sales_multiple"]
         sector_median_price_to_fcf = sector_valuation_data["sector_median_price_to_fcf"]
 
         break
@@ -106,14 +106,6 @@ fundamental_input = Fundamental_input(
 
 print("\n--- Valuation Metrics ---")
 
-print("\n--- Sector Valuation Medians ---")
-print(f"Sector Median P/E: {sector_median_pe:.2f}")
-print(f"Sector Median Forward P/E: {sector_median_forward_pe:.2f}")
-print(f"Sector Median EV/EBITDA: {sector_median_ev_ebitda_multiple:.2f}")
-stock_ps = get_float("Enter STOCK Price/Sales: ")
-sector_ps = get_float("Enter SECTOR Price/Sales: ")
-print(f"Sector Median Price/FCF: {sector_median_price_to_fcf:.2f}")
-
 valuation_input= Valuation_input(
     stock_pe=stock_pe,
     sector_median_pe=sector_median_pe,
@@ -121,7 +113,7 @@ valuation_input= Valuation_input(
     sector_median_forward_pe=sector_median_forward_pe,
     stock_ev_ebitda_multipe=stock_ev_ebitda_multipe,
     sector_median_ev_ebitda_multiple=sector_median_ev_ebitda_multiple,
-    stock_ps=stock_ps,
+    stock_price_to_sales_multiple=stock_price_to_sales_multiple,
     sector_ps=sector_ps,
     stock_price_to_free_cash_flow_multiple=stock_price_to_free_cash_flow_multiple,
     sector_median_price_to_fcf=sector_median_price_to_fcf,
