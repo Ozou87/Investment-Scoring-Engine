@@ -10,8 +10,6 @@ def fetch_moat_data(ticker: str) -> dict:
     clean_ticker = ticker.strip().upper()
 
     #API YH FINANCE/ stocks / balance-sheet
-    import requests
-
     url = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/modules"
 
     querystring = {"ticker":clean_ticker,"module":"balance-sheet-v2"}
