@@ -23,7 +23,7 @@ class Valuation_input:
     stock_ev_ebitda_multipe: float
     sector_median_ev_ebitda_multiple: float
     stock_price_to_sales_multiple: float
-    sector_ps: float
+    sector_median_price_to_sales_multiple: float
     stock_price_to_free_cash_flow_multiple: float
     sector_median_price_to_fcf: float
     sector: str
@@ -64,7 +64,7 @@ def calculate_all_scores(
     stock_ev_ebitda_multipe = valuation_input.stock_ev_ebitda_multipe
     sector_median_ev_ebitda_multiple = valuation_input.sector_median_ev_ebitda_multiple
     stock_price_to_sales_multiple = valuation_input.stock_price_to_sales_multiple
-    sector_ps = valuation_input.sector_ps
+    sector_median_price_to_sales_multiple = valuation_input.sector_median_price_to_sales_multiple
     stock_price_to_free_cash_flow_multiple = valuation_input.stock_price_to_free_cash_flow_multiple
     sector_median_price_to_fcf = valuation_input.sector_median_price_to_fcf
     v_sector_name = valuation_input.sector
@@ -77,7 +77,7 @@ def calculate_all_scores(
         stock_ev_ebitda_multipe = stock_ev_ebitda_multipe,
         sector_median_ev_ebitda_multiple = sector_median_ev_ebitda_multiple,
         stock_price_to_sales_multiple = stock_price_to_sales_multiple,
-        sector_ps = sector_ps,
+        sector_median_price_to_sales_multiple = sector_median_price_to_sales_multiple,
         stock_price_to_free_cash_flow_multiple = stock_price_to_free_cash_flow_multiple,
         sector_median_price_to_fcf = sector_median_price_to_fcf,
         sector_name = v_sector_name

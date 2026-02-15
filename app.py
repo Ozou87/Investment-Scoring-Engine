@@ -54,7 +54,7 @@ while True:
         debt_to_equity = fundamental_data["debttoequity"]
         free_cash_flow_margin_ttm = fundamental_data["freecashflowmargin"]
 
-        #getting stock valuation data for ticker:
+        #getting STOCK valuation data for ticker:
         stock_valuation_data = fetch_stock_valuation_data(user_ticker)
 
         stock_pe = stock_valuation_data["pe"]
@@ -114,7 +114,7 @@ valuation_input= Valuation_input(
     stock_ev_ebitda_multipe=stock_ev_ebitda_multipe,
     sector_median_ev_ebitda_multiple=sector_median_ev_ebitda_multiple,
     stock_price_to_sales_multiple=stock_price_to_sales_multiple,
-    sector_ps=sector_ps,
+    sector_median_price_to_sales_multiple=sector_median_price_to_sales_multiple,
     stock_price_to_free_cash_flow_multiple=stock_price_to_free_cash_flow_multiple,
     sector_median_price_to_fcf=sector_median_price_to_fcf,
     sector=sector

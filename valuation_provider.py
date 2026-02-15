@@ -133,7 +133,7 @@ def fetch_sector_valuation_data(sector: str,):
     sector_median_pe = calculate_sector_median(sector_metrics, "pe")
     sector_median_forward_pe = calculate_sector_median(sector_metrics, "forwardpe")
     sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "evebitdamultiple")
-    sector_median_price_to_sales_multiple = calculate_sector_median(sector_metrics, "price_to_sales_multiple")
+    sector_median_price_to_sales_multiple = calculate_sector_median(sector_metrics, "pricetosalesmultiple")
     sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "pricetofreecashflowmultiple")
 
     return {
