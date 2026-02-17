@@ -60,8 +60,10 @@ project_root/
 ## Future Roadmap
 
 - Add support for real financial data via API
-- Add sentiment/analyst module
-- Create a web dashboard or REST API
+- Add earnings vs. estimates module
+- Add compare companies tool
+- Create a web dashboard
+- Use Docker, Jenkins and Jira
 - Deploy as a microservice
 
 ---
