@@ -84,8 +84,8 @@ def calculate_fundamental_scores(
     free_cash_flow = free_cash_flow_score(free_cash_flow_margin_pct)
     weight_by_sector = fundamental_weight(sector_name)
 
-    final_score = fundamental_weighted_score
-    (revenue_growth, operating_margin, debt_to_equity, free_cash_flow, weight_by_sector)
+    final_score = fundamental_weighted_score(
+    revenue_growth, operating_margin, debt_to_equity, free_cash_flow, weight_by_sector)
 
     return {
         "revenue_score": revenue_growth,

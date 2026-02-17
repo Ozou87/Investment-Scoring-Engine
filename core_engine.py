@@ -34,7 +34,7 @@ class Moat_input:
     fcf_growth_raw: float
     gross_margin_list: list[float]
     r_and_d_raw: float
-    revenue_raw: float
+    revenue_growth_raw: float
     sector: str
         
 def calculate_all_scores(
@@ -87,7 +87,7 @@ def calculate_all_scores(
     fcf_growth_raw = moat_input.fcf_growth_raw
     gross_margin_list = moat_input.gross_margin_list
     r_and_d_raw = moat_input.r_and_d_raw
-    revenue_raw = moat_input.revenue_raw
+    revenue_growth_raw = moat_input.revenue_growth_raw
     m_sector_name = moat_input.sector
 
     moat_scores = calculate_moat_scores(
@@ -95,7 +95,7 @@ def calculate_all_scores(
         fcf_growth_raw = fcf_growth_raw,
         gross_margin_list = gross_margin_list,
         r_and_d_raw = r_and_d_raw,
-        revenue_raw = revenue_raw,
+        revenue_growth_raw = revenue_growth_raw,
         sector_name = m_sector_name
                                         )
     # Extracting final scores from each module

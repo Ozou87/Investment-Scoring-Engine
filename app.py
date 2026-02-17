@@ -48,7 +48,7 @@ while True:
         #getting fundamental data for ticker:
         fundamental_data = fetch_fundamental_data(user_ticker)
 
-        revenue_growth_growth_pct = fundamental_data["revenue_growth_growth_pct"]
+        revenue_growth_pct = fundamental_data["revenue_growth_pct"]
         operating_margin_pct = fundamental_data["operating_margin_pct"]
         debt_to_equity_ratio = fundamental_data["debt_to_equity_ratio"]
         free_cash_flow_margin_pct = fundamental_data["free_cash_flow_margin_pct"]
@@ -90,13 +90,13 @@ if data is None:
     raise SystemExit(0)
 
 print("\n--- Fundamental Metrics ---")
-print(f"Quarterly revenue_growth Growth (YoY): {revenue_growth_growth_pct:.2f}%")
+print(f"Quarterly revenue_growth Growth (YoY): {revenue_growth_pct:.2f}%")
 print(f"Operating Margin (TTM): {operating_margin_pct:.2f}%")
 print(f"Total Debt / Equity (MRQ): {debt_to_equity_ratio:.2f}")
 print(f"Free Cash Flow Margin (TTM): {free_cash_flow_margin_pct:.2f}%")
 
 fundamental_input = Fundamental_input(
-    revenue_growth_growth_pct=revenue_growth_growth_pct,
+    revenue_growth_pct=revenue_growth_pct,
     operating_margin_pct=operating_margin_pct,
     debt_to_equity_ratio=debt_to_equity_ratio,
     free_cash_flow_margin_pct=free_cash_flow_margin_pct,

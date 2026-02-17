@@ -61,16 +61,16 @@ def pe_score(stock_pe: float, sector_median_pe:float) -> int:
     return score_relative_to_sector(stock_pe, sector_median_pe, PE_THRESHOLDS, PE_DEFAULT )
 
 def forward_pe_score(stock_forward_pe: float, sector_median_forward_pe:float) -> int:
-    return score_relative_to_sector(stock_forward_pe, sector_median_forward_pe, F_PE_RATIO_THRESHOLDS, F_PE_DEFAULT)
+    return score_relative_to_sector(stock_forward_pe, sector_median_forward_pe, FORWARD_PE_THRESHOLDS, FORWARD_PE_DEFAULT)
 
 def ev_ebitda_score(stock_ev_ebitda_multipe:float, sector_median_ev_ebitda_multiple:float) -> int:
-    return score_relative_to_sector(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple, EVEBITDA_RATIO_THRESHOLDS, EVEBITDA_RATIO_DEFAULT)
+    return score_relative_to_sector(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple, EV_EBITDA_THRESHOLDS, EV_EBITDA_DEFAULT)
 
-def ps_ratio(stock_price_to_sales_multiple:float, sector_median_price_to_sales_multiple: float) -> int:
-    return score_relative_to_sector(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple, PS_RATIO_THRESHOLDS, PS_RATIO_DEFAULT)
+def ps_score(stock_price_to_sales_multiple:float, sector_median_price_to_sales_multiple: float) -> int:
+    return score_relative_to_sector(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple, PS_THRESHOLDS, PS_DEFAULT)
 
-def price_fcf_ratio(stock_price_to_free_cash_flow_multiple:float, sector_median_price_to_fcf: float) -> int:
-    return score_relative_to_sector(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf, PFCF_RATIO_THRESHOLDS, PFCF_RATIO_DEFAULT)
+def p_fcf_score(stock_price_to_free_cash_flow_multiple:float, sector_median_price_to_fcf: float) -> int:
+    return score_relative_to_sector(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf, P_FCF_THRESHOLDS, P_FCF_DEFAULT)
 
 def valuation_weighted_score(
         pe:int,
@@ -85,7 +85,7 @@ def valuation_weighted_score(
     fpe_weight = wbs['fpe']
     eveb_weight = wbs['ev_ebitda']
     ps_weight = wbs['ps']
-    pfcf_weight = wbs['price_fcf']
+    pfcf_weight = wbs['price_free_cash_flow']
 
     weighted_together = (
         pe_weight * pe + fpe_weight * fpe + eveb_weight * eveb + ps_weight * ps + pfcf_weight * pfcf)
@@ -108,11 +108,11 @@ def calculate_valuation_scores(
     Core function of the valuation module.
     Gets raw inputs and returns all scores + final valuation_score.
     """
-    pe = pe_(stock_pe, sector_median_pe)
-    fpe = forward_pe_ratio(stock_forward_pe, sector_median_forward_pe)
-    eveb = evebitda_ratio(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple)
-    ps = ps_ratio(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple)
-    pfcf = price_fcf_ratio(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
+    pe = pe_score(stock_pe, sector_median_pe)
+    fpe = forward_pe_score(stock_forward_pe, sector_median_forward_pe)
+    eveb = ev_ebitda_score(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple)
+    ps = ps_score(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple)
+    pfcf = p_fcf_score(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
     weight_by_sector = valuation_weight(sector_name)
 
     final_score = valuation_weighted_score(pe, fpe, eveb, ps, pfcf, weight_by_sector)
