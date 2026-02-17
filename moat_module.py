@@ -11,14 +11,14 @@ RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS = [
                     ]
 RETURN_ON_INVESTMENT_CAPITAL_DEFAULT = 98   
 
-FCF_5Y_GROWTH_THRESHOLDS = [
+FCF_3Y_GROWTH_THRESHOLDS = [
     (0, 20),    
     (5, 40),    
     (10, 60),   
     (20, 80),   
     (30, 90),   
                             ]
-FCF_5Y_GROWTH_DEFAULT = 98  
+FCF_3Y_GROWTH_DEFAULT = 98  
 
 GM_STABILITY_THRESHOLDS = [
     (2, 90),    
@@ -40,8 +40,8 @@ RND_TO_REVENUE_RATIO_DEFAULT = 98
 def roic_score(roic_5y_avg: float) -> int:
     return threshold_based_score(roic_5y_avg, RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS, RETURN_ON_INVESTMENT_CAPITAL_DEFAULT)
 
-def fcf_growth_score(fcf_5y_growth: float) -> int:
-    return threshold_based_score(fcf_5y_growth, FCF_5Y_GROWTH_THRESHOLDS, FCF_5Y_GROWTH_DEFAULT)
+def fcf_growth_score(fcf_3y_growth: float) -> int:
+    return threshold_based_score(fcf_3y_growth, FCF_3Y_GROWTH_THRESHOLDS, FCF_3Y_GROWTH_DEFAULT)
 
 def gross_m_stability_score(gm_list: list[float]) -> int:
     gm_range = max(gm_list) - min(gm_list)
@@ -53,18 +53,18 @@ def rnd_revenue_score(rnd: float, revenue:float) -> int:
 
 def moat_weighted_score(
     roic: int,
-    fcf_5y_g: int,
+    fcf_3y_g: int,
     gm: int,
     rnd: int,
     wbs: dict
                         ) -> int:
     
     roic_weight = wbs['roic']
-    fcf_5y_g_weight = wbs['free_cash_flow_5y_g']
+    fcf_3y_g_weight = wbs['free_cash_flow_3y_g']
     gm_weight = wbs['gm_stability']
     rnd_weight = wbs['rnd_to_rev']
 
-    weighted_together = (roic_weight * roic + fcf_5y_g_weight * fcf_5y_g + gm_weight * gm + rnd_weight * rnd)
+    weighted_together = (roic_weight * roic + fcf_3y_g_weight * fcf_3y_g + gm_weight * gm + rnd_weight * rnd)
     return round(weighted_together)
 
 def calculate_moat_scores(

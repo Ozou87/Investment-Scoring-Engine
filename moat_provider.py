@@ -41,10 +41,16 @@ load_dotenv()
 #     return_on_investment_capital_pct = nopat / invested_capital * 100 
 
 
+#     FCF_3Y_CAGR = Compound-Annual-Growth-Rate of Free Cash Flow 
+#     FCF_3Y_CAGR = (free cash_flow_latest / free_cash_flow_3_years_ago)^(1/3) - 1
+#     free cash flow latest from fundamental module
+#     get - free cash flow 3 years ago
+
+
+
 #     return {
 #         "return_on_investment_capital_pct": return_on_investment_capital_pct,
-#         "freecashflowfiveyeargrowth": ,
-#         "debttoequity": debt_to_equity,
-#         "rndtorevenuemultiple": rnd_revenue_multiple
+#         "free_cash_flow_3_cagr": ,
+#         
 #     }
 #     pass
