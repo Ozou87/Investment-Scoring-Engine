@@ -15,27 +15,24 @@ def fetch_moat_data_from_api(ticker) -> dict:
         
     """
     clean_ticker = ticker.strip().upper()
-
-    file_path_3= f"data_reports/json_file_3_{clean_ticker}.json"
-    with open(file_path_3, "r", encoding="utf-8") as f:
-            file_3 = json.load(f)
     
     file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
     with open(file_path_1, "r", encoding="utf-8") as f:
             file_1 = json.load(f)
 
-    #Return on Invested Capital (ROIC) = NOPAT / Invested Capital
-    #multipling by 100 to get metric in %
-    #NOPAT = Operating Income(EBIT) * (1 - Tax Rate)
-    #EBIT = operating margin * Revenue
-    #Invested Capital = Total Debt + Total Equity - Cash
+    file_path_3= f"data_reports/json_file_3_{clean_ticker}.json"
+    with open(file_path_3, "r", encoding="utf-8") as f:
+            file_3 = json.load(f)
     
-    total_debt = ["body"]["debt"]["TTM"]
-    total_equity = moat_data_1["body"]["equity"]["TTM"]
-    total_cash = moat_data_1["body"]["totalcash"]["TTM"]
+    #Return on Invested Capital (ROIC) = nopat / invested Capital
+    #nopat = Operating Income(ebit) * (1 - tax Rate)
+    #ebit = operating margin * revenue
+    #Invested Capital = total Debt + total Equity - total cash
+    
+    total_debt = file_3["body"]["debt"]["TTM"]
+    total_equity = file_3["body"]["equity"]["TTM"]
+    total_cash = file_3["body"]["totalcash"]["TTM"]
     invested_capital = total_debt + total_equity - total_cash
-
-    #get from fundamental module or api (consider function for api)
 
     operating_margin_raw = (file_1["quoteSummary"]["result"][0]
             ["financialData"]["operatingMargins"]["raw"])
@@ -46,16 +43,23 @@ def fetch_moat_data_from_api(ticker) -> dict:
     ebit = operating_margin_raw * revenue
     tax_rate = 0.21
     nopat = ebit * (1 - tax_rate)
+    #multipling by 100 to get metric in %
     return_on_investment_capital_pct = nopat / invested_capital * 100 
 
+    #FCF_3Y_CAGR = Compound-Annual-Growth-Rate of Free Cash Flow 
+    #FCF_3Y_CAGR = (free cash_flow_latest / free_cash_flow_3_years_ago)^(1/3) - 1
 
-
+    free_cash_flow_latest = (file_1["quoteSummary"]["result"][0]
+            ["financialData"]["freeCashflow"]["raw"])
+    free_cash_flow_3_years_ago = 
+    #get free cash flow 3 years ago
+    
+    free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
     return {
         "return_on_investment_capital_pct": return_on_investment_capital_pct,
-        "operating_margin_pct": operating_margin_pct,
-        "debt_to_equity_ratio": debt_to_equity_ratio,
-        "free_cash_flow_margin_pct": free_cash_flow_margin_pct
+        "free_cash_flow_3y_cagr": free_cash_flow_3y_cagr,
+        
     }
 
 RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS = [
@@ -146,8 +150,8 @@ def calculate_moat_scores(
 
     return {
         "roic_score": roic,
-        "gm_stability_score": gm,
         "fcf_growth_score": fcf,
+        "gm_stability_score": gm,
         "rnd_to_revenue_score": rnd,
         "weight_currently_being_used": weight_by_sector,
         "moat_score": final_score

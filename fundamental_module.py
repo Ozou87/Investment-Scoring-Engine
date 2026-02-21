@@ -21,8 +21,8 @@ def fetch_fundamental_data_from_api(ticker) -> dict:
     #Quarterly Revenue Growth (yoy) = ( (New Quarter Revenue - Same Quarter Last Year Revenue) / Same Quarter Last Year Revenue ) * 100
     #multipling by 100 to get metric in %
     revenue_growth_raw = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["revenueGrowth"]["raw"]
-        )
+            ["financialData"]["revenueGrowth"]["raw"])
+    
     revenue_growth_pct = revenue_growth_raw * 100
     
     #operating margin (ttm) = Operating Income (EBIT) / Revenue
