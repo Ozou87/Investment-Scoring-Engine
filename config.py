@@ -167,67 +167,67 @@ def moat_weight(sector_name: str) -> dict:
     SECTOR_WEIGHTS = {
     "Technology": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.20,
+        "free_cash_flow_3y_g": 0.20,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.25
                 },
     "Financial Services": {
         "roic": 0.45,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.25,
         "rnd_to_rev": 0.05
                     },
     "Healthcare": {
         "roic": 0.30,
-        "free_cash_flow_5y_g": 0.15,
+        "free_cash_flow_3y_g": 0.15,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.35
                     },
     "Consumer Cyclical": {
         "roic": 0.30,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.25,
         "rnd_to_rev": 0.20
                 },
     "Consumer Defensive": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.30,
+        "free_cash_flow_3y_g": 0.30,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.15
                     },
     "Communication Services": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.20
                     },
     "Industrials": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.20
                 },
     "Energy": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.20
                     },
     "Utilities": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.20
                     },
     "Basic Materials": {
         "roic": 0.35,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.20,
         "rnd_to_rev": 0.20
                     },
     "Real Estate": {
         "roic": 0.40,
-        "free_cash_flow_5y_g": 0.25,
+        "free_cash_flow_3y_g": 0.25,
         "gm_stability": 0.30,
         "rnd_to_rev": 0.05
                     }

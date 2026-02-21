@@ -29,7 +29,7 @@ def create_financial_file_1(ticker):
 
     os.makedirs("data_reports", exist_ok=True)
 
-    file_path_1 = f"json_file_1_{clean_ticker}.json"
+    file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
     with open(file_path_1, "w", encoding="utf-8") as f:
             json.dump(file_1, f, indent=2)
 
@@ -53,6 +53,6 @@ def create_financial_file_2(ticker):
 
     os.makedirs("data_reports", exist_ok=True)
 
-    file_path_2 = f"json_file_2{clean_ticker}.json"
+    file_path_2 = f"data_reports/json_file_2{clean_ticker}.json"
     with open(file_path_2, "w", encoding="utf-8") as f:
         json.dump(file_2, f, indent=2)

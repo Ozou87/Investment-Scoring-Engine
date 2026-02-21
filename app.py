@@ -2,7 +2,7 @@ from core_engine import calculate_all_scores
 from core_engine import Fundamental_input, Valuation_input, Moat_input
 
 from company_provider import fetch_company_metadata, DataFetchError
-from run_analysis import complete_dict_of_data
+from assemble_data import complete_dict_of_data
 
 data = None
 ticker = None

@@ -47,7 +47,7 @@ def fetch_fundamental_data_from_api(ticker) -> dict:
         -free cash flow margin pct
     """
     clean_ticker = ticker.strip().upper()
-    file_path_1 = f"json_file_1_{clean_ticker}.json"
+    file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
     with open(file_path_1, "r", encoding="utf-8") as f:
             file_1 = json.load(f)
 

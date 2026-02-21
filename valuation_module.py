@@ -73,7 +73,7 @@ def fetch_valuation_data_from_api(ticker) -> dict:
     """
     clean_ticker = ticker.strip().upper()
 
-    file_path_2 = f"json_file_2{clean_ticker}.json"
+    file_path_2 = f"data_reports/json_file_2{clean_ticker}.json"
     with open(file_path_2, "r", encoding="utf-8") as f:
             file_2 = json.load(f)
 
