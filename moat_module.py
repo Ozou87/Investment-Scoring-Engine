@@ -7,44 +7,52 @@ load_dotenv()
 
 def fetch_moat_data_from_api(ticker) -> dict:
     """
-    opening file_1 and fetching fundamental financial metrics:
+    fetching moat financial metrics:
+        -retrun on investment capital
+        -free cash flow 3 year cagr
+        -gross margin stability
+        -r&d to revenue ratio
         
     """
     clean_ticker = ticker.strip().upper()
+
+    file_path_3= f"data_reports/json_file_3_{clean_ticker}.json"
+    with open(file_path_3, "r", encoding="utf-8") as f:
+            file_3 = json.load(f)
+    
     file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
     with open(file_path_1, "r", encoding="utf-8") as f:
             file_1 = json.load(f)
 
-    #Quarterly Revenue Growth (yoy) = ( (New Quarter Revenue - Same Quarter Last Year Revenue) / Same Quarter Last Year Revenue ) * 100
+    #Return on Invested Capital (ROIC) = NOPAT / Invested Capital
     #multipling by 100 to get metric in %
-    revenue_growth_raw = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["revenueGrowth"]["raw"]
-        )
-    revenue_growth_pct = revenue_growth_raw * 100
+    #NOPAT = Operating Income(EBIT) * (1 - Tax Rate)
+    #EBIT = operating margin * Revenue
+    #Invested Capital = Total Debt + Total Equity - Cash
     
-    #operating margin (ttm) = Operating Income (EBIT) / Revenue
-    #multipling by 100 to get metric in %
+    total_debt = ["body"]["debt"]["TTM"]
+    total_equity = moat_data_1["body"]["equity"]["TTM"]
+    total_cash = moat_data_1["body"]["totalcash"]["TTM"]
+    invested_capital = total_debt + total_equity - total_cash
+
+    #get from fundamental module or api (consider function for api)
+
     operating_margin_raw = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["operatingMargins"]["raw"]
-        )
-    operating_margin_pct = operating_margin_raw * 100
-
-    #debt to equity = Total Debt / Total Shareholders' Equity
-    debt_to_equity_ratio = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["debtToEquity"]["raw"])
-
-    #FREE CASH FLOW MARGIN(TTM)% = Levered free cash flow(ttm) / Revenue(ttm) * 100 
-    #multipling by 100 to get metric in %
+            ["financialData"]["operatingMargins"]["raw"])
+    
     revenue = (file_1["quoteSummary"]["result"][0]
             ["financialData"]["totalRevenue"]["raw"])
     
-    levered_free_cash_flow = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["freeCashflow"]["raw"])
-    
-    free_cash_flow_margin_pct = (levered_free_cash_flow / revenue) * 100
+    ebit = operating_margin_raw * revenue
+    tax_rate = 0.21
+    nopat = ebit * (1 - tax_rate)
+    return_on_investment_capital_pct = nopat / invested_capital * 100 
+
+
+
 
     return {
-        "revenue_growth_pct": revenue_growth_pct,
+        "return_on_investment_capital_pct": return_on_investment_capital_pct,
         "operating_margin_pct": operating_margin_pct,
         "debt_to_equity_ratio": debt_to_equity_ratio,
         "free_cash_flow_margin_pct": free_cash_flow_margin_pct

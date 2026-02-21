@@ -56,3 +56,27 @@ def create_financial_file_2(ticker):
     file_path_2 = f"data_reports/json_file_2{clean_ticker}.json"
     with open(file_path_2, "w", encoding="utf-8") as f:
         json.dump(file_2, f, indent=2)
+
+def create_financial_file_3(ticker):
+     
+    clean_ticker = ticker.strip().upper()
+
+    #API YH FINANCE/ stocks / balance-sheet
+    url = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/modules"
+
+    querystring = {"ticker":clean_ticker,"module":"balance-sheet-v2"}
+
+    headers = {
+	"x-rapidapi-key": os.getenv("API_MOAT_ONE"),
+	"x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+
+    file_3 = response.json() 
+
+    os.makedirs("data_reports", exist_ok=True)
+
+    file_path_3 = f"data_reports/json_file_3{clean_ticker}.json"
+    with open(file_path_3, "w", encoding="utf-8") as f:
+        json.dump(file_3, f, indent=2)

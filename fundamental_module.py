@@ -28,8 +28,8 @@ def fetch_fundamental_data_from_api(ticker) -> dict:
     #operating margin (ttm) = Operating Income (EBIT) / Revenue
     #multipling by 100 to get metric in %
     operating_margin_raw = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["operatingMargins"]["raw"]
-        )
+            ["financialData"]["operatingMargins"]["raw"])
+    
     operating_margin_pct = operating_margin_raw * 100
 
     #debt to equity = Total Debt / Total Shareholders' Equity
