@@ -6,9 +6,6 @@ import os
 load_dotenv()
 
 
-
-    
-
 #API YH FINANCE/ stocks / balance-sheet
 url = "https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/modules"
 

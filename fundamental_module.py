@@ -1,6 +1,8 @@
-
 from scoring_utils import threshold_based_score
 from config import fundamental_weight
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #creating table with limits and score limits
 REVENUE_GROWTH_THRESHOLDS = [
@@ -34,6 +36,12 @@ FREE_CASH_FLOW_THRESHOLDS = [
     (20, 80),
                 ]
 FREE_CASH_FLOW_DEFAULT = 95
+
+def fetch_fundamental_data_from_api():
+    with open(file_path, "r", encoding="utf-8") as f:
+            json.dump(fundamental_data, f, indent=2)
+
+
 
 #specific function that sends info to the generic function in order to help it find score
 def revenue_score(revenue_growth_pct: float) -> int:
