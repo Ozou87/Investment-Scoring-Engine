@@ -41,6 +41,12 @@ A **Core Engine** then aggregates all module scores into a single **Final Score*
 project_root/
 │
 ├── main.py
+
+├── main.py
+
+├── main.py
+
+├── main.py
 ├── core_engine.py
 ├── fundamental_module.py
 ├── valuation_module.py
@@ -96,8 +102,8 @@ You will be prompted for financial values manually.
 A future version will pull all values automatically from APIs.
 With API integration, the system will also automatically detect the company’s sector—no manual input required.
 
-
 ## disclaimer
+
 Not financial advice. Personal opinion only. Do your own research.
 
 ## License
@@ -108,4 +114,3 @@ See the LICENSE file for full details.
 ## Author
 
 Oz Efraty | Python developer & tech investor.
-
