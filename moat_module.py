@@ -7,11 +7,11 @@ load_dotenv()
 
 def fetch_moat_data_from_api(ticker) -> dict:
     """
-    fetching moat financial metrics:
-        -retrun on investment capital
-        -free cash flow 3 year cagr
-        -gross margin stability
-        -r&d to revenue ratio
+    opening .json file and fetching moat financial metrics:
+    -retrun on investment capital
+    -free cash flow 3 year cagr
+    -gross margin stability
+    -r&d to revenue ratio
         
     """
     clean_ticker = ticker.strip().upper()

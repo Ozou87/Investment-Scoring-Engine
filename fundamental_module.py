@@ -7,11 +7,11 @@ load_dotenv()
 
 def fetch_fundamental_data_from_api(ticker) -> dict:
     """
-    opening file_1 and fetching fundamental financial metrics:
-        -revenue growth pct
-        -operating margin pct
-        -debt/equity ratio
-        -free cash flow margin pct
+    opening .json file and fetching fundamental financial metrics:
+    -revenue growth pct
+    -operating margin pct
+    -debt/equity ratio
+    -free cash flow margin pct
     """
     clean_ticker = ticker.strip().upper()
     file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"

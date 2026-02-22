@@ -9,7 +9,7 @@ from api_caller import create_financial_file_2
 
 def fetch_valuation_data_from_api(ticker) -> dict:
     """
-    opening file_1 and fetching fundamental financial metrics:
+    opening .json file and fetching valuation financial metrics:
         -stock_pe
         -stock forward pe
         -stock ev/ebitda multiple
