@@ -14,13 +14,13 @@ def fetch_company_metadata(ticker: str) -> dict:
     #fetch from yahoo finance
     try:
     # Silence noisy output that may be printed by yfinance/urllib
-    # (e.g., HTTP 404 JSON message for invalid tickers)
+    
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             t = yf.Ticker(clean_ticker)
             info = t.info
 
     except Exception:
-    # Raise a clean, user-friendly error without leaking internal HTTP details
+    # Raise a user-friendly error without leaking internal HTTP details
         raise DataFetchError(f"Ticker {clean_ticker} not found") from None
     
     #Validate response is usable
@@ -30,9 +30,9 @@ def fetch_company_metadata(ticker: str) -> dict:
     if not (info.get("shortName") or info.get("longName")):
         raise DataFetchError(f"Ticker {clean_ticker} not found (no company name)")
 
-    #Extract fields safely (optional fields -> use get + fallback)
+    #Extract fields safely 
     company_name = info.get("shortName") or info.get("longName") 
-    sector = info.get("sector")  # might be None
+    sector = info.get("sector")  
 
     return {
         "ticker": clean_ticker,

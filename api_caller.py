@@ -6,11 +6,9 @@ import os
 load_dotenv()
 
 def create_financial_file_1(ticker):
-    clean_ticker = ticker.strip().upper()
     """
-    creating .json file from API to be used for fetching financial data
+    creating .json file_1 from API to be used for fetching financial data
     """    
-    
     clean_ticker = ticker.strip().upper()
 
     #API Yfinance / stocks / financialData 
@@ -34,6 +32,9 @@ def create_financial_file_1(ticker):
             json.dump(file_1, f, indent=2)
 
 def create_financial_file_2(ticker):
+    """
+    creating .json file_2 from API to be used for fetching financial data
+    """    
 
     clean_ticker = ticker.strip().upper()
       
@@ -43,7 +44,7 @@ def create_financial_file_2(ticker):
     querystring = {"lang":"en-US","symbol":clean_ticker,"region":"US"}
 
     headers = {
-        "x-rapidapi-key": os.getenv("API_VALUATION_TWO"),
+        "x-rapidapi-key": os.getenv("API_VALUATION_ONE"),
         "x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
@@ -58,6 +59,9 @@ def create_financial_file_2(ticker):
         json.dump(file_2, f, indent=2)
 
 def create_financial_file_3(ticker):
+    """
+    creating .json file_3 from API to be used for fetching financial data
+    """    
      
     clean_ticker = ticker.strip().upper()
 
