@@ -139,14 +139,16 @@ def calculate_moat_scores(
     Core function of the moat module.
     Gets raw inputs and returns all scores + final moat_score.
     """
+
+    #change names
     roic = roic_score(roic_raw_value)
     fcf = fcf_growth_score(fcf_growth_raw)
     gm = gross_m_stability_score(gross_margin_list)
     rnd = rnd_revenue_score(r_and_d_raw, revenue_growth_raw)
     weight_by_sector = moat_weight(sector_name)
     
-
-    final_score = moat_weighted_score(roic, fcf, gm, rnd, weight_by_sector)
+    final_score = moat_weighted_score(
+    roic, fcf, gm, rnd, weight_by_sector)
 
     return {
         "roic_score": roic,

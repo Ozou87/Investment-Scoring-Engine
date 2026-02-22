@@ -241,7 +241,8 @@ def calculate_valuation_scores(
     price_fcf = price_fcf_score(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
     weight_by_sector = valuation_weight(sector_name)
 
-    final_score = valuation_weighted_score(pe, forward_pe, ev_ebitda, ps, price_fcf, weight_by_sector)
+    final_score = valuation_weighted_score(
+    pe, forward_pe, ev_ebitda, ps, price_fcf, weight_by_sector)
 
     return {
         "pe_score": pe,
