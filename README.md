@@ -1,116 +1,116 @@
 # Investment Scoring Engine
 
-A modular, sector-aware **multi-factor investment scoring engine** written in Python.
-The system evaluates public companies using **Fundamental, Valuation, and Moat metrics**, and outputs both **module-level scores** and a **final weighted score (0–100)**.
+A modular, sector-aware multi-factor investment scoring engine written
+in Python.\
+The system evaluates public companies using Fundamental, Valuation, and
+Moat metrics, and outputs both module-level scores and a final weighted
+score (0--100).
 
-An automated scoring engine designed to significantly reduce the time investors spend on research.
+An automated scoring engine designed to significantly reduce the time
+investors spend on research.
 
-This project is designed as a **portfolio project**, with a clean, testable architecture that is ready for future automation via financial data APIs.
-
----
+------------------------------------------------------------------------
 
 ## High-Level Concept
 
 The engine is built around three independent analytical pillars:
 
-1. **Fundamentals** – How strong is the business today?
-2. **Valuation** – How expensive the stock is relative to its sector?
-3. **Moat** – How durable is the company’s competitive advantage?
+1.  Fundamentals -- How strong is the business today?
+2.  Valuation -- How expensive the stock is relative to its sector?
+3.  Moat -- How durable is the company's competitive advantage?
 
 Each pillar:
 
-- Converts raw financial inputs into **normalized scores (0–100)** using threshold tables
-- Applies **sector-specific weights** (defined centrally in `config.py`)
-- Produces a final module score
+-   Converts raw financial inputs into normalized scores (0--100)
+-   Applies sector-specific weights (defined in config.py)
+-   Produces a final module score
 
-A **Core Engine** then aggregates all module scores into a single **Final Score**, using sector-aware weights.
+A Core Engine then aggregates all module scores into a single Final
+Score.
 
----
+------------------------------------------------------------------------
 
 ## Architecture Overview
 
-- **Pure business logic** – no I/O inside modules
-- **Dataclass-based inputs** for strong structure and clarity
-- **Config-driven weighting system** (easy to extend per sector)
-- **Fully testable** using pytest + mocking
+-   Pure business logic (no I/O inside modules)
+-   Centralized API layer (api_caller.py)
+-   Clean orchestration layer (assemble_data.py)
+-   Config-driven weighting system
+-   Fully testable using pytest
+-   Modular and scalable design
 
----
+------------------------------------------------------------------------
 
 ## Project Structure
 
-project_root/
+``` bash
+investment-scoring-engine/
 │
-├── main.py
-
-├── main.py
-
-├── main.py
-
-├── main.py
+├── api_caller.py
+├── app.py
+├── assemble_data.py
+├── company_provider.py
+├── config.py
 ├── core_engine.py
 ├── fundamental_module.py
 ├── valuation_module.py
 ├── moat_module.py
 ├── scoring_utils.py
-├── config.py
+│
+├── sector_reports_10-2-26/
+│
+├── data_reports/
 │
 ├── tests/
+│   ├── test_final_score.py
 │   ├── test_fundamentals_score.py
-│   ├── test_valuation_score.py
 │   ├── test_moat_score.py
-│   └── test_final_score.py
+│   └── test_valuation_score.py
 │
+├── requirements.txt
 ├── LICENSE
 └── README.md
+```
 
-## Future Roadmap
-
-- Add support for real financial data via API
-- Add earnings vs. estimates module
-- Add compare companies tool
-- Create a web dashboard
-- Use Docker, Jenkins and Jira
-- Deploy as a microservice
-
----
+------------------------------------------------------------------------
 
 ## Tests
 
 Run all tests:
 
-```bash
+``` bash
 pytest -v
 ```
 
 Optional coverage:
 
-```bash
+``` bash
 pytest --cov
 ```
 
-All scores are validated to be integers between **0–100**.
-
----
+------------------------------------------------------------------------
 
 ## Running the Project
 
-```bash
+``` bash
 python app.py
 ```
 
-You will be prompted for financial values manually.
-A future version will pull all values automatically from APIs.
-With API integration, the system will also automatically detect the company’s sector—no manual input required.
+------------------------------------------------------------------------
 
-## disclaimer
+## Disclaimer
 
-Not financial advice. Personal opinion only. Do your own research.
+Not financial advice. Do your own research.
+
+------------------------------------------------------------------------
 
 ## License
 
-All Rights Reserved – Educational & Portfolio Use Only.
-See the LICENSE file for full details.
+All Rights Reserved -- Educational & Portfolio Use Only.
+
+------------------------------------------------------------------------
 
 ## Author
 
-Oz Efraty | Python developer & tech investor.
+Oz Efraty\
+Python Developer \| Finance & Tech Enthusiast
