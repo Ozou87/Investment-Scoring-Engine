@@ -53,10 +53,10 @@ while True:
 
         #consider name changing
         stock_pe = all_data["valuation_stock"]["pe"]
-        stock_forward_pe = all_data["valuation_stock"]["forwardpe"]
-        stock_ev_ebitda_multipe = all_data["valuation_stock"]["evebitdamultiple"]
-        stock_price_to_sales_multiple = all_data["valuation_stock"]["pricetosalesmultiple"]
-        stock_price_to_free_cash_flow_multiple = all_data["valuation_stock"]["pricetofreecashflowmultiple"]
+        stock_forward_pe = all_data["valuation_stock"]["forward_pe"]
+        stock_ev_ebitda_multipe = all_data["valuation_stock"]["ev_ebitda_multiple"]
+        stock_price_to_sales_multiple = all_data["valuation_stock"]["price_to_sales_multiple"]
+        stock_price_to_free_cash_flow_multiple = all_data["valuation_stock"]["price_to_free_cash_flow_multiple"]
 
         sector_median_pe = all_data["valuation_sector"]["sector_median_pe"]
         sector_median_forward_pe = all_data["valuation_sector"]["sector_median_forward_pe"]

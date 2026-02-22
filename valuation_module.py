@@ -46,10 +46,10 @@ def fetch_valuation_data_from_api(ticker) -> dict:
     #consider name changing
     return {
         "pe": stock_pe,
-        "forwardpe": stock_forward_pe,
-        "evebitdamultiple": ev_ebitda_multiple,
-        "pricetosalesmultiple": stock_price_to_sales_multiple,
-        "pricetofreecashflowmultiple": stock_price_to_free_cash_flow_multiple
+        "forward_pe": stock_forward_pe,
+        "ev_ebitda_multiple": ev_ebitda_multiple,
+        "price_to_sales_multiple": stock_price_to_sales_multiple,
+        "price_to_free_cash_flow_multiple": stock_price_to_free_cash_flow_multiple
     }
 
 def calculate_sector_median(sector_metrics: dict, metric_name: str):
