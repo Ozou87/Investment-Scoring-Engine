@@ -183,7 +183,7 @@ P_FCF_THRESHOLDS = [
                         ]
 P_FCF_DEFAULT = 5  
 
-#specific function that sends info to the generic function in order to help it find score
+#function that sends info to the generic function in order to help it find score
 def pe_score(stock_pe: float, sector_median_pe:float) -> int:
     return score_relative_to_sector(stock_pe, sector_median_pe, PE_THRESHOLDS, PE_DEFAULT )
 
@@ -234,7 +234,7 @@ def calculate_valuation_scores(
                               ) -> dict:   
     """
     Core function of the valuation module.
-    Gets raw inputs and returns all scores + final valuation_score.
+    Gets raw inputs and returns all scores + final valuation_score
     """
     pe = pe_score(stock_pe, sector_median_pe)
     forward_pe = forward_pe_score(stock_forward_pe, sector_median_forward_pe)
