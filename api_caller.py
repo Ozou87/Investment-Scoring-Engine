@@ -82,3 +82,30 @@ def create_financial_file_3(ticker):
     file_path_3 = f"data_reports/json_file_3{clean_ticker}.json"
     with open(file_path_3, "w", encoding="utf-8") as f:
         json.dump(file_3, f, indent=2)
+
+def create_financial_file_4(ticker):
+    """
+    creating .json file_4 from API to be used for fetching financial data
+    """    
+    clean_ticker = ticker.strip().upper()
+
+    url = "https://yahoo-finance-real-time1.p.rapidapi.com/stock/get-cashflow"
+
+    querystring = {"region":"US","lang":"en-US","symbol":clean_ticker}
+
+    headers = {
+	"x-rapidapi-key":os.getenv("API_MOAT_TWO"),
+	"x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+
+    file_4 = response.json() 
+
+    os.makedirs("data_reports", exist_ok=True)
+
+    file_path_4 = f"data_reports/json_file_3{clean_ticker}.json"
+    with open(file_path_4, "w", encoding="utf-8") as f:
+        json.dump(file_4, f, indent=2)
+
+

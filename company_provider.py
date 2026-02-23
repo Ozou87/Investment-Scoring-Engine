@@ -2,6 +2,7 @@ import yfinance as yf
 import contextlib
 import io
 
+#is it in USE?
 class DataFetchError(Exception):
     """Raised when the external data source fails or returns invalid data."""
     

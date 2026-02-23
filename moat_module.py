@@ -23,7 +23,12 @@ def fetch_moat_data_from_api(ticker) -> dict:
     file_path_3= f"data_reports/json_file_3_{clean_ticker}.json"
     with open(file_path_3, "r", encoding="utf-8") as f:
             file_3 = json.load(f)
-    
+
+    file_path_4= f"data_reports/json_file_3_{clean_ticker}.json"
+    with open(file_path_4, "r", encoding="utf-8") as f:
+            file_4 = json.load(f)
+
+    #ROIC
     #Return on Invested Capital (ROIC) = nopat / invested Capital
     #nopat = Operating Income(ebit) * (1 - tax Rate)
     #ebit = operating margin * revenue
@@ -46,20 +51,33 @@ def fetch_moat_data_from_api(ticker) -> dict:
     #multipling by 100 to get metric in %
     return_on_investment_capital_pct = nopat / invested_capital * 100 
 
+    #FCF_3Y_CAGR
     #FCF_3Y_CAGR = Compound-Annual-Growth-Rate of Free Cash Flow 
     #FCF_3Y_CAGR = (free cash_flow_latest / free_cash_flow_3_years_ago)^(1/3) - 1
+    annual_fcf = (file_4["quoteSummary"]["result"][0]["timeseries"]["annualFreeCashFlow"])
 
-    free_cash_flow_latest = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["freeCashflow"]["raw"])
-    free_cash_flow_3_years_ago = 
-    #get free cash flow 3 years ago
+    annual_fcf_sorted = sorted(
+        annual_fcf,
+        key=lambda x: x["asOfDate"]
+    )
+
+    free_cash_flow_3y_cagr = None
+
+    if len(annual_fcf_sorted) >= 4:
+
+        free_cash_flow_latest = annual_fcf_sorted[-1]["reportedValue"]["raw"]
+        free_cash_flow_3_years_ago = annual_fcf_sorted[-4]["reportedValue"]["raw"]
+
+        if free_cash_flow_3_years_ago != 0:
+            free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
+
     
-    free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
     return {
         "return_on_investment_capital_pct": return_on_investment_capital_pct,
         "free_cash_flow_3y_cagr": free_cash_flow_3y_cagr,
-        
+        "gross_margin_stability": gross_margin_stability,
+        "r_and_d_to_revenue": r_and_d_to_revenue
     }
 
 RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS = [
