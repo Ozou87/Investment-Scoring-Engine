@@ -54,7 +54,7 @@ while True:
 
         stock_pe = all_data["valuation_stock"]["pe"]
         stock_forward_pe = all_data["valuation_stock"]["forward_pe"]
-        stock_ev_ebitda_multipe = all_data["valuation_stock"]["ev_ebitda_multiple"]
+        stock_ev_ebitda_multiple = all_data["valuation_stock"]["ev_ebitda_multiple"]
         stock_price_to_sales_multiple = all_data["valuation_stock"]["price_to_sales_multiple"]
         stock_price_to_free_cash_flow_multiple = all_data["valuation_stock"]["price_to_free_cash_flow_multiple"]
 
@@ -100,13 +100,21 @@ fundamental_input = Fundamental_input(
                                     )
 
 print("\n--- Valuation Metrics ---")
+print(f"Stock P/E: {stock_pe:.2f}")
+print(f"Sector P/E: {sector_median_pe:.2f}")
+print(f"Stock Forward P/E: {stock_forward_pe:.2f}")
+print(f"Sector Forward P/E: {sector_median_forward_pe:.2f}")
+print(f"Stock EV/EBITDA multiple: {stock_ev_ebitda_multiple:.2f}%")
+print(f"Sector EV/EBITDA multiple: {sector_median_ev_ebitda_multiple:.2f}%")
+print(f"Total Debt / Equity (MRQ): {debt_to_equity_ratio:.2f}")
+print(f"Free Cash Flow Margin (TTM): {free_cash_flow_margin_pct:.2f}%")
 
 valuation_input= Valuation_input(
     stock_pe=stock_pe,
     sector_median_pe=sector_median_pe,
     stock_forward_pe=stock_forward_pe,
     sector_median_forward_pe=sector_median_forward_pe,
-    stock_ev_ebitda_multipe=stock_ev_ebitda_multipe,
+    stock_ev_ebitda_multiple=stock_ev_ebitda_multiple,
     sector_median_ev_ebitda_multiple=sector_median_ev_ebitda_multiple,
     stock_price_to_sales_multiple=stock_price_to_sales_multiple,
     sector_median_price_to_sales_multiple=sector_median_price_to_sales_multiple,
@@ -114,7 +122,7 @@ valuation_input= Valuation_input(
     sector_median_price_to_fcf=sector_median_price_to_fcf,
     sector=sector
                                 )
-# asking user for moat inputs: (api soon)
+
 print("\n--- Moat inputs ---")
 
 print("\nEnter Gross Margin % for the last 5 years:")

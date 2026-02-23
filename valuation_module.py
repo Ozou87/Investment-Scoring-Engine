@@ -222,7 +222,7 @@ def calculate_valuation_scores(
     sector_median_pe: float,
     stock_forward_pe: float,
     sector_median_forward_pe:float,
-    stock_ev_ebitda_multipe:float,
+    stock_ev_ebitda_multiple:float,
     sector_median_ev_ebitda_multiple: float,
     stock_price_to_sales_multiple: float,
     sector_median_price_to_sales_multiple: float,
@@ -236,7 +236,7 @@ def calculate_valuation_scores(
     """
     pe = pe_score(stock_pe, sector_median_pe)
     forward_pe = forward_pe_score(stock_forward_pe, sector_median_forward_pe)
-    ev_ebitda = ev_ebitda_score(stock_ev_ebitda_multipe, sector_median_ev_ebitda_multiple)
+    ev_ebitda = ev_ebitda_score(stock_ev_ebitda_multiple, sector_median_ev_ebitda_multiple)
     ps = ps_score(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple)
     price_fcf = price_fcf_score(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
     weight_by_sector = valuation_weight(sector_name)

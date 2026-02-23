@@ -20,7 +20,7 @@ class Valuation_input:
     sector_median_pe: float
     stock_forward_pe: float
     sector_median_forward_pe: float
-    stock_ev_ebitda_multipe: float
+    stock_ev_ebitda_multiple: float
     sector_median_ev_ebitda_multiple: float
     stock_price_to_sales_multiple: float
     sector_median_price_to_sales_multiple: float
@@ -61,7 +61,7 @@ def calculate_all_scores(
     sector_median_pe = valuation_input.sector_median_pe
     stock_forward_pe = valuation_input.stock_forward_pe
     sector_median_forward_pe = valuation_input.sector_median_forward_pe
-    stock_ev_ebitda_multipe = valuation_input.stock_ev_ebitda_multipe
+    stock_ev_ebitda_multiple = valuation_input.stock_ev_ebitda_multipe
     sector_median_ev_ebitda_multiple = valuation_input.sector_median_ev_ebitda_multiple
     stock_price_to_sales_multiple = valuation_input.stock_price_to_sales_multiple
     sector_median_price_to_sales_multiple = valuation_input.sector_median_price_to_sales_multiple
@@ -74,7 +74,7 @@ def calculate_all_scores(
         sector_median_pe = sector_median_pe,
         stock_forward_pe = stock_forward_pe,
         sector_median_forward_pe = sector_median_forward_pe,
-        stock_ev_ebitda_multipe = stock_ev_ebitda_multipe,
+        stock_ev_ebitda_multiple = stock_ev_ebitda_multiple,
         sector_median_ev_ebitda_multiple = sector_median_ev_ebitda_multiple,
         stock_price_to_sales_multiple = stock_price_to_sales_multiple,
         sector_median_price_to_sales_multiple = sector_median_price_to_sales_multiple,
