@@ -127,7 +127,7 @@ valuation_input= Valuation_input(
     sector=sector
                                 )
 
-print("\n--- Moat inputs ---")
+print("\n--- Moat Metrics ---")
 
 print("\nEnter Gross Margin % for the last 5 years:")
 gm1 = get_float("Year 1 Gross Margin %: ")
