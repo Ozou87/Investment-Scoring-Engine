@@ -5,6 +5,17 @@ import os
 
 load_dotenv()
 
+def save_api_response(url, headers, params, file_path):
+
+    response = requests.get(url, headers=headers, params=params)
+    data = response.json()
+
+    os.makedirs("data_reports", exist_ok=True)
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+
 def create_financial_file_1(ticker):
     """
     creating .json file_1 from API to be used for fetching financial data
@@ -21,15 +32,9 @@ def create_financial_file_1(ticker):
             "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
         }
 
-    response = requests.get(url, headers=headers, params=querystring)
-
-    file_1 = response.json()   
-
-    os.makedirs("data_reports", exist_ok=True)
-
     file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
-    with open(file_path_1, "w", encoding="utf-8") as f:
-            json.dump(file_1, f, indent=2)
+    save_api_response(url, headers, querystring, file_path_1)
+    
 
 def create_financial_file_2(ticker):
     """
@@ -47,15 +52,9 @@ def create_financial_file_2(ticker):
         "x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
-    response = requests.get(url, headers=headers, params=querystring)
-
-    file_2 = response.json()   
-
-    os.makedirs("data_reports", exist_ok=True)
-
-    file_path_2 = f"data_reports/json_file_2{clean_ticker}.json"
-    with open(file_path_2, "w", encoding="utf-8") as f:
-        json.dump(file_2, f, indent=2)
+    file_path_2 = f"data_reports/json_file_2__{clean_ticker}.json"
+    save_api_response(url, headers, querystring, file_path_2)
+    
 
 def create_financial_file_3(ticker):
     """
@@ -73,15 +72,9 @@ def create_financial_file_3(ticker):
 	"x-rapidapi-host": "yahoo-finance15.p.rapidapi.com"
     }
 
-    response = requests.get(url, headers=headers, params=querystring)
-
-    file_3 = response.json() 
-
-    os.makedirs("data_reports", exist_ok=True)
-
-    file_path_3 = f"data_reports/json_file_3{clean_ticker}.json"
-    with open(file_path_3, "w", encoding="utf-8") as f:
-        json.dump(file_3, f, indent=2)
+    file_path_3 = f"data_reports/json_file_3_{clean_ticker}.json"
+    save_api_response(url, headers, querystring, file_path_3)
+    
 
 def create_financial_file_4(ticker):
     """
@@ -98,14 +91,11 @@ def create_financial_file_4(ticker):
 	"x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
-    response = requests.get(url, headers=headers, params=querystring)
+    file_path_4 = f"data_reports/json_file_4_{clean_ticker}.json"
+    save_api_response(url, headers, querystring, file_path_4)
+    
 
-    file_4 = response.json() 
 
-    os.makedirs("data_reports", exist_ok=True)
 
-    file_path_4 = f"data_reports/json_file_3{clean_ticker}.json"
-    with open(file_path_4, "w", encoding="utf-8") as f:
-        json.dump(file_4, f, indent=2)
 
 
