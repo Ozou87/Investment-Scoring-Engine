@@ -30,8 +30,8 @@ class Valuation_input:
 
 @dataclass
 class Moat_input:
-    roic_raw_value: float
-    fcf_growth_raw: float
+    return_on_investment_capital_pct: float
+    free_cash_flow_3y_cagr: float
     gross_margin_list: list[float]
     r_and_d_raw: float
     revenue_growth_raw: float
@@ -83,16 +83,16 @@ def calculate_all_scores(
         sector_name = v_sector_name
                                                 )
 
-    roic_raw_value = moat_input.roic_raw_value
-    fcf_growth_raw = moat_input.fcf_growth_raw
+    return_on_investment_capital_pct = moat_input.return_on_investment_capital_pct
+    free_cash_flow_3y_cagr = moat_input.free_cash_flow_3y_cagr
     gross_margin_list = moat_input.gross_margin_list
     r_and_d_raw = moat_input.r_and_d_raw
     revenue_growth_raw = moat_input.revenue_growth_raw
     m_sector_name = moat_input.sector
 
     moat_scores = calculate_moat_scores(
-        roic_raw_value = roic_raw_value,
-        fcf_growth_raw = fcf_growth_raw,
+        return_on_investment_capital_pct = return_on_investment_capital_pct,
+        free_cash_flow_3y_cagr = free_cash_flow_3y_cagr,
         gross_margin_list = gross_margin_list,
         r_and_d_raw = r_and_d_raw,
         revenue_growth_raw = revenue_growth_raw,

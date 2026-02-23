@@ -64,6 +64,9 @@ while True:
         sector_median_price_to_sales_multiple = all_data["valuation_sector"]["sector_median_price_to_sales_multiple"]
         sector_median_price_to_fcf = all_data["valuation_sector"]["sector_median_price_to_fcf"]
 
+        return_on_investment_capital_pct = all_data["moat"]["return_on_investment_capital_pct"]
+        free_cash_flow_3y_cagr = all_data["moat"]["free_cash_flow_3y_cagr"]
+
         break
 
     except Exception as e:
@@ -113,8 +116,6 @@ valuation_input= Valuation_input(
                                 )
 # asking user for moat inputs: (api soon)
 print("\n--- Moat inputs ---")
-roic_raw_value = get_float("Enter ROIC 5Y average %: ")
-fcf_growth_raw = get_float("Enter FCF 5Y CAGR %: ")
 
 print("\nEnter Gross Margin % for the last 5 years:")
 gm1 = get_float("Year 1 Gross Margin %: ")
@@ -128,8 +129,8 @@ r_and_d_raw = get_float("Enter total R&D (same units as revenue_growth): ")
 revenue_growth_raw = get_float("Enter total revenue_growth (same units as R&D): ")
 
 moat_input = Moat_input(
-    roic_raw_value=roic_raw_value,
-    fcf_growth_raw=fcf_growth_raw,
+    return_on_investment_capital_pct=return_on_investment_capital_pct,
+    free_cash_flow_3y_cagr=free_cash_flow_3y_cagr,
     gross_margin_list=gross_margin_list,
     r_and_d_raw=r_and_d_raw,
     revenue_growth_raw=revenue_growth_raw,

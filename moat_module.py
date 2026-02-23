@@ -72,7 +72,6 @@ def fetch_moat_data_from_api(ticker) -> dict:
             free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
     
-
     return {
         "return_on_investment_capital_pct": return_on_investment_capital_pct,
         "free_cash_flow_3y_cagr": free_cash_flow_3y_cagr,
@@ -89,14 +88,14 @@ RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS = [
                     ]
 RETURN_ON_INVESTMENT_CAPITAL_DEFAULT = 98   
 
-FCF_3Y_GROWTH_THRESHOLDS = [
+FCF_3Y_CAGR_THRESHOLDS = [
     (0, 20),    
     (5, 40),    
     (10, 60),   
     (20, 80),   
     (30, 90),   
                             ]
-FCF_3Y_GROWTH_DEFAULT = 98  
+FCF_3Y_CAGR_DEFAULT = 98  
 
 GM_STABILITY_THRESHOLDS = [
     (2, 90),    
@@ -118,8 +117,8 @@ RND_TO_REVENUE_RATIO_DEFAULT = 98
 def roic_score(roic_5y_avg: float) -> int:
     return threshold_based_score(roic_5y_avg, RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS, RETURN_ON_INVESTMENT_CAPITAL_DEFAULT)
 
-def fcf_growth_score(fcf_3y_growth: float) -> int:
-    return threshold_based_score(fcf_3y_growth, FCF_3Y_GROWTH_THRESHOLDS, FCF_3Y_GROWTH_DEFAULT)
+def fcf_3y_cagr_score(fcf_3y_cagr: float) -> int:
+    return threshold_based_score(fcf_3y_cagr, FCF_3Y_CAGR_THRESHOLDS, FCF_3Y_CAGR_DEFAULT)
 
 def gross_m_stability_score(gm_list: list[float]) -> int:
     gm_range = max(gm_list) - min(gm_list)
@@ -160,7 +159,7 @@ def calculate_moat_scores(
 
     #change names
     roic = roic_score(roic_raw_value)
-    fcf = fcf_growth_score(fcf_growth_raw)
+    fcf = fcf_3y_cagr_score(fcf_growth_raw)
     gm = gross_m_stability_score(gross_margin_list)
     rnd = rnd_revenue_score(r_and_d_raw, revenue_growth_raw)
     weight_by_sector = moat_weight(sector_name)
@@ -168,9 +167,10 @@ def calculate_moat_scores(
     final_score = moat_weighted_score(
     roic, fcf, gm, rnd, weight_by_sector)
 
+    #change names
     return {
         "roic_score": roic,
-        "fcf_growth_score": fcf,
+        "fcf_3y_cagr_score": fcf,
         "gm_stability_score": gm,
         "rnd_to_revenue_score": rnd,
         "weight_currently_being_used": weight_by_sector,
