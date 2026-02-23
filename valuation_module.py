@@ -194,8 +194,8 @@ def ev_ebitda_score(stock_ev_ebitda_multiple:float, sector_median_ev_ebitda_mult
 def ps_score(stock_price_to_sales_multiple:float, sector_median_price_to_sales_multiple: float) -> int:
     return score_relative_to_sector(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple, PS_THRESHOLDS, PS_DEFAULT)
 
-def price_fcf_score(stock_price_to_free_cash_flow_multiple:float, sector_median_price_to_fcf: float) -> int:
-    return score_relative_to_sector(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf, P_FCF_THRESHOLDS, P_FCF_DEFAULT)
+def price_fcf_score(stock_price_to_free_cash_flow_multiple:float, sector_median_price_to_free_cash_flow_multiple: float) -> int:
+    return score_relative_to_sector(stock_price_to_free_cash_flow_multiple, sector_median_price_to_free_cash_flow_multiple, P_FCF_THRESHOLDS, P_FCF_DEFAULT)
 
 def valuation_weighted_score(
         pe:int,
@@ -227,7 +227,7 @@ def calculate_valuation_scores(
     stock_price_to_sales_multiple: float,
     sector_median_price_to_sales_multiple: float,
     stock_price_to_free_cash_flow_multiple: float,
-    sector_median_price_to_fcf: float,
+    sector_median_price_to_free_cash_flow_multiple: float,
     sector_name: str,
                               ) -> dict:   
     """
@@ -238,7 +238,7 @@ def calculate_valuation_scores(
     forward_pe = forward_pe_score(stock_forward_pe, sector_median_forward_pe)
     ev_ebitda = ev_ebitda_score(stock_ev_ebitda_multiple, sector_median_ev_ebitda_multiple)
     ps = ps_score(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple)
-    price_fcf = price_fcf_score(stock_price_to_free_cash_flow_multiple, sector_median_price_to_fcf)
+    price_fcf = price_fcf_score(stock_price_to_free_cash_flow_multiple, sector_median_price_to_free_cash_flow_multiple)
     weight_by_sector = valuation_weight(sector_name)
 
     final_score = valuation_weighted_score(

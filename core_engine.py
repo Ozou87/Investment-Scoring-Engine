@@ -25,7 +25,7 @@ class Valuation_input:
     stock_price_to_sales_multiple: float
     sector_median_price_to_sales_multiple: float
     stock_price_to_free_cash_flow_multiple: float
-    sector_median_price_to_fcf: float
+    sector_median_price_to_free_cash_flow_multiple: float
     sector: str
 
 @dataclass
@@ -66,7 +66,7 @@ def calculate_all_scores(
     stock_price_to_sales_multiple = valuation_input.stock_price_to_sales_multiple
     sector_median_price_to_sales_multiple = valuation_input.sector_median_price_to_sales_multiple
     stock_price_to_free_cash_flow_multiple = valuation_input.stock_price_to_free_cash_flow_multiple
-    sector_median_price_to_fcf = valuation_input.sector_median_price_to_fcf
+    sector_median_price_to_free_cash_flow_multiple = valuation_input.sector_median_price_to_free_cash_flow_multiple
     v_sector_name = valuation_input.sector
 
     valuation_scores = calculate_valuation_scores(
@@ -79,7 +79,7 @@ def calculate_all_scores(
         stock_price_to_sales_multiple = stock_price_to_sales_multiple,
         sector_median_price_to_sales_multiple = sector_median_price_to_sales_multiple,
         stock_price_to_free_cash_flow_multiple = stock_price_to_free_cash_flow_multiple,
-        sector_median_price_to_fcf = sector_median_price_to_fcf,
+        sector_median_price_to_free_cash_flow_multiple = sector_median_price_to_free_cash_flow_multiple,
         sector_name = v_sector_name
                                                 )
 

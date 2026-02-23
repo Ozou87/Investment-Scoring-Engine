@@ -11,8 +11,8 @@ stock_label = None
 
 print("Welcome to the Investment Scoring Engine")
 
-#loop that make sure its float and system wont crash( check weather i need it)
-#check if needed when connecting FLASK
+#loop that make sure its float and system wont crash
+#***check if needed when connecting FLASK***
 def get_float(prompt) -> float:
 
     while True:
@@ -62,7 +62,7 @@ while True:
         sector_median_forward_pe = all_data["valuation_sector"]["sector_median_forward_pe"]
         sector_median_ev_ebitda_multiple = all_data["valuation_sector"]["sector_median_ev_ebitda_multiple"]
         sector_median_price_to_sales_multiple = all_data["valuation_sector"]["sector_median_price_to_sales_multiple"]
-        sector_median_price_to_fcf = all_data["valuation_sector"]["sector_median_price_to_fcf"]
+        sector_median_price_to_free_cash_flow_multiple = all_data["valuation_sector"]["sector_median_price_to_fcf"]
 
         return_on_investment_capital_pct = all_data["moat"]["return_on_investment_capital_pct"]
         free_cash_flow_3y_cagr = all_data["moat"]["free_cash_flow_3y_cagr"]
@@ -88,7 +88,7 @@ if data is None:
 print("\n--- Fundamental Metrics ---")
 print(f"Quarterly revenue_growth Growth (YoY): {revenue_growth_pct:.2f}%")
 print(f"Operating Margin (TTM): {operating_margin_pct:.2f}%")
-print(f"Total Debt / Equity (MRQ): {debt_to_equity_ratio:.2f}")
+print(f"Total Debt/Equity (MRQ): {debt_to_equity_ratio:.2f}")
 print(f"Free Cash Flow Margin (TTM): {free_cash_flow_margin_pct:.2f}%")
 
 fundamental_input = Fundamental_input(
@@ -99,15 +99,19 @@ fundamental_input = Fundamental_input(
     sector=sector
                                     )
 
-print("\n--- Valuation Metrics ---")
-print(f"Stock P/E: {stock_pe:.2f}")
-print(f"Sector P/E: {sector_median_pe:.2f}")
+print("\n--- Valuation STOCK Metrics ---")
+print(f"Stock Trailing P/E: {stock_pe:.2f}")
 print(f"Stock Forward P/E: {stock_forward_pe:.2f}")
+print(f"Stock Enterprise Value/EBITDA: {stock_ev_ebitda_multiple:.2f}%")
+print(f"Stock Price/Sales: {stock_price_to_sales_multiple:.2f}")
+print(f"Stock Price/Free Cash Flow: {stock_price_to_free_cash_flow_multiple:.2f}")
+
+print("\n--- Valuation SECTOR Metrics ---")
+print(f"Sector Trailing P/E: {sector_median_pe:.2f}")
 print(f"Sector Forward P/E: {sector_median_forward_pe:.2f}")
-print(f"Stock EV/EBITDA multiple: {stock_ev_ebitda_multiple:.2f}%")
-print(f"Sector EV/EBITDA multiple: {sector_median_ev_ebitda_multiple:.2f}%")
-print(f"Total Debt / Equity (MRQ): {debt_to_equity_ratio:.2f}")
-print(f"Free Cash Flow Margin (TTM): {free_cash_flow_margin_pct:.2f}%")
+print(f"Sector Enterprise Value/EBITDA: {sector_median_ev_ebitda_multiple:.2f}%")
+print(f"Sector Price/Sales: {sector_median_price_to_sales_multiple:.2f}%")
+print(f"Sector Price/Free Cash Flow: {sector_median_price_to_free_cash_flow_multiple:.2f}%")
 
 valuation_input= Valuation_input(
     stock_pe=stock_pe,
@@ -119,7 +123,7 @@ valuation_input= Valuation_input(
     stock_price_to_sales_multiple=stock_price_to_sales_multiple,
     sector_median_price_to_sales_multiple=sector_median_price_to_sales_multiple,
     stock_price_to_free_cash_flow_multiple=stock_price_to_free_cash_flow_multiple,
-    sector_median_price_to_fcf=sector_median_price_to_fcf,
+    sector_median_price_to_free_cash_flow_multiple=sector_median_price_to_free_cash_flow_multiple,
     sector=sector
                                 )
 

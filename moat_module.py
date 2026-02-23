@@ -28,7 +28,7 @@ def fetch_moat_data_from_api(ticker) -> dict:
     with open(file_path_4, "r", encoding="utf-8") as f:
             file_4 = json.load(f)
 
-    #ROIC
+    #ROIC:
 
     #Return on Invested Capital (ROIC) = nopat / invested Capital
     #nopat = Operating Income(ebit) * (1 - tax Rate)
@@ -52,7 +52,8 @@ def fetch_moat_data_from_api(ticker) -> dict:
     #multipling by 100 to get metric in %
     return_on_investment_capital_pct = nopat / invested_capital * 100 
 
-    #FCF_3Y_CAGR
+
+    #FCF_3Y_CAGR:
 
     #FCF_3Y_CAGR = Compound-Annual-Growth-Rate of Free Cash Flow 
     #FCF_3Y_CAGR = (free cash_flow_latest / free_cash_flow_3_years_ago)^(1/3) - 1
@@ -73,11 +74,13 @@ def fetch_moat_data_from_api(ticker) -> dict:
         if free_cash_flow_3_years_ago != 0:
             free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
-    #GROSS MARGIN STABILITY
+    #GROSS MARGIN STABILITY:
 
-    #R AND D TO REVENUE RATIO
 
-    
+
+    #R&D TO REVENUE RATIO:
+
+
     
     return {
         "return_on_investment_capital_pct": return_on_investment_capital_pct,
