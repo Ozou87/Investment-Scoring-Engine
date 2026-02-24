@@ -1,6 +1,7 @@
 from scoring_utils import threshold_based_score
 from config import fundamental_weight
 from dotenv import load_dotenv
+from scoring_utils import ScoringUtilities
 import json
 
 load_dotenv()
@@ -87,8 +88,8 @@ FREE_CASH_FLOW_THRESHOLDS = [
 FREE_CASH_FLOW_DEFAULT = 95
 
 #specific function that sends info to the generic function in order to help it find score
-def revenue_score(revenue_growth_pct: float) -> int:
-    return threshold_based_score(revenue_growth_pct, REVENUE_GROWTH_THRESHOLDS, REVENUE_GROWTH_DEFAULT)
+revenue_growth_scorer = ScoringUtilities(REVENUE_GROWTH_THRESHOLDS, REVENUE_GROWTH_DEFAULT)
+revenue_growth_score = revenue_growth_scorer.threshold_based_score(revenue_growth)    
 
 def operating_margin_score(operating_margin_pct: float) -> int:
     return threshold_based_score(operating_margin_pct, OPERATING_MARGIN_THRESHOLDS, OPERATING_MARGIN_DEFAULT)
