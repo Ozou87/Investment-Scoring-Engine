@@ -52,7 +52,7 @@ def create_financial_file_2(ticker):
         "x-rapidapi-host": "yahoo-finance-real-time1.p.rapidapi.com"
     }
 
-    file_path_2 = f"data_reports/json_file_2__{clean_ticker}.json"
+    file_path_2 = f"data_reports/json_file_2_{clean_ticker}.json"
     save_api_response(url, headers, querystring, file_path_2)
     
 
