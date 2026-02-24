@@ -1,13 +1,40 @@
 import math
 
-def threshold_based_score(value: float, thresholds: list[tuple[float, int]], default_score:int) -> int:
-    """
-    function will recieve value and convert it to a score from thershold table.
-    """
-    for limit, score in thresholds:
-        if value < limit:
-            return score
-    return default_score
+class ScoringUtilities:
+
+    def __init__(self, thresholds: list[tuple[float, int]], default_score: int) -> int:
+        self.thresholds = thresholds
+        self.default_score = default_score
+
+    def threshold_based_score(self, stock_value):
+
+        for limit, score in self.thresholds:
+            if stock_value < limit:
+                return score
+        return self.default_score
+
+    def score_relative_to_sector(
+        stock_value: float,
+        sector_value: float,
+        thresholds: list[tuple[float, int]],
+        default_score: int
+                    ) -> int:
+        
+        if sector_value == 0 or math.isnan(stock_value) or math.isnan(sector_value):
+            return default_score
+    
+        relative_multiple = stock_value / sector_value
+
+        return threshold_based_score(relative_multiple, thresholds, default_score)
+
+# def threshold_based_score(value: float, thresholds: list[tuple[float, int]], default_score:int) -> int:
+# #     """
+# #     function will recieve value and convert it to a score from thershold table.
+# #     """
+# #     for limit, score in thresholds:
+# #         if value < limit:
+# #             return score
+# #     return default_score
 
 def score_relative_to_sector(
         stock_value: float,
