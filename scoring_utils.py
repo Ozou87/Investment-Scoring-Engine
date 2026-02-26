@@ -1,6 +1,6 @@
 import math
 
-class ScoringUtilities:
+class ScoringMethods:
 
     def __init__(self, thresholds: list[tuple[float, int]], default_score: int):
         self.thresholds = thresholds
