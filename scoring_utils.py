@@ -2,7 +2,7 @@ import math
 
 #creating a Class for both scoring tools
 class ScoringMethods:
-
+    
     #here only parameters that are avalable to any function inside the Class
     #no need to pass them again to the functions
     #instance atribiutes

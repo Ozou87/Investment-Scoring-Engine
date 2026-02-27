@@ -1,9 +1,65 @@
-from scoring_utils import threshold_based_score
+from scoring_utils import ScoringMethods
 from config import moat_weight
 from dotenv import load_dotenv
 import json
 
 load_dotenv()
+
+ROIC_THRESHOLDS = [
+    (3, 20),    
+    (7, 40),    
+    (12, 60),   
+    (18, 80),   
+    (25, 90),   
+                    ]
+ROIC_DEFAULT = 98   
+
+FCF_3Y_CAGR_THRESHOLDS = [
+    (0, 20),    
+    (5, 40),    
+    (10, 60),   
+    (20, 80),   
+    (30, 90),   
+                            ]
+FCF_3Y_CAGR_DEFAULT = 98  
+
+GM_STABILITY_THRESHOLDS = [
+    (2, 90),    
+    (5, 80),    
+    (10, 60),   
+    (15, 40),   
+                            ]
+GM_STABILITY_DEFAULT = 25
+
+RND_TO_REVENUE_RATIO_THRESHOLDS = [
+    (3, 25),     
+    (7, 40),     
+    (12, 60),    
+    (20, 80),    
+    (30, 90),    
+                            ]
+RND_TO_REVENUE_RATIO_DEFAULT = 98   
+
+#creating objects so i can use them as objects in this file
+roic_scorer = ScoringMethods(
+    ROIC_THRESHOLDS,
+    ROIC_DEFAULT
+)
+
+fcf_3y_cagr_scorer = ScoringMethods(
+    FCF_3Y_CAGR_THRESHOLDS,
+    FCF_3Y_CAGR_DEFAULT
+)
+
+gm_stability_scorer = ScoringMethods(
+    GM_STABILITY_THRESHOLDS,
+    GM_STABILITY_DEFAULT
+)
+
+rnd_revenue_scorer = ScoringMethods(
+    RND_TO_REVENUE_RATIO_THRESHOLDS,
+    RND_TO_REVENUE_RATIO_DEFAULT
+)
 
 def fetch_moat_data_from_api(ticker) -> dict:
     """
@@ -89,74 +145,26 @@ def fetch_moat_data_from_api(ticker) -> dict:
         "r_and_d_to_revenue": r_and_d_to_revenue
     }
 
-RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS = [
-    (3, 20),    
-    (7, 40),    
-    (12, 60),   
-    (18, 80),   
-    (25, 90),   
-                    ]
-RETURN_ON_INVESTMENT_CAPITAL_DEFAULT = 98   
-
-FCF_3Y_CAGR_THRESHOLDS = [
-    (0, 20),    
-    (5, 40),    
-    (10, 60),   
-    (20, 80),   
-    (30, 90),   
-                            ]
-FCF_3Y_CAGR_DEFAULT = 98  
-
-GM_STABILITY_THRESHOLDS = [
-    (2, 90),    
-    (5, 80),    
-    (10, 60),   
-    (15, 40),   
-                            ]
-GM_STABILITY_DEFAULT = 25
-
-RND_TO_REVENUE_RATIO_THRESHOLDS = [
-    (3, 25),     
-    (7, 40),     
-    (12, 60),    
-    (20, 80),    
-    (30, 90),    
-                            ]
-RND_TO_REVENUE_RATIO_DEFAULT = 98   
-
-def roic_score(roic_5y_avg: float) -> int:
-    return threshold_based_score(roic_5y_avg, RETURN_ON_INVESTMENT_CAPITAL_THRESHOLDS, RETURN_ON_INVESTMENT_CAPITAL_DEFAULT)
-
-def fcf_3y_cagr_score(fcf_3y_cagr: float) -> int:
-    return threshold_based_score(fcf_3y_cagr, FCF_3Y_CAGR_THRESHOLDS, FCF_3Y_CAGR_DEFAULT)
-
-def gross_m_stability_score(gm_list: list[float]) -> int:
-    gm_range = max(gm_list) - min(gm_list)
-    return threshold_based_score(gm_range,GM_STABILITY_THRESHOLDS,GM_STABILITY_DEFAULT)
-
-def rnd_revenue_score(rnd: float, revenue:float) -> int:
-    r_and_d_ratio = (rnd/revenue) * 100
-    return threshold_based_score(r_and_d_ratio,RND_TO_REVENUE_RATIO_THRESHOLDS,RND_TO_REVENUE_RATIO_DEFAULT)
 
 def moat_weighted_score(
     roic: int,
-    fcf_3y_g: int,
+    fcf_3y_cagr: int,
     gm: int,
     rnd: int,
     wbs: dict
                         ) -> int:
     
     roic_weight = wbs['roic']
-    fcf_3y_g_weight = wbs['free_cash_flow_3y_cagr']
+    fcf_3y_cagr_weight = wbs['free_cash_flow_3y_cagr']
     gm_weight = wbs['gm_stability']
     rnd_weight = wbs['rnd_to_revenue']
 
-    weighted_together = (roic_weight * roic + fcf_3y_g_weight * fcf_3y_g + gm_weight * gm + rnd_weight * rnd)
+    weighted_together = (roic_weight * roic + fcf_3y_cagr_weight * fcf_3y_cagr + gm_weight * gm + rnd_weight * rnd)
     return round(weighted_together)
 
 def calculate_moat_scores(
-    roic_raw_value: float,
-    fcf_growth_raw: float,
+    return_on_investment_capital: float,
+    fcf_3y_cagr: float,
     gross_margin_list: list,
     r_and_d_raw: float,
     revenue_growth_raw:float,
@@ -167,20 +175,22 @@ def calculate_moat_scores(
     Gets raw inputs and returns all scores + final moat_score.
     """
 
-    #change names
-    roic = roic_score(roic_raw_value)
-    fcf = fcf_3y_cagr_score(fcf_growth_raw)
-    gm = gross_m_stability_score(gross_margin_list)
-    rnd = rnd_revenue_score(r_and_d_raw, revenue_growth_raw)
+    #calling a specific function from the Class in scoring_utils.py
+    
+    return_on_investment_capital = roic_scorer.threshold_based_score(return_on_investment_capital)
+    fcf_3y_cagr = fcf_3y_cagr_scorer.threshold_based_score(fcf_3y_cagr)
+    gm = debt_to_equity_scorer.threshold_based_score(debt_to_equity_ratio)
+    rnd = free_cash_flow_scorer.threshold_based_score(free_cash_flow_margin_pct)
+
     weight_by_sector = moat_weight(sector_name)
     
     final_score = moat_weighted_score(
-    roic, fcf, gm, rnd, weight_by_sector)
+    return_on_investment_capital, fcf_3y_cagr, gm, rnd, weight_by_sector)
 
     #change names
     return {
-        "roic_score": roic,
-        "fcf_3y_cagr_score": fcf,
+        "roic_score": return_on_investment_capital,
+        "fcf_3y_cagr_score": fcf_3y_cagr,
         "gm_stability_score": gm,
         "rnd_to_revenue_score": rnd,
         "weight_currently_being_used": weight_by_sector,
