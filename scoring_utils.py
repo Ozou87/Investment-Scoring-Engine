@@ -1,11 +1,21 @@
 import math
 
+#creating a Class for both scoring tools
 class ScoringMethods:
 
+    #here only parameters that are avalable to any function inside the Class
+    #no need to pass them again to the functions
+    #instance atribiutes
+    #parameter that belogs to the calculation method -> will be in __int__
     def __init__(self, thresholds: list[tuple[float, int]], default_score: int):
         self.thresholds = thresholds
         self.default_score = default_score
 
+    #stock value and sector value
+    #Go in only when icall the function
+    #Once the function ends, paramerters dissapear
+    #Method paramerters
+    #parameter that belogs to the specific current calcualtion proccess -> will NOT be in __int__
     def threshold_based_score(self, stock_value) -> int:
 
         for limit, score in self.thresholds:
