@@ -98,7 +98,7 @@ def fetch_valuation_data_from_api(ticker) -> dict:
     """
     clean_ticker = ticker.strip().upper()
 
-    file_path_2 = f"data_reports/json_file_2{clean_ticker}.json"
+    file_path_2 = f"data_reports/json_file_2_{clean_ticker}.json"
     with open(file_path_2, "r", encoding="utf-8") as f:
             file_2 = json.load(f)
 
@@ -148,7 +148,6 @@ def fetch_sector_valuation_data(sector: str):
         -sector p/s multiple
         -sector price/free cash flow multiple
     """
-
     #creating dict which connecting SECTOR NAME to SECTOR FILE NAME
     SECTOR_FILE_MAP = {
         "Basic Materials": "holdings-daily-us-en-xlb.xlsx",
@@ -193,10 +192,10 @@ def fetch_sector_valuation_data(sector: str):
             print(f"Failed to fetch data for {ticker}: {e}")
 
     sector_median_pe = calculate_sector_median(sector_metrics, "pe")
-    sector_median_forward_pe = calculate_sector_median(sector_metrics, "forwardpe")
-    sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "evebitdamultiple")
-    sector_median_price_to_sales_multiple = calculate_sector_median(sector_metrics, "pricetosalesmultiple")
-    sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "pricetofreecashflowmultiple")
+    sector_median_forward_pe = calculate_sector_median(sector_metrics, "forward_pe")
+    sector_median_ev_ebitda_multiple = calculate_sector_median(sector_metrics, "ev_ebitda_multiple")
+    sector_median_price_to_sales_multiple = calculate_sector_median(sector_metrics, "price_to_sales_multiple")
+    sector_median_price_to_fcf = calculate_sector_median(sector_metrics, "price_to_free_cash_flow_multiple")
 
     return {
         "sector_median_pe": sector_median_pe,
@@ -212,7 +211,8 @@ def valuation_weighted_score(
         ev_ebitda:int,
         ps: int,
         price_fcf:int,
-        wbs: dict) -> int:
+        wbs: dict
+    )-> int:
        
     pe_weight = wbs['pe']
     forward_pe_weight = wbs['forward_pe']
@@ -262,7 +262,7 @@ def calculate_valuation_scores(
         "price_fcf_score": price_fcf,
         "weight_currently_being_used": weight_by_sector,
         "valuation_score": final_score
-           }
+        }
 
     
 

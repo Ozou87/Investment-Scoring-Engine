@@ -55,7 +55,6 @@ free_cash_flow_scorer = ScoringMethods(
     FREE_CASH_FLOW_THRESHOLDS,
     FREE_CASH_FLOW_DEFAULT)
 
-
 def fetch_fundamental_data_from_api(ticker) -> dict:
     """
     opening .json file and fetching fundamental financial metrics:
@@ -102,7 +101,7 @@ def fetch_fundamental_data_from_api(ticker) -> dict:
         "operating_margin_pct": operating_margin_pct,
         "debt_to_equity_ratio": debt_to_equity_ratio,
         "free_cash_flow_margin_pct": free_cash_flow_margin_pct
-    }
+        }
 
 def fundamental_weighted_score(
         revenue_growth: int,
@@ -118,7 +117,11 @@ def fundamental_weighted_score(
     free_cash_flow_weight = wbs['free_cash_flow']      
 
     weighted_together = (
-    revenue_growth_weight * revenue_growth + operating_margin_weight * operating_margin + debt_to_equity_weight * debt_to_equity + free_cash_flow_weight * free_cash_flow)
+    (revenue_growth_weight * revenue_growth) + 
+    (operating_margin_weight * operating_margin) + 
+    (debt_to_equity_weight * debt_to_equity) + 
+    (free_cash_flow_weight * free_cash_flow)
+    )
     
     return round(weighted_together)
 
@@ -128,12 +131,11 @@ def calculate_fundamental_scores(
     debt_to_equity_ratio: float,
     free_cash_flow_margin_pct: float,
     sector_name: str
-                                    ) -> dict:   
+) -> dict:   
     """
     Core function of the fundamentals module.
     Gets raw inputs and returns all scores + final fundamentals_score.
     """
-
     #calling a specific function from the Class in scoring_utils.py
     revenue_growth = revenue_growth_scorer.threshold_based_score(revenue_growth_pct)
     operating_margin = operating_margin_scorer.threshold_based_score(operating_margin_pct)
@@ -149,11 +151,11 @@ def calculate_fundamental_scores(
         "revenue_score": revenue_growth,
         "operating_margin_score": operating_margin,
         "debt_to_equity_score": debt_to_equity,
-        "fcf_score": free_cash_flow,
+        "free_cash_flow_score": free_cash_flow,
         "sector_name": sector_name,
         "weight_currently_being_used": weight_by_sector,
         "fundamentals_score": final_score
-            }
+    }
 
 
 

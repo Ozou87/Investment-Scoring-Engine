@@ -64,7 +64,7 @@ while True:
         sector_median_price_to_sales_multiple = all_data["valuation_sector"]["sector_median_price_to_sales_multiple"]
         sector_median_price_to_free_cash_flow_multiple = all_data["valuation_sector"]["sector_median_price_to_fcf"]
 
-        return_on_investment_capital_pct = all_data["moat"]["return_on_investment_capital_pct"]
+        return_on_investment_capital= all_data["moat"]["return_on_investment_capital"]
         free_cash_flow_3y_cagr = all_data["moat"]["free_cash_flow_3y_cagr"]
 
         break
@@ -97,7 +97,7 @@ fundamental_input = Fundamental_input(
     debt_to_equity_ratio=debt_to_equity_ratio,
     free_cash_flow_margin_pct=free_cash_flow_margin_pct,
     sector=sector
-                                    )
+    )
 
 print("\n--- Valuation STOCK Metrics ---")
 print(f"Stock Trailing P/E: {stock_pe:.2f}")
@@ -141,7 +141,7 @@ r_and_d_raw = get_float("Enter total R&D (same units as revenue_growth): ")
 revenue_growth_raw = get_float("Enter total revenue_growth (same units as R&D): ")
 
 moat_input = Moat_input(
-    return_on_investment_capital_pct=return_on_investment_capital_pct,
+    return_on_investment_capital=return_on_investment_capital,
     free_cash_flow_3y_cagr=free_cash_flow_3y_cagr,
     gross_margin_list=gross_margin_list,
     r_and_d_raw=r_and_d_raw,

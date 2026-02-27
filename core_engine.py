@@ -1,9 +1,7 @@
-
 from fundamental_module import calculate_fundamental_scores
 from valuation_module import calculate_valuation_scores
 from moat_module import calculate_moat_scores
 from config import final_score_weight
-
 from dataclasses import dataclass
 
 @dataclass
@@ -30,7 +28,7 @@ class Valuation_input:
 
 @dataclass
 class Moat_input:
-    return_on_investment_capital_pct: float
+    return_on_investment_capital: float
     free_cash_flow_3y_cagr: float
     gross_margin_list: list[float]
     r_and_d_raw: float
@@ -38,10 +36,10 @@ class Moat_input:
     sector: str
         
 def calculate_all_scores(
-        fundamental_input: Fundamental_input,
-        valuation_input: Valuation_input, 
-        moat_input: Moat_input
-                        ):
+    fundamental_input: Fundamental_input,
+    valuation_input: Valuation_input, 
+    moat_input: Moat_input
+    ):
 
     revenue_growth_pct = fundamental_input.revenue_growth_pct
     operating_margin_pct = fundamental_input.operating_margin_pct
@@ -54,14 +52,13 @@ def calculate_all_scores(
         operating_margin_pct = operating_margin_pct,
         debt_to_equity_ratio = debt_to_equity_ratio,
         free_cash_flow_margin_pct = free_cash_flow_margin_pct,
-        sector_name = f_sector_name
-                                                        )
+        sector_name = f_sector_name)
 
     stock_pe = valuation_input.stock_pe
     sector_median_pe = valuation_input.sector_median_pe
     stock_forward_pe = valuation_input.stock_forward_pe
     sector_median_forward_pe = valuation_input.sector_median_forward_pe
-    stock_ev_ebitda_multiple = valuation_input.stock_ev_ebitda_multipe
+    stock_ev_ebitda_multiple = valuation_input.stock_ev_ebitda_multiple
     sector_median_ev_ebitda_multiple = valuation_input.sector_median_ev_ebitda_multiple
     stock_price_to_sales_multiple = valuation_input.stock_price_to_sales_multiple
     sector_median_price_to_sales_multiple = valuation_input.sector_median_price_to_sales_multiple
@@ -80,10 +77,9 @@ def calculate_all_scores(
         sector_median_price_to_sales_multiple = sector_median_price_to_sales_multiple,
         stock_price_to_free_cash_flow_multiple = stock_price_to_free_cash_flow_multiple,
         sector_median_price_to_free_cash_flow_multiple = sector_median_price_to_free_cash_flow_multiple,
-        sector_name = v_sector_name
-                                                )
+        sector_name = v_sector_name)
 
-    return_on_investment_capital_pct = moat_input.return_on_investment_capital_pct
+    return_on_investment_capital= moat_input.return_on_investment_capital
     free_cash_flow_3y_cagr = moat_input.free_cash_flow_3y_cagr
     gross_margin_list = moat_input.gross_margin_list
     r_and_d_raw = moat_input.r_and_d_raw
@@ -91,13 +87,13 @@ def calculate_all_scores(
     m_sector_name = moat_input.sector
 
     moat_scores = calculate_moat_scores(
-        return_on_investment_capital_pct = return_on_investment_capital_pct,
+        return_on_investment_capital = return_on_investment_capital,
         free_cash_flow_3y_cagr = free_cash_flow_3y_cagr,
         gross_margin_list = gross_margin_list,
         r_and_d_raw = r_and_d_raw,
         revenue_growth_raw = revenue_growth_raw,
-        sector_name = m_sector_name
-                                        )
+        sector_name = m_sector_name)
+    
     # Extracting final scores from each module
     fundamentals_total = fundamentals_scores["fundamentals_score"]
     valuation_total = valuation_scores["valuation_score"]
@@ -118,5 +114,5 @@ def calculate_all_scores(
         "fundamentals": fundamentals_scores,
         "valuation": valuation_scores,
         "moat": moat_scores,
-        "final_score": final_score,
-            }
+        "final_score": final_score
+    }
