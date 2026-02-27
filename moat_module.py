@@ -43,23 +43,19 @@ RND_TO_REVENUE_RATIO_DEFAULT = 98
 #creating objects so i can use them as objects in this file
 roic_scorer = ScoringMethods(
     ROIC_THRESHOLDS,
-    ROIC_DEFAULT
-)
+    ROIC_DEFAULT)
 
 fcf_3y_cagr_scorer = ScoringMethods(
     FCF_3Y_CAGR_THRESHOLDS,
-    FCF_3Y_CAGR_DEFAULT
-)
+    FCF_3Y_CAGR_DEFAULT)
 
 gm_stability_scorer = ScoringMethods(
     GM_STABILITY_THRESHOLDS,
-    GM_STABILITY_DEFAULT
-)
+    GM_STABILITY_DEFAULT)
 
 rnd_revenue_scorer = ScoringMethods(
     RND_TO_REVENUE_RATIO_THRESHOLDS,
-    RND_TO_REVENUE_RATIO_DEFAULT
-)
+    RND_TO_REVENUE_RATIO_DEFAULT)
 
 def fetch_moat_data_from_api(ticker) -> dict:
     """
@@ -130,21 +126,19 @@ def fetch_moat_data_from_api(ticker) -> dict:
         if free_cash_flow_3_years_ago != 0:
             free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
-    #GROSS MARGIN STABILITY:
+    #GROSS MARGIN STABILITY: get from API
 
 
 
-    #R&D TO REVENUE RATIO:
+    #R&D TO REVENUE RATIO: get from API
 
 
-    
     return {
         "return_on_investment_capital_pct": return_on_investment_capital_pct,
         "free_cash_flow_3y_cagr": free_cash_flow_3y_cagr,
         "gross_margin_stability": gross_margin_stability,
         "r_and_d_to_revenue": r_and_d_to_revenue
     }
-
 
 def moat_weighted_score(
     roic: int,
@@ -166,7 +160,7 @@ def calculate_moat_scores(
     return_on_investment_capital: float,
     fcf_3y_cagr: float,
     gross_margin_list: list,
-    r_and_d_raw: float,
+    rnd_raw: float,
     revenue_growth_raw:float,
     sector_name: str
                         ) -> dict:   
@@ -176,23 +170,27 @@ def calculate_moat_scores(
     """
 
     #calling a specific function from the Class in scoring_utils.py
-    
     return_on_investment_capital = roic_scorer.threshold_based_score(return_on_investment_capital)
     fcf_3y_cagr = fcf_3y_cagr_scorer.threshold_based_score(fcf_3y_cagr)
-    gm = debt_to_equity_scorer.threshold_based_score(debt_to_equity_ratio)
-    rnd = free_cash_flow_scorer.threshold_based_score(free_cash_flow_margin_pct)
+
+    gm_range = max(gross_margin_list) - min(gross_margin_list)
+    gm_stability = gm_stability_scorer.threshold_based_score(gm_range)
+
+    rnd = rnd_raw/revenue_growth_raw * 100
+    rnd_to_revenue = rnd_revenue_scorer.threshold_based_score(rnd)
 
     weight_by_sector = moat_weight(sector_name)
     
     final_score = moat_weighted_score(
-    return_on_investment_capital, fcf_3y_cagr, gm, rnd, weight_by_sector)
+    return_on_investment_capital, fcf_3y_cagr, gm_stability, rnd, weight_by_sector)
 
     #change names
     return {
         "roic_score": return_on_investment_capital,
         "fcf_3y_cagr_score": fcf_3y_cagr,
-        "gm_stability_score": gm,
-        "rnd_to_revenue_score": rnd,
+        "gm_stability_score": gm_stability,
+        "rnd_to_revenue_score": rnd_to_revenue,
         "weight_currently_being_used": weight_by_sector,
         "moat_score": final_score
             }
+

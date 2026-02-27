@@ -1,11 +1,14 @@
 from scoring_utils import ScoringMethods
 from config import valuation_weight
 from dotenv import load_dotenv
+from api_caller import create_financial_file_2 
 import json
 import os
 import pandas as pd
 import statistics
-from api_caller import create_financial_file_2 
+
+#check if needed
+load_dotenv()
 
 #creating table with limits and score limits
 PE_INVALID = float('nan')
@@ -66,28 +69,23 @@ P_FCF_DEFAULT = 5
 #creating objects so i can use them as objects in this file
 pe_scorer = ScoringMethods(
     PE_THRESHOLDS,
-    PE_DEFAULT
-)
+    PE_DEFAULT)
 
 forward_pe_scorer = ScoringMethods(
     FORWARD_PE_THRESHOLDS,
-    FORWARD_PE_DEFAULT
-)
+    FORWARD_PE_DEFAULT)
 
 ev_ebitda_scorer = ScoringMethods(
     EV_EBITDA_THRESHOLDS,
-    EV_EBITDA_DEFAULT
-)
+    EV_EBITDA_DEFAULT)
 
 ps_scorer = ScoringMethods(
     PS_THRESHOLDS,
-    PS_DEFAULT
-)
+    PS_DEFAULT)
 
 p_fcf_scorer = ScoringMethods(
     P_FCF_THRESHOLDS,
-    P_FCF_DEFAULT
-)
+    P_FCF_DEFAULT)
 
 def fetch_valuation_data_from_api(ticker) -> dict:
     """
@@ -208,16 +206,13 @@ def fetch_sector_valuation_data(sector: str):
         "sector_median_price_to_fcf": sector_median_price_to_fcf
     }
 
-
-
 def valuation_weighted_score(
         pe:int,
         forward_pe:int,
         ev_ebitda:int,
         ps: int,
         price_fcf:int,
-        wbs: dict
-                            ) -> int:
+        wbs: dict) -> int:
        
     pe_weight = wbs['pe']
     forward_pe_weight = wbs['forward_pe']
@@ -250,15 +245,14 @@ def calculate_valuation_scores(
 
     #calling a specific function from the Class in scoring_utils.py
     pe = pe_scorer.score_relative_to_sector(stock_pe, sector_median_pe)
-    forward_pe = forward_pe_scorer.score_relative_to_sector(forward_pe,sector_median_forward_pe)
+    forward_pe = forward_pe_scorer.score_relative_to_sector(stock_forward_pe,sector_median_forward_pe)
     ev_ebitda = ev_ebitda_scorer.score_relative_to_sector(stock_ev_ebitda_multiple, sector_median_ev_ebitda_multiple)
     ps = ps_scorer.score_relative_to_sector(stock_price_to_sales_multiple, sector_median_price_to_sales_multiple)
     price_fcf = p_fcf_scorer.score_relative_to_sector(stock_price_to_free_cash_flow_multiple, sector_median_price_to_free_cash_flow_multiple)
 
     weight_by_sector = valuation_weight(sector_name)
 
-    final_score = valuation_weighted_score(
-    pe, forward_pe, ev_ebitda, ps, price_fcf, weight_by_sector)
+    final_score = valuation_weighted_score(pe, forward_pe, ev_ebitda, ps, price_fcf, weight_by_sector)
 
     return {
         "pe_score": pe,

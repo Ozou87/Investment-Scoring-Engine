@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 from scoring_utils import ScoringMethods
 import json
 
+load_dotenv()
+
 #creating table with limits and score limits
 REVENUE_GROWTH_THRESHOLDS = [
     (0.0,20),
@@ -39,25 +41,20 @@ FREE_CASH_FLOW_DEFAULT = 95
 #creating objects so i can use them as objects in this file
 revenue_growth_scorer = ScoringMethods(
     REVENUE_GROWTH_THRESHOLDS,
-    REVENUE_GROWTH_DEFAULT
-)
+    REVENUE_GROWTH_DEFAULT)
 
 operating_margin_scorer = ScoringMethods(
     OPERATING_MARGIN_THRESHOLDS,
-    OPERATING_MARGIN_DEFAULT
-)
+    OPERATING_MARGIN_DEFAULT)
 
 debt_to_equity_scorer = ScoringMethods(
     DEBT_TO_EQUITY_THRESHOLDS,
-    DEBT_TO_EQUITY_DEFAULT
-)
+    DEBT_TO_EQUITY_DEFAULT)
 
 free_cash_flow_scorer = ScoringMethods(
     FREE_CASH_FLOW_THRESHOLDS,
-    FREE_CASH_FLOW_DEFAULT
-)
+    FREE_CASH_FLOW_DEFAULT)
 
-load_dotenv()
 
 def fetch_fundamental_data_from_api(ticker) -> dict:
     """
