@@ -7,7 +7,6 @@ import os
 import pandas as pd
 import statistics
 
-#check if needed
 load_dotenv()
 
 #creating table with limits and score limits
@@ -212,7 +211,7 @@ def valuation_weighted_score(
         ps: int,
         price_fcf:int,
         wbs: dict
-    )-> int:
+                        )-> int:
        
     pe_weight = wbs['pe']
     forward_pe_weight = wbs['forward_pe']

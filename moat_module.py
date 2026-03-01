@@ -126,12 +126,15 @@ def fetch_moat_data_from_api(ticker) -> dict:
             free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
     #GROSS MARGIN STABILITY: get from API
+
+    #just for testing the system
     gross_margin_stability = free_cash_flow_3y_cagr
+
+
+    #R&D TO REVENUE RATIO: get from 
+    
+    #just for testing the system
     r_and_d_to_revenue = free_cash_flow_3y_cagr
-
-
-    #R&D TO REVENUE RATIO: get from API
-
 
     return {
         "return_on_investment_capital": return_on_investment_capital,
@@ -160,7 +163,7 @@ def calculate_moat_scores(
     return_on_investment_capital: float,
     free_cash_flow_3y_cagr: float,
     gross_margin_list: list,
-    rnd_raw: float,
+    r_and_d_raw: float,
     revenue_growth_raw:float,
     sector_name: str
                         ) -> dict:   
@@ -176,20 +179,20 @@ def calculate_moat_scores(
     gm_range = max(gross_margin_list) - min(gross_margin_list)
     gm_stability = gm_stability_scorer.threshold_based_score(gm_range)
 
-    rnd = rnd_raw/revenue_growth_raw * 100
-    rnd_to_revenue = rnd_revenue_scorer.threshold_based_score(rnd)
+    r_and_d = r_and_d_raw/revenue_growth_raw * 100
+    r_and_d_to_revenue = rnd_revenue_scorer.threshold_based_score(r_and_d)
 
     weight_by_sector = moat_weight(sector_name)
     
     final_score = moat_weighted_score(
-    return_on_investment_capital, free_cash_flow_3y_cagr, gm_stability, rnd, weight_by_sector)
+    return_on_investment_capital, free_cash_flow_3y_cagr, gm_stability, r_and_d, weight_by_sector)
 
     #change names
     return {
         "roic_score": return_on_investment_capital,
         "fcf_3y_cagr_score": free_cash_flow_3y_cagr,
         "gm_stability_score": gm_stability,
-        "rnd_to_revenue_score": rnd_to_revenue,
+        "r_and_d_to_revenue_score": r_and_d_to_revenue,
         "weight_currently_being_used": weight_by_sector,
         "moat_score": final_score
         }
