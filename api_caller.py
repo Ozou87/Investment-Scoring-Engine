@@ -35,7 +35,6 @@ def create_financial_file_1(ticker):
     file_path_1 = f"data_reports/json_file_1_{clean_ticker}.json"
     save_api_response(url, headers, querystring, file_path_1)
     
-
 def create_financial_file_2(ticker):
     """
     creating .json file_2 from API to be used for fetching financial data
@@ -55,7 +54,6 @@ def create_financial_file_2(ticker):
     file_path_2 = f"data_reports/json_file_2_{clean_ticker}.json"
     save_api_response(url, headers, querystring, file_path_2)
     
-
 def create_financial_file_3(ticker):
     """
     creating .json file_3 from API to be used for fetching financial data
@@ -75,13 +73,13 @@ def create_financial_file_3(ticker):
     file_path_3 = f"data_reports/json_file_3_{clean_ticker}.json"
     save_api_response(url, headers, querystring, file_path_3)
     
-
 def create_financial_file_4(ticker):
     """
     creating .json file_4 from API to be used for fetching financial data
     """    
     clean_ticker = ticker.strip().upper()
 
+    #API Yahoo Finance Real Time/ stocks / get-cashflow
     url = "https://yahoo-finance-real-time1.p.rapidapi.com/stock/get-cashflow"
 
     querystring = {"region":"US","lang":"en-US","symbol":clean_ticker}
