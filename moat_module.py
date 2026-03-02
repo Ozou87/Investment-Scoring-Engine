@@ -131,7 +131,10 @@ def fetch_moat_data_from_api(ticker) -> dict:
     gross_margin_stability = free_cash_flow_3y_cagr
 
 
-    #R&D TO REVENUE RATIO: get from 
+    #R&D TO REVENUE RATIO: get from API
+    #R&D to Revenue = R&D Expense / Total Revenue
+    #REVENUE from roic calculation:
+    
     
     #just for testing the system
     r_and_d_to_revenue = free_cash_flow_3y_cagr

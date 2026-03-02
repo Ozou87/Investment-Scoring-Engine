@@ -34,3 +34,11 @@ data_reports/
 # Sector Reports from ETF Website
 /sector_reports_10-2-26
 
+# Testing data from API
+test_api.py
+
+#learning Flask
+app_flask_example.py
+
+
+
