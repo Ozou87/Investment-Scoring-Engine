@@ -21,20 +21,22 @@ PE_DEFAULT = 10
 
 FORWARD_PE_INVALID = float('nan')
 FORWARD_PE_THRESHOLDS = [
-    (0.60,90),
-    (0.90,65),
-    (1.10,35),
-    (2.00,10),
+    (0.75, 90),   
+    (1.00, 70),   
+    (1.25, 50),   
+    (1.50, 35),   
+    (2.00, 15),
             ]
 FORWARD_PE_DEFAULT = 2.5
 
 EV_EBITDA_INVALID = float('nan')
 EV_EBITDA_THRESHOLDS = [
-    (0.70, 95),     
-    (1.10, 60),     
-    (2.00, 28),  
-    (3.00, 10),   
-                            ]
+    (0.75, 95),  
+    (1.00, 75),   
+    (1.25, 55),   
+    (1.50, 35),   
+    (2.00, 15),
+            ]
 EV_EBITDA_DEFAULT = 7 
 
 PS_INVALID = float('nan')

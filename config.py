@@ -166,38 +166,38 @@ def valuation_weight(sector_name: str) -> dict:
 def moat_weight(sector_name: str) -> dict:
     SECTOR_WEIGHTS = {
     "Technology": {
-        "roic": 0.35,
+        "roic": 0.45,
         "free_cash_flow_3y_cagr": 0.20,
-        "rnd_to_revenue": 0.25
+        "rnd_to_revenue": 0.35
                 },
     "Financial Services": {
-        "roic": 0.45,
-        "free_cash_flow_3y_cagr": 0.25,
-        "rnd_to_revenue": 0.05
+        "roic": 0.55,
+        "free_cash_flow_3y_cagr": 0.35,
+        "rnd_to_revenue": 0.10
                     },
     "Healthcare": {
         "roic": 0.30,
-        "free_cash_flow_3y_cagr": 0.15,
-        "rnd_to_revenue": 0.35
+        "free_cash_flow_3y_cagr": 0.20,
+        "rnd_to_revenue": 0.50
                     },
     "Consumer Cyclical": {
-        "roic": 0.30,
-        "free_cash_flow_3y_cagr": 0.25,
-        "rnd_to_revenue": 0.20
+        "roic": 0.40,
+        "free_cash_flow_3y_cagr": 0.35,
+        "rnd_to_revenue": 0.25
                 },
     "Consumer Defensive": {
-        "roic": 0.35,
-        "free_cash_flow_3y_cagr": 0.30,
-        "rnd_to_revenue": 0.15
-                    },
-    "Communication Services": {
-        "roic": 0.35,
-        "free_cash_flow_3y_cagr": 0.25,
+        "roic": 0.40,
+        "free_cash_flow_3y_cagr": 0.40,
         "rnd_to_revenue": 0.20
                     },
+    "Communication Services": {
+        "roic": 0.40,
+        "free_cash_flow_3y_cagr": 0.30,
+        "rnd_to_revenue": 0.30
+                    },
     "Industrials": {
-        "roic": 0.35,
-        "free_cash_flow_3y_cagr": 0.25,
+        "roic": 0.45,
+        "free_cash_flow_3y_cagr": 0.35,
         "rnd_to_revenue": 0.20
                 },
     "Energy": {
@@ -206,18 +206,18 @@ def moat_weight(sector_name: str) -> dict:
         "rnd_to_revenue": 0.20
                     },
     "Utilities": {
-        "roic": 0.35,
-        "free_cash_flow_3y_cagr": 0.25,
-        "rnd_to_revenue": 0.20
+        "roic": 0.45,
+        "free_cash_flow_3y_cagr": 0.40,
+        "rnd_to_revenue": 0.15
                     },
     "Basic Materials": {
-        "roic": 0.35,
-        "free_cash_flow_3y_cagr": 0.25,
+        "roic": 0.45,
+        "free_cash_flow_3y_cagr": 0.35,
         "rnd_to_revenue": 0.20
                     },
     "Real Estate": {
-        "roic": 0.40,
-        "free_cash_flow_3y_cagr": 0.25,
+        "roic": 0.55,
+        "free_cash_flow_3y_cagr": 0.40,
         "rnd_to_revenue": 0.05
                     }
                     }
@@ -234,58 +234,58 @@ def final_score_weight(sector_name: str) -> dict:
     FINAL_WEIGHTS = {
     "Technology": {
         "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "v_weight": 0.30,
+        "m_weight": 0.45
                 },
     "Financial Services": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "f_weight": 0.35,
+        "v_weight": 0.40,
+        "m_weight": 0.25
                     },
     "Healthcare": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
+        "f_weight": 0.35,
+        "v_weight": 0.25,
         "m_weight": 0.40
                     },
     "Consumer Cyclical": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "f_weight": 0.35,
+        "v_weight": 0.40,
+        "m_weight": 0.25
                 },
     "Consumer Defensive": {
-        "f_weight": 0.25,
+        "f_weight": 0.40,
         "v_weight": 0.35,
-        "m_weight": 0.40
+        "m_weight": 0.25
                     },
     "Communication Services": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
+        "f_weight": 0.30,
+        "v_weight": 0.30,
         "m_weight": 0.40
                     },
     "Industrials": {
-        "f_weight": 0.25,
+        "f_weight": 0.35,
         "v_weight": 0.35,
-        "m_weight": 0.40
+        "m_weight": 0.30
                 },
     "Energy": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "f_weight": 0.35,
+        "v_weight": 0.40,
+        "m_weight": 0.25
                     },
     "Utilities": {
-        "f_weight": 0.25,
+        "f_weight": 0.40,
         "v_weight": 0.35,
-        "m_weight": 0.40
+        "m_weight": 0.25
                     },
     "Basic Materials": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "f_weight": 0.35,
+        "v_weight": 0.40,
+        "m_weight": 0.25
                     },
     "Real Estate": {
-        "f_weight": 0.25,
-        "v_weight": 0.35,
-        "m_weight": 0.40
+        "f_weight": 0.30,
+        "v_weight": 0.45,
+        "m_weight": 0.25
                     }}
     
     sector_name = sector_name.lower().strip().title()

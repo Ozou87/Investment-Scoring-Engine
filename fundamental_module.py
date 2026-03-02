@@ -84,7 +84,7 @@ def fetch_fundamental_data_from_api(ticker) -> dict:
 
     #debt to equity = Total Debt / Total Shareholders' Equity
     debt_to_equity_ratio = (file_1["quoteSummary"]["result"][0]
-            ["financialData"]["debtToEquity"]["raw"])
+            ["financialData"]["debtToEquity"]["raw"]) / 100
 
     #FREE CASH FLOW MARGIN(TTM)% = Levered free cash flow(ttm) / Revenue(ttm) * 100 
     #multipling by 100 to get metric in %

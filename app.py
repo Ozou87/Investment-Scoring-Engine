@@ -13,7 +13,7 @@ app = Flask(__name__)
 #when someone enter this address, loat this GET request with the function underneeth me
 def analyze():
     #taking the ticker from the url that was entered by the user
-    ticker = request.args.get("ticker")
+    ticker = request.args.get("ticker", "").strip().upper()
 
     if not ticker:
         return jsonify({"error": "pls provide ticker"}), 400
