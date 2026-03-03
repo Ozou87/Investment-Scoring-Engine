@@ -45,25 +45,25 @@ def fundamental_weight(sector_name: str) -> dict:
         "free_cash_flow": 0.10
                     },
     "Energy": {
-        "growth": 0.25,
+        "revenue_growth": 0.25,
         "operating_margin": 0.40,
         "debt_to_equity": 0.25,
         "free_cash_flow": 0.10
                     },
     "Basic Materials": {
-        "growth": 0.25,
+        "revenue_growth": 0.25,
         "operating_margin": 0.40,
         "debt_to_equity": 0.25,
         "free_cash_flow": 0.10
                     },
     "Real Estate": {
-        "growth": 0.20,
+        "revenue_growth": 0.20,
         "operating_margin": 0.35,
         "debt_to_equity": 0.30,
         "free_cash_flow": 0.15
                     },
     "Utilities": {
-        "growth": 0.25,
+        "revenue_growth": 0.25,
         "operating_margin": 0.35,
         "debt_to_equity": 0.25,
         "free_cash_flow": 0.15
@@ -201,7 +201,7 @@ def moat_weight(sector_name: str) -> dict:
         "rnd_to_revenue": 0.20
                 },
     "Energy": {
-        "roic": 0.35,
+        "roic": 0.45,
         "free_cash_flow_3y_cagr": 0.25,
         "rnd_to_revenue": 0.20
                     },
