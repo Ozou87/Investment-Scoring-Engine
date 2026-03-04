@@ -20,9 +20,8 @@ def fetch_company_metadata(ticker: str) -> dict:
             t = yf.Ticker(clean_ticker)
             info = t.info
 
-    except Exception:
-    #Raise a user-friendly error without leaking internal HTTP details
-        raise DataFetchError(f"Ticker {clean_ticker} not found") from None
+    except Exception as e:
+        raise DataFetchError(f"yfinance error: {str(e)}") from None
     
     #Validate response is usable
     if not isinstance(info, dict) or len(info) == 0:
