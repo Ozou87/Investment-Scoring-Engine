@@ -28,7 +28,7 @@ def fetch_company_metadata(ticker: str) -> dict:
         raise DataFetchError(f"No metadata returned for ticker: {clean_ticker}")
     
     if not (info.get("shortName") or info.get("longName")):
-        raise DataFetchError(f"Ticker {clean_ticker} not found (no company name)")
+        raise DataFetchError(f"No name found. Keys available: {list(info.keys())[:5]}")
 
     #Extract fields safely 
     company_name = info.get("shortName") or info.get("longName") 
