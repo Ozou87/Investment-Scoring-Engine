@@ -69,8 +69,8 @@ def analyze():
             "scores": scores
         }), 200
     
-    except DataFetchError:
-        return jsonify({"error": "Ticker not found"}), 404
+    except DataFetchError as e:
+    return jsonify({"error": f"DataFetchError: {str(e)}"}), 404
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
