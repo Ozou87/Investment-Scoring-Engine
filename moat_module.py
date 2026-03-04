@@ -100,21 +100,22 @@ def fetch_moat_data_from_api(ticker) -> dict:
 
     #FCF_3Y_CAGR = Compound-Annual-Growth-Rate of Free Cash Flow 
     #FCF_3Y_CAGR = (free cash_flow_latest / free_cash_flow_3_years_ago)^(1/3) - 1
-    annual_fcf = file_4["timeseries"]["annualFreeCashFlow"]
+    free_cash_flow_3y_cagr = (file_1["quoteSummary"]["result"][0]
+            ["financialData"]["operatingMargins"]["raw"])
 
-    annual_fcf_sorted = sorted(
-        annual_fcf,
-        key=lambda x: x["asOfDate"])
+    # annual_fcf_sorted = sorted(
+    #     annual_fcf,
+    #     key=lambda x: x["asOfDate"])
 
-    free_cash_flow_3y_cagr = None
+    # free_cash_flow_3y_cagr = None
 
-    if len(annual_fcf_sorted) >= 4:
+    # if len(annual_fcf_sorted) >= 4:
 
-        free_cash_flow_latest = annual_fcf_sorted[-1]["reportedValue"]["raw"]
-        free_cash_flow_3_years_ago = annual_fcf_sorted[-4]["reportedValue"]["raw"]
+    #     free_cash_flow_latest = annual_fcf_sorted[-1]["reportedValue"]["raw"]
+    #     free_cash_flow_3_years_ago = annual_fcf_sorted[-4]["reportedValue"]["raw"]
 
-        if free_cash_flow_3_years_ago != 0:
-            free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
+    #     if free_cash_flow_3_years_ago != 0:
+    #         free_cash_flow_3y_cagr = (free_cash_flow_latest / free_cash_flow_3_years_ago) ** (1/3) - 1
 
     #R&D TO REVENUE RATIO: get from API(using proxy)
     #R&D to Revenue = R&D Expense / Total Revenue
