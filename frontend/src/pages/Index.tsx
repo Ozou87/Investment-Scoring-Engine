@@ -33,7 +33,7 @@ interface AnalysisData {
   };
 }
 
-const API_URL = "YOUR_API_URL";
+const API_URL = "http://localhost:5000";
 
 const Index = () => {
   const [ticker, setTicker] = useState("");

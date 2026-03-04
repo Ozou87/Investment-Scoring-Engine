@@ -6,8 +6,12 @@ from company_provider import fetch_company_metadata, DataFetchError
 from assemble_data import complete_dict_of_data
 from core_engine import calculate_all_scores, Fundamental_input, Valuation_input, Moat_input
 
+from flask_cors import CORS
+
 app = Flask(__name__)
 #tell flask where is the file
+CORS(app)
+#tells the browser to allow internal sites to send requests to this server
 
 @app.route("/analyze", methods=["GET"])
 #when someone enter this address, loat this GET request with the function underneeth me
