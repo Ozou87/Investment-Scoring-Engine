@@ -25,8 +25,8 @@ def analyze():
         #getting company profile data:
 
         company_profile = company_profile_data(ticker)
-        company_name = company_profile["company_name"]
-        sector = company_profile["sector"]
+        company_name = company_profile["company_profile"]["company_name"]
+        sector = company_profile["company_profile"]["sector"]
 
         #getting all financual data:
 

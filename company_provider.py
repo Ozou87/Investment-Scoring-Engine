@@ -15,8 +15,8 @@ def fetch_company_profile_from_api(ticker) -> dict:
             file_0 = json.load(f)
     
     #Extract from API:
-    company_name = file_0['quoteSummary']['result'][0]['assetProfile']['longBusinessSummary'] 
-    sector = file_0['quoteSummary']['result'][0]['assetProfile']['sector']
+    company_name = file_0['data']['quoteSummary']['result'][0]['assetProfile']['longBusinessSummary'] 
+    sector = file_0['data']['quoteSummary']['result'][0]['assetProfile']['sector']
 
     return {
         "company_name": company_name,

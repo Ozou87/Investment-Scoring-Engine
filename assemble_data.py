@@ -17,7 +17,7 @@ def company_profile_data(ticker) -> dict:
     company_profile_dict = fetch_company_profile_from_api(ticker)
 
     return {
-        "company_profile_dict": company_profile_dict
+        "company_profile": company_profile_dict
         }
 
 def complete_dict_of_data(ticker,sector) -> dict:
