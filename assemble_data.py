@@ -1,3 +1,4 @@
+from company_provider import fetch_company_profile_from_api
 from fundamental_module import fetch_fundamental_data_from_api
 from valuation_module import fetch_valuation_data_from_api, fetch_sector_valuation_data
 from moat_module import fetch_moat_data_from_api
@@ -7,8 +8,15 @@ from api_caller import (create_financial_file_1,
                         create_financial_file_4,
                         create_financial_file_5
                         )
+def company_profile_data(ticker) -> dict:
 
-def complete_dict_of_data(ticker,sector):
+    company_profile_dict = fetch_company_profile_from_api(ticker)
+
+    return {
+        "company_profile_dict": company_profile_dict
+        }
+
+def complete_dict_of_data(ticker,sector) -> dict:
 
     #calling api functions
     create_financial_file_1(ticker)

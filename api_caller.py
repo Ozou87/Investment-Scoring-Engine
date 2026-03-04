@@ -16,6 +16,24 @@ def save_api_response(url, headers, params, file_path):
         json.dump(data, f, indent=2)
 
 
+def create_financial_file_0(ticker):
+    """
+    creating .json file_0 from API to be used for fetching company profile data
+    """    
+    clean_ticker = ticker.strip().upper()
+
+    url = "https://live-stock-market.p.rapidapi.com/v1/stock/profile"
+
+    querystring = {"symbol":clean_ticker}
+
+    headers = {
+	"x-rapidapi-key": os.getenv("API_COMPANY"),
+	"x-rapidapi-host": "live-stock-market.p.rapidapi.com"
+    }
+
+    file_path_0 = f"data_reports/json_file_0_{clean_ticker}.json"
+    save_api_response(url, headers, querystring, file_path_0)
+
 def create_financial_file_1(ticker):
     """
     creating .json file_1 from API to be used for fetching financial data

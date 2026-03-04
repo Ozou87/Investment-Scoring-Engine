@@ -2,8 +2,7 @@ from flask import Flask, request, jsonify
 #flask - main department that create flask
 #request - object that contain all the data that the user will send
 #jsonify - function that transfer json to python dict
-from company_provider import fetch_company_metadata, DataFetchError
-from assemble_data import complete_dict_of_data
+from assemble_data import company_profile_data, complete_dict_of_data
 from core_engine import calculate_all_scores, Fundamental_input, Valuation_input, Moat_input
 
 from flask_cors import CORS
@@ -23,12 +22,14 @@ def analyze():
         return jsonify({"error": "pls provide ticker"}), 400
     
     try:
-        data = fetch_company_metadata(ticker)
+        #getting company profile data:
 
-        company_name = data.get("company_name") or ticker
-        sector = data.get("sector")
+        company_profile = company_profile_data(ticker)
+        company_name = company_profile[company_name]
+        sector = company_profile[sector]
+        
+        #getting all financual data:
 
-        #getting all financual data
         all_data = complete_dict_of_data(ticker, sector)
 
         fundamental_input = Fundamental_input(
