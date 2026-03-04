@@ -1,7 +1,9 @@
 from scoring_utils import ScoringMethods
 from config import valuation_weight
 from dotenv import load_dotenv
-from api_caller import create_financial_file_2 
+##bring back when new month starts
+#from api_caller import create_financial_file_2 
+from api_caller import create_financial_file_6
 import json
 import os
 import pandas as pd
@@ -89,30 +91,34 @@ def fetch_valuation_data_from_api(ticker) -> dict:
     """
     clean_ticker = ticker.strip().upper()
 
-    file_path_2 = f"data_reports/json_file_2_{clean_ticker}.json"
-    with open(file_path_2, "r", encoding="utf-8") as f:
-            file_2 = json.load(f)
+    #bring back when new month starts
+    #file_path_2 = f"data_reports/json_file_2_{clean_ticker}.json"
+    #with open(file_path_2, "r", encoding="utf-8") as f:
+            #file_2 = json.load(f)
+    
+    file_path_6 = f"data_reports/json_file_6_{clean_ticker}.json"
+    with open(file_path_6, "r", encoding="utf-8") as f:
+            file_6 = json.load(f)
+
+    r = file_6["data"][1]["quoteSummary"]["result"][0]
 
     #P/E = current price / EPS (TTM)
-    current_price = file_2["financialData"]["currentPrice"]
-    eps_ttm = file_2["defaultKeyStatistics"]["trailingEps"]
-    stock_pe = current_price / eps_ttm
+    stock_pe = r["summaryDetail"]["trailingPE"]["raw"]
 
     #Forward P/E = Current Price / Expected EPS (Next 12 Months)
-    stock_forward_pe = file_2["defaultKeyStatistics"]["forwardPE"]
+    stock_forward_pe = r["defaultKeyStatistics"]["forwardPE"]["raw"]
 
     #ev = Enterprise Value = market cap + (total debt - cash & cash equivalents)
     #ebitda = Earnings Before Interest, Taxes, Depreciation & Amortization = operating income(EBIT) + depreciation + amoritization
     #EV/EBITA MULTIPE = Enterprise Value / Ebitda
-    ev_ebitda_multiple = file_2["defaultKeyStatistics"]["enterpriseToEbitda"]
+    ev_ebitda_multiple = r["defaultKeyStatistics"]["enterpriseToEbitda"]["raw"]
     
     #Price/Sales = Market Cap / Revenue (ttm)
-    stock_price_to_sales_multiple = file_2["summaryDetail"]["priceToSalesTrailing12Months"]
+    stock_price_to_sales_multiple = r["summaryDetail"]["priceToSalesTrailing12Months"]["raw"]
 
     #Price to Free Cash Flow multiple = Market Cap / Free Cash Flow
-    stock_market_cap = file_2["summaryDetail"]["marketCap"]
-    stock_free_cash_flow = file_2["financialData"]["freeCashflow"]
-    stock_price_to_free_cash_flow_multiple = stock_market_cap / stock_free_cash_flow
+    stock_price_to_free_cash_flow_multiple = (
+    r["summaryDetail"]["marketCap"]["raw"] / r["financialData"]["freeCashflow"]["raw"])
 
     return {
         "pe": stock_pe,
@@ -176,7 +182,7 @@ def fetch_sector_valuation_data(sector: str):
     sector_metrics = {}
     for ticker in tickers:
         try:
-            create_financial_file_2(ticker)
+            create_financial_file_6(ticker)
             metrics = fetch_valuation_data_from_api(ticker)  
             sector_metrics[ticker] = metrics
         except Exception as e:

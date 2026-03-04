@@ -124,6 +124,26 @@ def create_financial_file_5(ticker):
     file_path_5 = f"data_reports/json_file_5_{clean_ticker}.json"
     save_api_response(url, headers, querystring, file_path_5)
 
+def create_financial_file_6(ticker):
+    """
+    creating .json file_6 from API to be used for fetching financial data
+    """    
+    clean_ticker = ticker.strip().upper()
+
+    url = "https://live-stock-market.p.rapidapi.com/v1/stock/key-statistics"
+
+    querystring = {"symbol":clean_ticker}
+
+    headers = {
+	"x-rapidapi-key": os.getenv("API_VALUATION_TWO"),
+	"x-rapidapi-host": "live-stock-market.p.rapidapi.com"
+    }
+
+    file_path_6 = f"data_reports/json_file_6_{clean_ticker}.json"
+    save_api_response(url, headers, querystring, file_path_6)
+
+
+
 
     
 

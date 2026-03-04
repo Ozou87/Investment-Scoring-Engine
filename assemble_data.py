@@ -4,10 +4,11 @@ from valuation_module import fetch_valuation_data_from_api, fetch_sector_valuati
 from moat_module import fetch_moat_data_from_api
 from api_caller import (create_financial_file_0,
                         create_financial_file_1,
-                        create_financial_file_2,
+                        #create_financial_file_2,
                         create_financial_file_3,
                         create_financial_file_4,
-                        create_financial_file_5
+                        create_financial_file_5,
+                        create_financial_file_6
                         )
 def company_profile_data(ticker) -> dict:
 
@@ -24,10 +25,12 @@ def complete_dict_of_data(ticker,sector) -> dict:
 
     #calling api functions
     create_financial_file_1(ticker)
-    create_financial_file_2(ticker)
+    #create_financial_file_2(ticker)
     create_financial_file_3(ticker)
     create_financial_file_4(ticker)
     create_financial_file_5(ticker)
+    create_financial_file_6(ticker)
+
 
     #calling module functions
     fundamental_metrics_dict = fetch_fundamental_data_from_api(ticker)
