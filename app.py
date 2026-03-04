@@ -25,9 +25,9 @@ def analyze():
         #getting company profile data:
 
         company_profile = company_profile_data(ticker)
-        company_name = company_profile[company_name]
-        sector = company_profile[sector]
-        
+        company_name = company_profile["company_name"]
+        sector = company_profile["sector"]
+
         #getting all financual data:
 
         all_data = complete_dict_of_data(ticker, sector)
@@ -69,9 +69,6 @@ def analyze():
             "sector": sector,
             "scores": scores
         }), 200
-    
-    except DataFetchError as e:
-        return jsonify({"error": f"DataFetchError: {str(e)}"}), 404
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
