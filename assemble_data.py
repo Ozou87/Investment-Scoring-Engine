@@ -13,6 +13,7 @@ from api_caller import (create_financial_file_0,
 def company_profile_data(ticker) -> dict:
 
     #calling company_profile_api
+    create_financial_file_6(ticker)
     create_financial_file_0(ticker)
 
     company_profile_dict = fetch_company_profile_from_api(ticker)
