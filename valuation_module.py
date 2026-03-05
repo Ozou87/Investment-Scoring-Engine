@@ -177,7 +177,7 @@ def fetch_sector_valuation_data(sector: str):
     df.columns = header
 
     #number in --head()-- is how many stocks from etf will it valuate median from
-    tickers = df["Ticker"].astype(str).str.strip().head(3).tolist()
+    tickers = df["Ticker"].astype(str).str.strip().head(2).tolist()
 
     sector_metrics = {}
     for ticker in tickers:
